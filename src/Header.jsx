@@ -9,7 +9,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBarsStaggered, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons'; // For regular solid icons
+import { faBarsStaggered, faListNumeric, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons'; // For regular solid icons
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import MarkEmailUnreadOutlinedIcon from '@mui/icons-material/MarkEmailUnreadOutlined';
@@ -58,7 +58,7 @@ export default function Headers({setMode}) {
 
   const [activeCategory, setActiveCategory] = useState((type[0].id));
   
-  const [isSticky, setIsSticky] = useState(false);
+  const [isSticky, setIsSticky] = useState({header1: false, header2:false});
 
   const [openModels, setOpenModels] = useState({
     menu: false,
@@ -90,9 +90,15 @@ export default function Headers({setMode}) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 51);
+      setIsSticky(prevState => ({
+        ...prevState,
+        header1: window.scrollY > 102,
+        header2: window.scrollY > 51
+      }));
     };
+
     window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -130,7 +136,7 @@ export default function Headers({setMode}) {
         </div>
 
       </div>
-      <div className={`top container ${isSticky ? 'sticky' : ''}`}>
+      <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`}>
         <div className="logo">
           <FontAwesomeIcon className='menuBar' icon={faBarsStaggered} onClick={() => {
             toggleModel('menu')
@@ -235,7 +241,7 @@ export default function Headers({setMode}) {
         </div>
         
       </div>
-        <div className="bottom">
+        <div className={`bottom ${isSticky.header1 ? 'sticky' : ''}`}>
           <div className="container">
           <ul ref={menuRef} className={`menu ${openModels.menu ? "active" : ""}`}>
             <li> 

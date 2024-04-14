@@ -1,10 +1,11 @@
 import { useState, useMemo, useEffect } from 'react';
-import { createTheme, styled, ThemeProvider, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Header from './Header';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { getDesignTokens } from './components/theme';
 import { Outlet } from 'react-router-dom';
 
+//! Components
+import Header from './Header';
+import Home from './pages/Home';
 
 export default function MiniDrawer() {
   const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
@@ -18,11 +19,8 @@ export default function MiniDrawer() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex' }}>
         <Header setMode={setMode}/>
-        
         <Outlet/>
-      </Box>
     </ThemeProvider>
   );
 }
