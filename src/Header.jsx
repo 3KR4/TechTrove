@@ -24,7 +24,7 @@ import logo from './img/logo.png'
 import { NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
-import allProducts from './components/products';
+import { type, allProducts } from './components/products';
 
 
 
@@ -32,28 +32,7 @@ import allProducts from './components/products';
 export default function Headers({setMode}) {
   const theme = useTheme()
   
-    const type = [
-    {
-      id: "Hardware",
-      list: ["GraphicCard", "MotherBoard", "Memory", "Procesor", "Storage"],
-    },
-    {
-      id: "Accessories",
-      list: ["keyboard", "Mouse", "HeadPhone", "Speakers", "MousePad"],
-    },
-    {
-      id: "Electronics",
-      list: ["Smartphones", "Laptops", "Tablets", "Cameras", "Smartwatches"],
-    },
-    {
-      id: "Monitor",
-      list: ["Television", "Gaming Monitor"],
-    },
-    {
-      id: "Other",
-      list: ["Chair", "Console",],
-    },
-  ]
+
 
 
   const [activeCategory, setActiveCategory] = useState((type[0].id));
@@ -261,7 +240,7 @@ export default function Headers({setMode}) {
             </span>
             <ul className={`types ${activeCategory === category.id ? 'active' : ''}`}>
               {category.list.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item.id}>{item.id}</li>
               ))}
             </ul>
           </div>

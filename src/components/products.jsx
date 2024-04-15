@@ -5,7 +5,7 @@ import img2 from '../img/logi headphone.png'
 // @ts-ignore
 import img3 from '../img/ps4 controlar.png'
 
-const allProducts = [
+export const allProducts = [
   { 
     id: 1001, 
     value: "Accessories",
@@ -15,7 +15,7 @@ const allProducts = [
     price: "18.00",
     price2: "20.00",
     state: "in stock",
-    img: img1,
+    img: '.../img/xpg.png',
   },
   { 
     id: 1002,
@@ -63,4 +63,136 @@ const allProducts = [
   },
 ]
 
-export default allProducts;
+export const type = [
+  {
+    id: "Hardware",
+    list: [
+      { 
+        id: "GraphicCard",
+        // @ts-ignore
+        img: require('../img/Categories/gpu.png'), 
+      },
+      { 
+        id: "MotherBoard",
+        // @ts-ignore
+        img: require('../img/Categories/mother.png'), 
+      },
+      { 
+        id: "Procesor", 
+        // @ts-ignore 
+        img: require('../img/Categories/cpu.png'), 
+      },
+      { 
+        id: "Memory",
+        // @ts-ignore 
+        img: require('../img/Categories/ram.png'), 
+      },
+      { 
+        id: "Storage", 
+        // @ts-ignore 
+        img: require('../img/Categories/storage.png'), 
+      },
+      { 
+        id: "Power Supply", 
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Desktop Case",
+        // @ts-ignore 
+        img: require('../img/Categories/case.png'), 
+      },
+    ],
+  },
+  {
+    id: "Accessories",
+    list: [
+      { 
+        id: "keyboard",
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Mouse",
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "HeadPhone", 
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Speakers", 
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "MousePad", 
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+    ],
+  },
+  {
+    id: "Electronics",
+    list: [
+      { 
+        id: "Smartphones",
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Laptops",
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Tablets", 
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Cameras", 
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Smartwatches", 
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+    ],
+  },
+  {
+    id: "Monitor",
+    list: [
+      { 
+        id: "Television",
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Gaming Monitor",
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+    ],
+  },
+  {
+    id: "Other",
+    list: [
+      { 
+        id: "Chair",
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+      { 
+        id: "Console",
+        // @ts-ignore 
+        img: require('../img/Categories/power.png'), 
+      },
+    ],
+  },
+]
+
