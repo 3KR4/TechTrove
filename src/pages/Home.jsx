@@ -4,78 +4,154 @@ import { FaAngleDown, } from 'react-icons/fa';
 
 import { NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import {type} from '../components/products'
+import {type, brands} from '../components/products'
 
 import Swiper from 'swiper';
 import 'swiper/css';
 
 
 
-
-
 export default function Home() {
   const theme = useTheme()
 
-  const swiperRef = useRef(null);
-  const [swiperInstance, setSwiperInstance] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [curentIndex, setCurrentIndex] = useState(0);
-  const initialHoverImages = type.map((item) => item.list[0].img);
-  const [hoverimages, setHoverimages] = useState(initialHoverImages);
+  const [landingSwiper, setlandingSwiper] = useState(null);
+  const landingSwiperRef = useRef(null);
 
-  useEffect(() => {
-    if (swiperInstance) {
-      swiperInstance.on('slideChange', () => {
-        const realIndex = swiperInstance.realIndex;
-        const numSlides = swiperInstance.slides.length;
-        setActiveIndex(realIndex < 0 ? numSlides - 1 : realIndex % numSlides);
-      });
-    }
-  }, [swiperInstance]);
+  const [brandsSwiper, setBrandsSwiper] = useState(null);
+  const brandsSwiperRef = useRef(null);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const initialHoverImages = type.map((item) => item.list[0].img);
+  const [hoverImages, setHoverImages] = useState(initialHoverImages);
+  const [timer, setTimer] = useState(null);
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  let brandsLength = brands.length / 2
+
+
+
+  let brands1 = []
+  let brands2 = []
+
+
+  for(let i =0; i < brandsLength; i++ ) {
+    brands1.push(brands[i])
+  }
+
+  for(let i = Math.ceil(brandsLength); i <= brands.length - 1; i++ ) {
+    brands2.push(brands[i])
+  }
+  
+
   
   useEffect(() => {
-    // Initialize Swiper when component mounts
-    const swiper = new Swiper(swiperRef.current, {
-      slidesPerView: 1, // Show one div at a time
+    const mediaQuery = window.matchMedia('(max-width: 992px)'); // Adjust the breakpoint as needed
+    setIsSmallScreen(mediaQuery.matches);
+
+    const handleResize = () => {
+      setIsSmallScreen(mediaQuery.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleResize);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleResize);
+    };
+  }, []);
+
+
+
+
+  useEffect(() => {
+    const swiper = new Swiper(landingSwiperRef.current, {
+      slidesPerView: 1, 
       pagination: {
-        el: '.swiper-pagination', // Pagination container
-        clickable: true, // Enable clickable pagination
+        el: '.swiper-pagination',
+        clickable: true,
       },
       autoplay: {
         delay: 1000,
+        disableOnInteraction: true,
       },
       loop: true,
     });
     
-    setSwiperInstance(swiper);
+    setlandingSwiper(swiper);
 
     return () => {
       // Destroy Swiper instance when component unmounts
       swiper.destroy();
     };
   }, []);
-
+  useEffect(() => {
+    if (landingSwiper) {
+      landingSwiper.on('slideChange', () => {
+        const realIndex = landingSwiper.realIndex;
+        const numSlides = landingSwiper.slides.length;
+        setActiveIndex(realIndex < 0 ? numSlides - 1 : realIndex % numSlides);
+      });
+    }
+  }, [landingSwiper]);
+  
   const handlePaginationClick = (index) => {
-    const adjustedIndex = curentIndex > 2 ? index - 1 : index;
+    const adjustedIndex = landingSwiper > 2 ? index - 1 : index;
     if (adjustedIndex >= 0) {
-      if (swiperInstance) {
-        swiperInstance.slideTo(adjustedIndex);
+      if (landingSwiper) {
+        landingSwiper.slideTo(adjustedIndex);
       }
       setActiveIndex(adjustedIndex);
     }
   };
 
-
   const handleHover = (index, img) => {
-    const newHoverImages = [...hoverimages];
+    const newHoverImages = [...hoverImages];
     newHoverImages[index] = img;
-    setHoverimages(newHoverImages);
+    setHoverImages(newHoverImages);
   };
-  
+
+  const handleMouseLeave = (index) => {
+    if (timer) {
+      clearTimeout(timer); // Clear any existing timer
+    }
+    const newTimer = setTimeout(() => {
+      setHoverImages(prevHoverImages => {
+        const newHoverImages = [...prevHoverImages];
+        newHoverImages[index] = initialHoverImages[index];
+        return newHoverImages;
+      });
+    }, 1500);
+    setTimer(newTimer);
+  };
+
+
+  const generateSwiperContainer = (brandsInfo) => {
+    return (
+      <div className="holder">
+        <div className="swiper-container">
+          {brandsInfo.map((x) => (
+            <div className="swiper-slide" key={x.id}>
+              <img src={x.img} alt="" />
+              <h4>{x.id}</h4>
+            </div>
+          ))}
+        </div>
+        <div className="swiper-container">
+          {brandsInfo.map((x) => (
+            <div className="swiper-slide" key={x.id}>
+              <img src={x.img} alt="" />
+              <h4>{x.id}</h4>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
     <div className='landing'>
-      <div className="swiper-container" ref={swiperRef}>
+      <div className="swiper-container" ref={landingSwiperRef}>
         <div className="swiper-wrapper">
 
           <div className="swiper-slide">
@@ -117,7 +193,7 @@ export default function Home() {
         </div>
         <div className="swiper-pagination">
           {/* Render pagination buttons based on the number of slides */}
-          {[...Array(swiperInstance?.slides.length || 0)].map((_, index) => (
+          {[...Array(landingSwiper?.slides.length || 0)].map((_, index) => (
             <button
               key={index}
               onClick={() => handlePaginationClick(index)}
@@ -152,37 +228,72 @@ export default function Home() {
     </div>
     <div className="categories">
       <div className="main-title">
-        <h3>SHOP BY CATEGORIES</h3>
         <h3>Shop By Categories</h3>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+        <p>You have the option to browse through all products' categories or select a specific type</p>
       </div>
       <div className="container">
-        {type.map((item , index) => (
-          <div className="card">
-            <div>
-              <h4>{item.id}</h4>
-              <ul>
-                {item.list.map((x, idx) => (
-                  <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
-                    <a href="shop.html">{x.id}</a>
-                  </li>
-                ))}
-                <li><a href="shop.html">See All</a></li>
-              </ul>
-            </div>
-            <img src={hoverimages[index]} alt="" />
-          </div>
-        ))}
+        {type.map((item, index) => {
+          if (isSmallScreen) {
+            return (
+              <div className="card" key={index} onMouseEnter={() => handleHover(index, item.list[0].img)} onMouseLeave={() => handleMouseLeave(index)}>
+                <div>
+                  <h4>{item.id}</h4>
+                  <ul>
+                    {item.list.map((x, idx) => (
+                      <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
+                        <a href="shop.html">{x.id}</a>
+                      </li>
+                    ))}
+                    <li><a href="shop.html">See All</a></li>
+                  </ul>
+                </div>
+                <img src={hoverImages[index]} alt="" />
+              </div>
+            );
+          } else if (index % 2 === 0 && type[index + 1]) {
+            return (
+              <div className="pair-wrapper" key={index}>
+                <div className="card" onMouseEnter={() => handleHover(index, item.list[0].img)} onMouseLeave={() => handleMouseLeave(index)}>
+                  <div>
+                    <h4>{item.id}</h4>
+                    <ul>
+                      {item.list.map((x, idx) => (
+                        <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
+                          <a href="shop.html">{x.id}</a>
+                        </li>
+                      ))}
+                      <li><a href="shop.html">See All</a></li>
+                    </ul>
+                  </div>
+                  <img src={hoverImages[index]} alt="" />
+                </div>
+
+                <div className="card" onMouseEnter={() => handleHover(index + 1, type[index + 1].list[0].img)} onMouseLeave={() => handleMouseLeave(index + 1)}>
+                  <div>
+                    <h4>{type[index + 1].id}</h4>
+                    <ul>
+                      {type[index + 1].list.map((x, idx) => (
+                        <li key={idx} onMouseEnter={() => handleHover(index + 1, x.img)}>
+                          <a href="shop.html">{x.id}</a>
+                        </li>
+                      ))}
+                      <li><a href="shop.html">See All</a></li>
+                    </ul>
+                  </div>
+                  <img src={hoverImages[index + 1]} alt="" />
+                </div>
+              </div>
+            );
+          }
+          return null;
+        })}
       </div>
+    </div>
+    <div className="brands">
+      {generateSwiperContainer(brands1)}
+      <h4 className="title">All Brands</h4>
+      {generateSwiperContainer(brands2)}
     </div>
     </>
   )
 }
-
-
-
-
-
-
-
-

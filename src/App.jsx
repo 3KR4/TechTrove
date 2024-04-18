@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 //! Components
 import Header from './Header';
+import Footer from './Footer';
 import Home from './pages/Home';
 
 export default function MiniDrawer() {
@@ -21,6 +22,7 @@ export default function MiniDrawer() {
     <ThemeProvider theme={theme}>
         <Header setMode={setMode}/>
         <Outlet/>
+        <Footer />
     </ThemeProvider>
   );
 }

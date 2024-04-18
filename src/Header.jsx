@@ -98,7 +98,7 @@ export default function Headers({setMode}) {
   return (
     <div className='header'>
     {openModels.menu || openModels.search ? <div className="hide"></div> : null}
-      <div className="mobile container">
+      <div className="mobile container" style={{marginBottom: isSticky.header2 ? '65px' : '0px'}}>
         <div className="signBtns">
           <NavLink to="/Register">Register</NavLink>
           |
@@ -115,7 +115,7 @@ export default function Headers({setMode}) {
         </div>
 
       </div>
-      <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`}>
+      <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`} style={{marginBottom: isSticky.header1 ? '50px' : '0px'}}>
         <div className="logo">
           <FontAwesomeIcon className='menuBar' icon={faBarsStaggered} onClick={() => {
             toggleModel('menu')
