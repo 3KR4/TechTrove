@@ -24,7 +24,8 @@ import logo from './img/logo.png'
 import { NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
-import { type, allProducts } from './components/products';
+import { type, Products } from './components/products';
+import { salePrice, under10Nums } from './Methods.jsx'
 
 
 
@@ -124,22 +125,24 @@ export default function Headers({setMode}) {
           <h3>Tech<span>Trove</span></h3>
         </div>
         <div ref={searchRef} className={`search ${openModels.search ? 'active' : ''}`}>
-          <input type="text" placeholder='Search Here ...'/>
+          <input type="text" placeholder='Search Here ...' onClick={() => {toggleModel('search')}}/>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-          <div className="cards" style={{width: allProducts.length > 3 ? "109%" : "auto"}}>
-            {allProducts.map(product => (
+          <div className="cards" style={{width: Products.length > 3 ? "109%" : "auto"}}>
+            {Products.map(product => (
               <div className="card" key={product.id}>
                 <div className='holder'>
-                  <img src={product.img} alt=""/>
+                  <img src={product.Images[0]} alt=""/>
                   <div className="info">
                     <NavLink to="product"> 
                       {product.name}
                     </NavLink>
-                    <h5 className="type">{product.type} <span style={{background: product.state == 'in stock' ? '#1e9147' : '#ce3636'}} className='state'>{product.state}</span></h5>
-                    <p>${product.price}</p>
+                    <h5 className="type">{product.type}</h5>
+                    <p>${salePrice(product)} {product.sale > 0 && (
+                      <p className='sale'>-{under10Nums(product.sale)}% OFF</p>)}</p>
+                    <span className='category'>{product.category}</span>
+                    <span style={{color: product.stock !== 0 ? '#1e9147' : '#ce3636'}} className='state'>{product.stock !== 0 ? 'In Stock' : 'Out Of Stock'}</span>
                   </div>
                 </div>
-                <IoClose />
               </div>
             ))}
           </div>
@@ -176,31 +179,33 @@ export default function Headers({setMode}) {
             </div>
             <button className='favorite'>
               <FavoriteBorderOutlinedIcon />
-              <span>3</span>
+              <span className='nmbers'>3</span>
             </button>
             <button className='cartBtn' onClick={() => {
               toggleModel('cart')
             }}>
             <LocalGroceryStoreOutlinedIcon/>
-              <span>8</span>
+              <span className='nmbers'>8</span>
               <div className={`cart`}>
                 <div ref={cartRef} className="main-cart">
                   <div>
                     <div className="item">
-                      <h3 className='itemsLeanth'><span className="length">0</span> Items</h3>
+                      <h3 className='itemsLeanth'><span className="length">{Products.length}</span> Items</h3>
                       <NavLink to="/Cart">View Cart</NavLink>
                     </div>
-                    <div className="cards" style={{width: allProducts.length > 3 ? "109%" : "auto"}}>
-                      {allProducts.map(product => (
+                    <div className="cards" style={{width: Products.length > 3 ? "109%" : "auto"}}>
+                      {Products.map(product => (
                         <div className="card" key={product.id}>
                           <div className='holder'>
-                            <img src={product.img} alt=""/>
+                            <img src={product.Images[0]} alt=""/>
                             <div className="info">
                               <NavLink to="product"> 
                                 {product.name}
                               </NavLink>
-                              <h5 className="type">{product.type}</h5>
-                              <p>${product.price}</p>
+                              <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
+                              <p className='prices'>${salePrice(product)} {product.sale > 0 && (
+                              <p className='sale'>-{under10Nums(product.sale)}% OFF</p>)}</p>
+
                             </div>
                           </div>
                           <IoClose />
@@ -209,7 +214,7 @@ export default function Headers({setMode}) {
                     </div>
                     <div className="total">
                       <h3>Total Price</h3>
-                      <h3 className="cartProductTotal">0</h3>
+                      <h3 className="cartProductTotal">$2499.99</h3>
                     </div>
                     <NavLink to="/checkout" className='Check main-buttom'>Check Out</NavLink>
                   </div>

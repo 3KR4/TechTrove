@@ -4,46 +4,47 @@ import { FaAngleDown, } from 'react-icons/fa';
 
 import { NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import {type, brands} from '../components/products'
+import { Products, type, brands, bundles} from '../components/products'
 
-import Swiper from 'swiper';
-import 'swiper/css';
-
+import { salePrice, under10Nums } from '../Methods.jsx'
+import Rating from '@mui/material/Rating';
+import { IoCart } from "react-icons/io5";
+import { FaHeartCirclePlus } from "react-icons/fa6";
+import { Pagination, Autoplay } from 'swiper/modules'; // Swiper modules
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react'; // Swiper React components
+import 'swiper/css'; // Swiper core styles
+import 'swiper/css/pagination'; // Swiper pagination styles
+import 'swiper/css/navigation'; // Swiper navigation styles
+import CountdownTimer from '../components/CountDown'
 
 
 export default function Home() {
-  const theme = useTheme()
 
   const [landingSwiper, setlandingSwiper] = useState(null);
   const landingSwiperRef = useRef(null);
-
-  const [brandsSwiper, setBrandsSwiper] = useState(null);
-  const brandsSwiperRef = useRef(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const initialHoverImages = type.map((item) => item.list[0].img);
   const [hoverImages, setHoverImages] = useState(initialHoverImages);
   const [timer, setTimer] = useState(null);
-
+  const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
+
   let brandsLength = brands.length / 2
-
-
 
   let brands1 = []
   let brands2 = []
 
-
   for(let i =0; i < brandsLength; i++ ) {
     brands1.push(brands[i])
   }
-
   for(let i = Math.ceil(brandsLength); i <= brands.length - 1; i++ ) {
     brands2.push(brands[i])
   }
   
-
+  let Bundles = bundles.filter(x => x.view == true)
   
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 992px)'); // Adjust the breakpoint as needed
@@ -63,46 +64,7 @@ export default function Home() {
 
 
 
-  useEffect(() => {
-    const swiper = new Swiper(landingSwiperRef.current, {
-      slidesPerView: 1, 
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      autoplay: {
-        delay: 1000,
-        disableOnInteraction: true,
-      },
-      loop: true,
-    });
-    
-    setlandingSwiper(swiper);
-
-    return () => {
-      // Destroy Swiper instance when component unmounts
-      swiper.destroy();
-    };
-  }, []);
-  useEffect(() => {
-    if (landingSwiper) {
-      landingSwiper.on('slideChange', () => {
-        const realIndex = landingSwiper.realIndex;
-        const numSlides = landingSwiper.slides.length;
-        setActiveIndex(realIndex < 0 ? numSlides - 1 : realIndex % numSlides);
-      });
-    }
-  }, [landingSwiper]);
-  
-  const handlePaginationClick = (index) => {
-    const adjustedIndex = landingSwiper > 2 ? index - 1 : index;
-    if (adjustedIndex >= 0) {
-      if (landingSwiper) {
-        landingSwiper.slideTo(adjustedIndex);
-      }
-      setActiveIndex(adjustedIndex);
-    }
-  };
+  const endTime = new Date('2024-04-22T00:00:00');
 
   const handleHover = (index, img) => {
     const newHoverImages = [...hoverImages];
@@ -148,61 +110,68 @@ export default function Home() {
     );
   };
 
+
   return (
     <>
     <div className='landing'>
-      <div className="swiper-container" ref={landingSwiperRef}>
-        <div className="swiper-wrapper">
+    <Swiper
+      pagination={{
+        dynamicBullets: true,
+        clickable: true,
+      }}
+      modules={[Pagination, Autoplay]}
+      loop={true}
+      speed={1150}
+      autoplay={{ delay: 4000, disableOnInteraction: false }}
+    >
+      <SwiperSlide className="swiper-slide">
+        <img src={ require(
+          // @ts-ignore
+          '../img/swiper1.png') } alt="" />
+      </SwiperSlide>
 
-          <div className="swiper-slide">
-            <img src={ require(
-              // @ts-ignore
-              '../img/swiper1.png') } alt="" />
-          </div>
+      <SwiperSlide className="swiper-slide">
+        <img src={require(
+          // @ts-ignore
+          '../img/swiper2.png')} alt="" />
+      </SwiperSlide>
 
-          <div className="swiper-slide">
-            <img src={require(
-              // @ts-ignore
-              '../img/swiper2.png')} alt="" />
-          </div>
+      <SwiperSlide className="swiper-slide">
+        <img src={require(
+          // @ts-ignore
+          '../img/swiper3.png')} alt="" />
+      </SwiperSlide>
 
-          <div className="swiper-slide">
-            <img src={require(
-              // @ts-ignore
-              '../img/swiper3.png')} alt="" />
-          </div>
+      <SwiperSlide className="swiper-slide">
+        <img src={require(
+          // @ts-ignore
+          '../img/swiper4.png')} alt="" />
+      </SwiperSlide>
 
-          <div className="swiper-slide">
-            <img src={require(
-              // @ts-ignore
-              '../img/swiper4.png')} alt="" />
-          </div>
+      <SwiperSlide className="swiper-slide">
+        <img src={require(
+          // @ts-ignore
+          '../img/swiper5.png')} alt="" />
+      </SwiperSlide>
 
-          <div className="swiper-slide">
-            <img src={require(
-              // @ts-ignore
-              '../img/swiper5.png')} alt="" />
-          </div>
-
-          <div className="swiper-slide">
-            <img src={require(
-              // @ts-ignore
-              '../img/swiper6.png')} alt="" />
-          </div>
-
-        </div>
+      <SwiperSlide className="swiper-slide">
+        <img src={require(
+          // @ts-ignore
+          '../img/swiper6.png')} alt="" />
+      </SwiperSlide>
+    </Swiper>
+    
         <div className="swiper-pagination">
           {/* Render pagination buttons based on the number of slides */}
           {[...Array(landingSwiper?.slides.length || 0)].map((_, index) => (
             <button
               key={index}
-              onClick={() => handlePaginationClick(index)}
               className={index === activeIndex ? 'active' : ''}
             >
             </button>
           ))}
         </div>
-    </div>
+
     <div className="second_section">
       <div className="images">
         <img src={require(
@@ -289,6 +258,104 @@ export default function Home() {
         })}
       </div>
     </div>
+    <div className="offer">
+    <div className="main-title">
+      <h3>Special Offer</h3>
+      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+    </div>
+    <div className="container">
+      <div className="bigHolder">
+        <div className="products">
+        {Products.slice(0, 6).map((product) => (
+          <div className="main-card" key={product.id} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+            <div className="image">
+              <img src={product.Images[0]} alt="" />
+              <img src={product.Images[1] ? product.Images[1] : product.Images[0] } alt="" />
+              <button className="main-buttom">
+                <h5>                
+                  <IoCart />
+                  Add To Cart
+                </h5>
+                <h5>                
+                  <FaHeartCirclePlus />
+                </h5>
+              </button>
+            </div>
+            {product.sale >= 15 && product.stock > 0 && (
+              <span className="hot">HOT</span>
+            )}
+            <div className="holder">
+              <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
+              <a href="product.html"><h3>{product.name}</h3></a>
+              <div className="review">
+                <div className="stars">
+                  <Rating
+                    defaultValue={product.stars}
+                    precision={product.stars % 1 <= 0.7 ? 0.5 : 1}
+                    sx={{ fontSize: '20px', color: '#d3ab3f' }} // Use an object to define CSS properties
+                    readOnly
+                  />
+                </div>
+                <p>{product.reviews} Review</p>
+              </div>
+              <div className="lastHolder">
+                <h4 className='price'>${salePrice(product)} {product.sale > 0 && product.stock > 0 && (
+                  <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>)}
+                </h4>
+                {product.stock === 0 && (
+                <span className='state'>Out Of Stock</span>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+
+        </div>
+        <div className="new">
+
+        </div>
+      </div>
+      <div className="saleHolder">
+        <Swiper
+          pagination={{
+            dynamicBullets: true,
+            clickable: true,
+          }}
+          modules={[Pagination, Autoplay]}
+          loop={true}
+          speed={1150}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+        >
+          {Bundles.map((X) => (
+            <SwiperSlide className="sale">
+              <div className="image">
+                <img src={X.Images[0]} alt=""/>
+              </div>
+              <h3>Best Selling Bundle            
+                <span className="hot">HOT</span>
+              </h3>
+              <div className="review">
+                <div className="stars">
+                  <Rating
+                    defaultValue={X.stars}
+                    precision={X.stars % 1 <= 0.7 ? 0.5 : 1}
+                    sx={{ fontSize: '20px', color: '#d3ab3f' }} // Use an object to define CSS properties
+                    readOnly
+                  />
+                </div>
+                <p>{X.reviews} Review</p>
+              </div>
+              <span className='price'>${salePrice(X)} <p>${X.Price}</p> <p className='saleNum'>-{under10Nums(X.sale)}% OFF</p></span>
+              <p className='details'>Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU</p>
+              <h2>The offer will expire on OCtoper <br/> 30th</h2>
+              <CountdownTimer targetDate={endTime} />
+              <a className="main-buttom" href="shop.html">Get It Now</a>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  </div>
     <div className="brands">
       {generateSwiperContainer(brands1)}
       <h4 className="title">All Brands</h4>

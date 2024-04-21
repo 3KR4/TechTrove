@@ -3,6 +3,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { getDesignTokens } from './components/theme';
 import { Outlet } from 'react-router-dom';
 
+import './master.css'
+import './header-footer.css'
+
 //! Components
 import Header from './Header';
 import Footer from './Footer';

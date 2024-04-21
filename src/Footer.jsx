@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material';
 // @ts-ignore
 import logo from './img/logo.png'
 import { NavLink } from 'react-router-dom';
-import { type, allProducts } from './components/products';
+import { type, Products } from './components/products';
 
 
 import { PiClockCountdownFill } from "react-icons/pi";
@@ -50,7 +50,7 @@ export default function Footer() {
                 10.00 am - 6.00 pm
               </h3>
             </li>
-              <a href=""><IoIosMailUnread style={{fontSize: '25px'}}/> <h3>support@shopgrids.com</h3></a>
+              <li><IoIosMailUnread style={{fontSize: '25px'}}/> <h3>support@shopgrids.com</h3></li>
           </div>
           <div className="another">
             <h1>Information</h1>
@@ -58,8 +58,6 @@ export default function Footer() {
               <a href=""><li>About Us</li></a>
               <a href=""><li>Contact Us</li></a>
               <a href=""><li>Downloads</li></a>
-              <a href=""><li>Sitemap</li></a>
-              <a href=""><li>FAQs Page</li></a>
             </ul>
           </div>
           <div className="another">
