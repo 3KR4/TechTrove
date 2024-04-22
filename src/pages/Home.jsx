@@ -64,7 +64,7 @@ export default function Home() {
 
 
 
-  const endTime = new Date('2024-04-22T00:00:00');
+  const endTime = new Date('2024-04-22T15:00:00');
 
   const handleHover = (index, img) => {
     const newHoverImages = [...hoverImages];
@@ -90,22 +90,24 @@ export default function Home() {
   const generateSwiperContainer = (brandsInfo) => {
     return (
       <div className="holder">
-        <div className="swiper-container">
+        <Swiper className="swiper-container"
+          loop={true}
+          speed={1150}
+          slidesPerView={13}
+        >
           {brandsInfo.map((x) => (
-            <div className="swiper-slide" key={x.id}>
+            <SwiperSlide className="swiper-slide" key={x.id}>
               <img src={x.img} alt="" />
               <h4>{x.id}</h4>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
-        <div className="swiper-container">
           {brandsInfo.map((x) => (
-            <div className="swiper-slide" key={x.id}>
+            <SwiperSlide className="swiper-slide" key={x.id}>
               <img src={x.img} alt="" />
               <h4>{x.id}</h4>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     );
   };
@@ -311,11 +313,9 @@ export default function Home() {
         ))}
 
         </div>
-        <div className="new">
-
-        </div>
       </div>
       <div className="saleHolder">
+        <h4 className="sectionTitleSale">Hot Bundles</h4>
         <Swiper
           pagination={{
             dynamicBullets: true,
@@ -323,15 +323,24 @@ export default function Home() {
           }}
           modules={[Pagination, Autoplay]}
           loop={true}
+          slidesPerView={1}
           speed={1150}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 1,
+            },
+          }}
         >
           {Bundles.map((X) => (
             <SwiperSlide className="sale">
               <div className="image">
                 <img src={X.Images[0]} alt=""/>
               </div>
-              <h3>Best Selling Bundle            
+              <h3>{X.type} {X.category}            
                 <span className="hot">HOT</span>
               </h3>
               <div className="review">
@@ -358,7 +367,7 @@ export default function Home() {
   </div>
     <div className="brands">
       {generateSwiperContainer(brands1)}
-      <h4 className="title">All Brands</h4>
+      <h4 className="sectionTitle">All Brands</h4>
       {generateSwiperContainer(brands2)}
     </div>
     </>

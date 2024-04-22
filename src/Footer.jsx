@@ -2,13 +2,18 @@ import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '@mui/material';
 // @ts-ignore
 import logo from './img/logo.png'
+// @ts-ignore
+import credit from './img/credit-cards-footer.png'
+
 import { NavLink } from 'react-router-dom';
 import { type, Products } from './components/products';
-
 
 import { PiClockCountdownFill } from "react-icons/pi";
 import { FaPhoneVolume, FaLocationDot } from "react-icons/fa6";
 import { IoIosMailUnread } from "react-icons/io";
+
+import { FaTwitter, FaFacebook, FaTiktok, } from 'react-icons/fa';
+import { BiLogoInstagramAlt } from 'react-icons/bi';
 
 export default function Footer() {
 
@@ -17,9 +22,9 @@ export default function Footer() {
       <div className="container">
         <div className="top-footer">
             <a className="logo" href="index.html">
-              <i className="bi bi-basket"></i>
-              Shop
-              <span>Grids</span> 
+              <img src={logo} alt="logo" />
+              Tech
+              <span>Trove</span> 
             </a>
             <div className="holder">
               <div className="Subscribe ">
@@ -36,38 +41,44 @@ export default function Footer() {
         <div className="middle-footer">
           <div className="with-us">
             <h1>Get In Touch With Us</h1>
-            <li>
-              <FaLocationDot style={{fontSize: '20px'}}/>
-              <h3>2091 nasr city / cairo</h3>
-            </li>
-            <li>
-              <FaPhoneVolume />
-              <h3>Phone: +201150865211</h3>
-            </li>
-            <li>
-              <PiClockCountdownFill style={{fontSize: '25px', marginLeft: '-3px'}}/>
-              <h3>Open Time: <br/>
-                10.00 am - 6.00 pm
-              </h3>
-            </li>
-              <li><IoIosMailUnread style={{fontSize: '25px'}}/> <h3>support@shopgrids.com</h3></li>
-          </div>
-          <div className="another">
-            <h1>Information</h1>
             <ul>
-              <a href=""><li>About Us</li></a>
-              <a href=""><li>Contact Us</li></a>
-              <a href=""><li>Downloads</li></a>
+              <li>
+                <FaLocationDot style={{fontSize: '20px'}}/>
+                <h3>2091 nasr city / cairo</h3>
+              </li>
+              <li>
+                <FaPhoneVolume />
+                <h3>Phone: +201150865211</h3>
+              </li>
+              <li>
+                <PiClockCountdownFill style={{fontSize: '25px'}}/>
+                <h3>Open Time: 
+                  10.00 am - 6.00 pm
+                </h3>
+              </li>
+              <li><IoIosMailUnread style={{fontSize: '25px'}}/> <h3>support@shopgrids.com</h3></li>
             </ul>
           </div>
           <div className="another">
             <h1>Information</h1>
             <ul>
+              <a href=""><li>Home</li></a>
               <a href=""><li>About Us</li></a>
               <a href=""><li>Contact Us</li></a>
-              <a href=""><li>Downloads</li></a>
-              <a href=""><li>Sitemap</li></a>
-              <a href=""><li>FAQs Page</li></a>
+              <a href=""><li>Blog</li></a>
+              <a href=""><li>Special Offer</li></a>
+            </ul>
+          </div>
+          <div className="another">
+            <h1>Categories</h1>
+            <ul>
+              {type.map((x) => (
+                x.id !== 'Other' && (
+                  <a href="#" key={x.id}>
+                    <li>{x.id}</li>
+                  </a>
+                )
+              ))}
             </ul>
           </div>
           <div className="another">
@@ -84,15 +95,17 @@ export default function Footer() {
         <div className="bottom-footer">
           <div className="visa">
             <h3>We Accept:</h3>
-            <img src="img/credit-cards-footer.png" alt=""/>
+            <img src={credit} alt=""/>
           </div>
           <h3>Designed and Developed byGrayGrids</h3>
           <div className="follow">
-            <h3>Follow Us:</h3> 
-            <a href=""><i className="bi bi-facebook"></i></a>
-            <a href=""><i className="bi bi-twitter"></i></a>
-            <a href=""><i className="bi bi-messenger"></i></a>
-            <a href=""><i className="bi bi-discord discord"></i></a>
+            <h5>Follow us at</h5> | 
+            <div className="social">
+              <FaFacebook  />
+              <FaTwitter  />
+              <BiLogoInstagramAlt />
+              <FaTiktok  />
+            </div>
           </div>
         </div>
       </div>

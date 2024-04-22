@@ -18,12 +18,13 @@
   height: 458px;
   overflow: hidden;
   border-bottom-left-radius: 50px;
+
 }
 
 .landing .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff; /* Slide background color */
+  background: #fff;
 }
 .landing .swiper-pagination-bullet {
   width: 28px !important;
@@ -162,37 +163,15 @@
   position: relative; 
   overflow: hidden;
 }
-.brands .title {
-  text-transform: uppercase;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  font-size: 25px;
-  color: var(--main-color);
-  transform: translate(-50%, -50%);
-}
-.brands .title:before,
-.brands .title:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100px;
-  height: 3px;
-  background: var(--main-color);
-}
-.brands .title::before {
-  left: -107px;
-}
-.brands .title:after {
-  right: -107px;
-}
 .brands .holder {
   display: flex;
+  width: 100%;
 }
 .brands .swiper-container {
   height: fit-content;
   display: flex;
+  width: 200%;
+  overflow: initial;
 }
 .brands .holder:first-child:hover .swiper-container {
   animation-play-state: paused;
@@ -200,11 +179,11 @@
 .brands .holder:last-child:hover .swiper-container {
   animation-play-state: paused;
 }
-.brands .holder:first-child .swiper-container {
-  animation: 180s slide1 infinite linear;
+.brands .holder:first-child .swiper-container  {
+  animation: 150s slide1 infinite linear;
 }
 .brands .holder:last-child .swiper-container {
-  animation: 180s slide2 infinite linear;
+  animation: 150s slide2 infinite linear;
 }
 @keyframes slide1 {
   from {
@@ -221,24 +200,6 @@
   to {
     transform: translateX(0);
   }
-}
-.brands:before,
-.brands:after {
-  position: absolute;
-  top: 0;
-  width: 400px;
-  height: 100%;
-  content: "";
-  z-index: 5;
-}
-.brands:before {
-  left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--body-color));
-}
-
-.brands:after {
-  right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--body-color));
 }
 
 .brands .swiper-slide {
@@ -329,54 +290,40 @@
 .offer .main-card .image img {
   width: 80%;
 }
-.offer .bigHolder .new  {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background: var(--section-color);
-  padding: 28px 35px 30px 35px;
-  box-shadow: 0px 0px 20px #00000012;
-  position: relative;
-}
-.offer .bigHolder .new .nvidia {
-  position: absolute;
-  width: 15%;
-  top: 20px;
-  right: 0;
-}
-.offer .bigHolder .new img  {
-  width: 56%;
-  position: relative;
-  right: 47px;
-}
-.offer .bigHolder .new .text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: relative;
-  top: 32px;
-}
-.offer .bigHolder .new .text h3  {
-  color: var(--text-color);
-  font-size: 25px;
-}
-.offer .bigHolder .new .text p  {
-  max-width: 320px;
-  color: var(--paragraph);
-  text-align: right;
-}
-.offer .bigHolder .new .text span  {
-  display: block;
-  color: var(--main-color);
-  font-size: 20px;
-  font-weight: 600;
-  margin: 10px 0 15px;
-}
+
 .offer .saleHolder {
   width: 32%;
+  position: relative;
   background: var(--section-color);
   box-shadow: 0px 0px 20px #00000012;
   height: fit-content;
+}
+.offer .saleHolder .sectionTitleSale {
+  position: absolute;
+  writing-mode: vertical-rl;
+  color: var(--main-color);
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  top: 50%;
+  right: -35px;
+  transform: translateY(-50%);
+}
+.offer .saleHolder .sectionTitleSale::before,
+.offer .saleHolder .sectionTitleSale::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--main-color);
+}
+.offer .saleHolder .sectionTitleSale::before {
+  top: -65%;
+}
+.offer .saleHolder .sectionTitleSale::after {
+  bottom: -65%;
 }
 .offer .swiper-pagination {
   bottom: 12px !important;
@@ -644,6 +591,9 @@
   .categories .container {
     grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
   }  
+  .offer .sale h2 {
+    font-size: 16px;
+  }
 }
 
 @media(max-width:992px) {
@@ -673,12 +623,10 @@
   .brands .swiper-slide:hover h4 {
     width: 60% !important;
   }
-  .brands .title {
-    font-size: 18px;
-  }
+
   .offer .container {
     flex-direction: column;
-    gap: 30px;
+    gap: 63px;
   }
   .offer .bigHolder {
     width: 100%;
@@ -686,8 +634,15 @@
   .offer .saleHolder {
     width: 100%;
   }
-  .offer .bigHolder .new {
-    padding-right: 28px;
+  .offer .saleHolder .swiper .swiper-slide::before {
+    content: "";
+    position: absolute;
+    height: 75%;
+    width: 2px;
+    left: -3px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--main-color);
   }
   .offer .sale .image {
     display: flex;
@@ -702,6 +657,33 @@
   }
   .offer .sale p {
     max-width: 543px;
+  }
+  .offer .saleHolder .sectionTitleSale {
+    position: absolute;
+    writing-mode: unset;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    top: -42px;
+    right: unset;
+    left: 50%;
+    transform: translateY(0);
+    transform: translateX(-50%);
+  }
+  .offer .saleHolder .sectionTitleSale::before,
+  .offer .saleHolder .sectionTitleSale::after {
+    width: 80px;
+    height: 3px;
+    top: 50%;
+    left: unset;
+    transform: translateY(-50%);
+    transform: translateX(0);
+  }
+  .offer .saleHolder .sectionTitleSale::before {
+    left: -60%;
+  }
+  .offer .saleHolder .sectionTitleSale::after {
+    right: -60%;
   }
 }
 
@@ -728,35 +710,17 @@
   .brands:before, .brands:after {
     display: none;
   }
-  .brands .title {
-    font-size: 20px;
-  }
+
   .offer .sale p {
     font-size: 14px;
   }
   .sale .review {
     align-items: center;
   }
-  .offer .bigHolder .new {
-    flex-direction: column;
-  }
-  .offer .bigHolder .new img {
-    width: 100%;
-  }
-  .offer .bigHolder .new .text {
-    align-items: center;
-  }
-  .offer .bigHolder .new .nvidia {
-    width: 20%;
-  }
-  .offer .bigHolder .new .text p {
-    text-align: center;
-    margin: 6px 0 0px;
-  }
   .offer .sale h2 { 
     font-size: 17px;
   }
-  .offer .bigHolder .products {
-    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  .offer .saleHolder .swiper .swiper-slide::before {
+    display: none;
   }
 }

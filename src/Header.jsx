@@ -33,9 +33,6 @@ import { salePrice, under10Nums } from './Methods.jsx'
 export default function Headers({setMode}) {
   const theme = useTheme()
   
-
-
-
   const [activeCategory, setActiveCategory] = useState((type[0].id));
   
   const [isSticky, setIsSticky] = useState({header1: false, header2:false});
@@ -116,7 +113,7 @@ export default function Headers({setMode}) {
         </div>
 
       </div>
-      <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`} style={{marginBottom: isSticky.header1 ? '50px' : '0px'}}>
+      <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`} style={{marginBottom: isSticky.header1 ? '50px' : '0px', zIndex: openModels.search ? '101' : '99' }}>
         <div className="logo">
           <FontAwesomeIcon className='menuBar' icon={faBarsStaggered} onClick={() => {
             toggleModel('menu')

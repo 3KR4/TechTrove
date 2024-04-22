@@ -18,23 +18,23 @@ const CountdownTimer = ({ targetDate }) => {
   }
 
   const { days, hours, minutes, seconds } = timeLeft;
-
+  const formatTime = (time) => (time < 10 ? `0${time}` : time);
   return (
     <div className="timer">
       <div className="days">
-        <span>{days ? days : 0}</span>
+        <span>{days ? formatTime(days) : `00`}</span>
         <h4>Days</h4>
       </div>
       <div className="hours">
-        <span>{hours ? hours : 0}</span>
+        <span>{hours ? formatTime(hours) : `00`}</span>
         <h4>Hours</h4>
       </div>
       <div className="minutes">
-        <span>{minutes ? minutes : 0}</span>
+        <span>{minutes ? formatTime(minutes) : `00`}</span>
         <h4>Minutes</h4>
       </div>
       <div className="seconds">
-        <span>{seconds ? seconds : 0}</span>
+        <span>{seconds ? formatTime(seconds) : `00`}</span>
         <h4>Seconds</h4>
       </div>
     </div>

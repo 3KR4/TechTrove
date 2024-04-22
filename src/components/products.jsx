@@ -261,7 +261,7 @@ export const bundles = [
   {
     id: 2,
     view: true,
-    category: "bundle",
+    category: "Bundle",
     type: "Gaming PC",
     Price: "2500.00",
     sale: 20,
