@@ -10,13 +10,16 @@ import { salePrice, under10Nums } from '../Methods.jsx'
 import Rating from '@mui/material/Rating';
 import { IoCart } from "react-icons/io5";
 import { FaHeartCirclePlus } from "react-icons/fa6";
-import { Pagination, Autoplay } from 'swiper/modules'; // Swiper modules
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react'; // Swiper React components
-import 'swiper/css'; // Swiper core styles
-import 'swiper/css/pagination'; // Swiper pagination styles
-import 'swiper/css/navigation'; // Swiper navigation styles
+import { Pagination, Autoplay } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css'; 
+import 'swiper/css/pagination'; 
+import 'swiper/css/navigation'; 
 import CountdownTimer from '../components/CountDown'
+
+import FeaturedProduct from '../components/featuredProduct';
+import MainCard from '../components/main-card';
 
 
 export default function Home() {
@@ -28,7 +31,6 @@ export default function Home() {
   const initialHoverImages = type.map((item) => item.list[0].img);
   const [hoverImages, setHoverImages] = useState(initialHoverImages);
   const [timer, setTimer] = useState(null);
-  const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
 
@@ -64,7 +66,11 @@ export default function Home() {
 
 
 
-  const endTime = new Date('2024-04-22T15:00:00');
+  const endTime = new Date('2024-04-26T00:00:00');
+
+  const x = new Date();
+
+  console.log(x);
 
   const handleHover = (index, img) => {
     const newHoverImages = [...hoverImages];
@@ -93,7 +99,17 @@ export default function Home() {
         <Swiper className="swiper-container"
           loop={true}
           speed={1150}
-          slidesPerView={13}
+          breakpoints={{
+            320: {
+              slidesPerView: 6,
+            },
+            768: {
+              slidesPerView: 8,
+            },
+            1024: {
+              slidesPerView: 14,
+            },
+          }}
         >
           {brandsInfo.map((x) => (
             <SwiperSlide className="swiper-slide" key={x.id}>
@@ -269,47 +285,7 @@ export default function Home() {
       <div className="bigHolder">
         <div className="products">
         {Products.slice(0, 6).map((product) => (
-          <div className="main-card" key={product.id} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-            <div className="image">
-              <img src={product.Images[0]} alt="" />
-              <img src={product.Images[1] ? product.Images[1] : product.Images[0] } alt="" />
-              <button className="main-buttom">
-                <h5>                
-                  <IoCart />
-                  Add To Cart
-                </h5>
-                <h5>                
-                  <FaHeartCirclePlus />
-                </h5>
-              </button>
-            </div>
-            {product.sale >= 15 && product.stock > 0 && (
-              <span className="hot">HOT</span>
-            )}
-            <div className="holder">
-              <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
-              <a href="product.html"><h3>{product.name}</h3></a>
-              <div className="review">
-                <div className="stars">
-                  <Rating
-                    defaultValue={product.stars}
-                    precision={product.stars % 1 <= 0.7 ? 0.5 : 1}
-                    sx={{ fontSize: '20px', color: '#d3ab3f' }} // Use an object to define CSS properties
-                    readOnly
-                  />
-                </div>
-                <p>{product.reviews} Review</p>
-              </div>
-              <div className="lastHolder">
-                <h4 className='price'>${salePrice(product)} {product.sale > 0 && product.stock > 0 && (
-                  <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>)}
-                </h4>
-                {product.stock === 0 && (
-                <span className='state'>Out Of Stock</span>
-                )}
-              </div>
-            </div>
-          </div>
+          <MainCard  product={product}/>
         ))}
 
         </div>
@@ -336,7 +312,8 @@ export default function Home() {
           }}
         >
           {Bundles.map((X) => (
-            <SwiperSlide className="sale">
+            endTime > x  && (
+              <SwiperSlide className="sale">
               <div className="image">
                 <img src={X.Images[0]} alt=""/>
               </div>
@@ -360,11 +337,13 @@ export default function Home() {
               <CountdownTimer targetDate={endTime} />
               <a className="main-buttom" href="shop.html">Get It Now</a>
             </SwiperSlide>
+            )
           ))}
         </Swiper>
       </div>
     </div>
   </div>
+  <FeaturedProduct />
     <div className="brands">
       {generateSwiperContainer(brands1)}
       <h4 className="sectionTitle">All Brands</h4>

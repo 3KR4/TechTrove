@@ -156,6 +156,37 @@
   color: var(--main-color);
   margin-left: 8px;
 }
+.products .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(244px, 1fr));
+  grid-gap: 20px;
+}
+.products .sectionFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+.products .sectionFilter li {
+  background: var(--section-color);
+  padding: 12px 22px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.products .sectionFilter li:hover,
+.products .sectionFilter li.active { 
+  color: white;
+  background: var(--main-color);
+}
+.products .sectionFilter li:first-child {
+  border-top-left-radius: 15px;
+}
+.products .sectionFilter li:last-child {
+  border-top-right-radius: 15px;
+}
 
 .brands {
   margin: 160px 0;
@@ -684,6 +715,9 @@
   }
   .offer .saleHolder .sectionTitleSale::after {
     right: -60%;
+  }
+  .products .container {
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
   }
 }
 

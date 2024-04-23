@@ -16,7 +16,6 @@ import { FaTwitter, FaFacebook, FaTiktok, } from 'react-icons/fa';
 import { BiLogoInstagramAlt } from 'react-icons/bi';
 
 export default function Footer() {
-
   return (
     <div className='footer'>
       <div className="container">
