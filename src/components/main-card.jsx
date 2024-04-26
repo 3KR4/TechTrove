@@ -3,6 +3,7 @@ import React from 'react'
 import { IoCart } from 'react-icons/io5'
 import { FaHeartCirclePlus } from 'react-icons/fa6'
 import { Rating } from '@mui/material'
+import { Link } from 'react-router-dom';
 
 export default function MainCard({product}) {
   return (
@@ -25,7 +26,9 @@ export default function MainCard({product}) {
     )}
     <div className="holder">
       <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
-      <a href="product.html"><h3>{product.name}</h3></a>
+        <Link to={`/product/${product.name}`}>
+          <h3>{product.name}</h3>
+        </Link>
       <div className="review">
         <div className="stars">
           <Rating

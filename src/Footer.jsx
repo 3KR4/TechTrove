@@ -15,6 +15,12 @@ import { IoIosMailUnread } from "react-icons/io";
 import { FaTwitter, FaFacebook, FaTiktok, } from 'react-icons/fa';
 import { BiLogoInstagramAlt } from 'react-icons/bi';
 
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import MarkEmailUnreadOutlinedIcon from '@mui/icons-material/MarkEmailUnreadOutlined';
+import SpeakerNotesOutlinedIcon from '@mui/icons-material/SpeakerNotesOutlined';
+import GrainOutlinedIcon from '@mui/icons-material/GrainOutlined';
+
 export default function Footer() {
   return (
     <div className='footer'>
@@ -61,11 +67,11 @@ export default function Footer() {
           <div className="another">
             <h1>Information</h1>
             <ul>
-              <a href=""><li>Home</li></a>
-              <a href=""><li>About Us</li></a>
-              <a href=""><li>Contact Us</li></a>
-              <a href=""><li>Blog</li></a>
-              <a href=""><li>Special Offer</li></a>
+              <a href=""><HomeOutlinedIcon/><li>Home</li></a>
+              <a href=""><PeopleAltOutlinedIcon/><li>About Us</li></a>
+              <a href=""><MarkEmailUnreadOutlinedIcon/><li>Contact Us</li></a>
+              <a href=""><SpeakerNotesOutlinedIcon/><li>Blog</li></a>
+              <a href=""><GrainOutlinedIcon/><li>Special Offer</li></a>
             </ul>
           </div>
           <div className="another">

@@ -133,6 +133,9 @@ button {
   border: none;
   background: transparent;
 }
+
+/*! ========= main-title ========== */
+
 .main-title {
   display: flex;
   justify-content: center;
@@ -164,7 +167,7 @@ button {
   text-align: center;
   text-transform: capitalize;
 }
-
+/*! ========= section-title ========== */
 .sectionTitle {
   text-transform: uppercase;
   position: absolute;
@@ -190,7 +193,7 @@ button {
 .sectionTitle:after {
   right: -107px;
 }
-
+/*! ========= main-buttom ========== */
 .main-buttom {
   text-align: center;
   background: var(--main-color);
@@ -205,11 +208,12 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;  
+  cursor: pointer;
 }
 .main-buttom:hover {
   background: var(--hover-color);
 }
-
+/*! ========= signBtns ========== */
 .signBtns {
   display: flex;
   gap: 10px;
@@ -224,7 +228,7 @@ button {
 .signBtns a:hover {
   color: var(--main-color);
 }
-
+/*! ========= follow ========== */
 .follow {
   color: var(--text-color);
   align-items: center;
@@ -253,7 +257,7 @@ button {
   background: var(--main-color);
 }
 
-
+/*! ========= main-card ========== */
 .main-card {
   position: relative;
   border: none;
@@ -998,9 +1002,14 @@ body.dark footer {
   flex-direction: column;
   gap: 10px;
 }
-.footer .middle-footer .another li {
+.footer .middle-footer .another li,
+.footer .middle-footer .another a {
   color: #dedede;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
 }
 .footer .middle-footer .another li:hover {
   margin-left: 7px;
@@ -1204,7 +1213,7 @@ body.dark footer {
     gap: 30px;
   }
   .footer .top-footer {
-    padding: 15px 0 33px;
+    padding: 26px 0 33px;
   }
   .footer .top-footer {
     justify-content: center;

@@ -21,7 +21,7 @@ import { IoMdSearch } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 // @ts-ignore
 import logo from './img/logo.png'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
 import { type, Products } from './components/products';
@@ -114,13 +114,13 @@ export default function Headers({setMode}) {
 
       </div>
       <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`} style={{marginBottom: isSticky.header1 ? '50px' : '0px', zIndex: openModels.search ? '101' : '99' }}>
-        <div className="logo">
+        <Link to={`/`} className="logo">        
           <FontAwesomeIcon className='menuBar' icon={faBarsStaggered} onClick={() => {
             toggleModel('menu')
           }}/>
           <img src={logo} alt="logo" />
           <h3>Tech<span>Trove</span></h3>
-        </div>
+        </Link>
         <div ref={searchRef} className={`search ${openModels.search ? 'active' : ''}`}>
           <input type="text" placeholder='Search Here ...' onClick={() => {toggleModel('search')}}/>
           <FontAwesomeIcon icon={faMagnifyingGlass} />

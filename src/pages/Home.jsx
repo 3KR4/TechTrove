@@ -331,7 +331,7 @@ export default function Home() {
                 </div>
                 <p>{X.reviews} Review</p>
               </div>
-              <span className='price'>${salePrice(X)} <p>${X.Price}</p> <p className='saleNum'>-{under10Nums(X.sale)}% OFF</p></span>
+              <span className='price'>{salePrice(X)} <p>${X.price}</p> <p className='saleNum'>-{under10Nums(X.sale)}% OFF</p></span>
               <p className='details'>Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU</p>
               <h2>The offer will expire on OCtoper <br/> 30th</h2>
               <CountdownTimer targetDate={endTime} />
