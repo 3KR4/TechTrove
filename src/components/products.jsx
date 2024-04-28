@@ -235,6 +235,59 @@ export const Products = [
       "Warranty: 2 Year Limited"
     ],
   },
+  {
+    id: 11,
+    type: "meat eater",
+    category: "monster",
+    name: "ahmed gamer yt",
+    price: 999999.00,
+    sale: 0,
+    reviews: 4,
+    stock: 1,
+    stars: 5.0,
+    brand: 'goul',
+    Images: [require('../img/farg (1).jpg'), require('../img/farg (2).jpg')],
+    details:"ASUS TUF Gaming VG289Q1A 28” Monitor, 4K UHD (3840 x 2160), IPS, Adaptive-Sync/ FreeSync, Eye Care, DisplayPort HDMI, DCI-P3 HDR 10, Shadow Boost, Black.",
+    about:[
+      "Interface: USB Type-A",
+      "Switch: Mechanical Switches with 20-Million clicks rating",
+      "DPI: 400/800/1600/3200/6400/12000",
+      "Warranty: 2 Year Limited"
+    ],
+    specifications: {
+      'المهنة':'ui ux',
+      'السرعة':'3.5 km / second',
+      'الجنس':'goul',
+      'المهارة':'miss every goal',
+      'height':'4.8 meters',
+    },
+    testimonies: [
+      {
+        id: 1,
+        name: 'Mahmoud Elshazly',
+        details: 'ياجدعان محدش يشتريه , انا بعد ماجبته وهوا بيصبحني بعلقة وينيمني بعلقة',
+        stars: 5,
+      },
+      {
+        id: 2,
+        name: 'Ahmed Hani',
+        details: '...',
+        stars: 2.5,
+      },
+      {
+        id: 3,
+        name: 'Ahmed Shalapy',
+        details: 'ياجدعان الواد دا بووت , وبجب كيلات اكتر منه',
+        stars: 2,
+      },
+      {
+        id: 4,
+        name: 'Chalipha Mo3tasem',
+        details: 'انا محامي لو حد حب يرفع عليه اي اضية انا موجود',
+        stars: 1,
+      },
+    ]
+  },
 ];
 
 export const bundles = [
