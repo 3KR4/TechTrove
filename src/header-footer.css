@@ -383,11 +383,6 @@ button {
   color: white;
   background: var(--red-color);
 }
-.main-card p {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--paragraph);
-}
 .main-card h3 {
   font-size: 17px;
   color: var(--text-color);
@@ -399,6 +394,7 @@ button {
 }
 .main-card .holder {
   padding: 28px;
+  padding-bottom: 20px;
   padding-top: 0;
 }
 .main-card .review {
@@ -422,20 +418,35 @@ button {
 .main-card .lastHolder span {
   font-weight: 600;
   color: var(--red-color);
+  font-size: 14px;
+}
+.price {
+  gap: 9px;
+  display: flex;
+  align-items: center;
+  margin: 7px 0;
+  font-size: 18px;
+  font-weight: 600;
   font-size: 15px;
 }
-.main-card h4 {
-  font-size: 20px;
-  font-weight: 600;
+.price p.mainPrice {
   color: var(--main-color);
-  margin-top: 0 !important;
-  display: flex;
-  gap: 10px;
-  align-items: center;
 }
-.main-card p p {
+.price p.last {
+  color: var(--paragraph);
+  font-weight: 700;
+  font-size: 14px;
+}
+.price p.lastPrice {
+  color: var(--paragraph);
   text-decoration: line-through;
 }
+.price p.saleNum {
+  color: #1e9147;
+  font-weight: 500;
+}
+
+
 
 /*! ======================= HEADER ========================= */
 
@@ -458,6 +469,10 @@ button {
   padding: 16px 0;
 }
 .logo {
+  display: flex;
+  align-items: center;
+}
+.logo a {
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -508,11 +523,8 @@ button {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
-.header .search.active .cards {
+.header .search .cards.active {
   display: block;
-}
-.header .top.sticky .search .cards {
-  top: 66px;
 }
 .header .search .card .type {
   margin: 5px 0px;
@@ -534,14 +546,14 @@ button {
   align-items: center;
 }
 .header .search .card  .state {
-  top: 63%;
+  top: 59%;
   font-weight: 500;
   font-size: 14px;
   color: rgb(206, 54, 54);
   margin-right: -3px;
 }
 .header .search .card  .category {
-  top: 20%;
+  top: 17%;
   text-transform: capitalize;
   color: var(--main-color);
   font-weight: 600;
@@ -553,10 +565,14 @@ button {
   color: var(--text-color);
   margin-bottom: 18px;
 }
-.header .search .item a {
+.header .search .holder .info h3 {
   color: var(--text-color);
   font-size: 15px;
   font-weight: 600;
+  transition: 0.3s;
+}
+.header .search .holder .info h3:hover {
+  color: var(--main-color);
 }
 .header .search .cards .card {
   position: relative;
@@ -578,20 +594,6 @@ button {
   width: 85px;
   border: 1px solid var(--searchBord-3);
 }
-.header .search .card .info p {
-  color: var(--main-color);
-  font-size: 14px;
-  margin-top: 10px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.header .search .card .info p p {
-  color: #1e9147;
-  font-size: 14px;
-  margin-top: 0;
-}
 .header .search .card svg {
   color: var(--text-color);
   transform: translateY(7px);
@@ -604,6 +606,12 @@ button {
 .header .search .card svg:hover {
   color: white;
   background-color: var(--main-color);
+}
+.header .search .cards .price p.saleNum {
+  position: relative;
+  top: unset;
+  right: unset;
+  font-size: 14px;
 }
 .header .user {
   display: flex;
@@ -743,6 +751,7 @@ button {
   color: var(--main-color);
 }
 .main-cart .cards .card {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -758,30 +767,25 @@ button {
   width: 85px;
   border: 1px solid var(--searchBord-3);
 }
-.main-cart .card .info p.prices,
-.main-card .price {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--main-color);
+.main-cart .card .price p.saleNum {
+  position: relative;
+  right: unset;
+  top: unset;
+  font-size: 12px;
 }
-.main-cart .card .info p p,
-.main-card .price p {
-  color: #1e9147;
+.main-cart .card .price .price p.lastPrice {
   font-size: 14px;
-  font-weight: 700;
 }
 .main-cart .card svg {
   color: var(--text-color);
-  transform: translate(-5px, 7px);
   font-size: 20px;
   background: transparent;
   border-radius: 50px;
   transition: 0.3s;
   cursor: pointer;
+  position: absolute;
+  transform: translateY(6px);
+  right: 20px;
 }
 .main-cart .card svg:hover {
   color: white;
@@ -800,6 +804,7 @@ button {
   position: relative;
   transition: padding 0.3s;
   background: var(--section-color);
+  z-index: 5;
 }
 .header .bottom .container {
   display: flex;
@@ -1077,6 +1082,42 @@ body.dark footer {
   }
 }
 
+/*! MAX 1600 */
+@media(max-width:1600px) {
+  .main-card .holder {
+    padding: 17px; 
+  }
+  .price {
+    gap: 8px; 
+  }
+  .price p.mainPrice {
+    font-size: 16px;
+  }
+  .price p.last {
+    font-size: 15px;
+  }
+  .main-card .lastHolder {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    margin-top: 4px;
+    margin-bottom: -5px;
+  }
+  .main-card .lastHolder span {
+    font-size: 14px;
+    margin-bottom: -3px;
+  }
+  .price p.saleNum {
+    position: absolute;
+    top: 16px;
+    right: 17px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .header .top .search {
+    width: 40%; 
+  }
+}
+
 @media(max-width:1200px) {
   .header .bottom .menu .megaMenu {
     gap: 20px;
@@ -1087,10 +1128,29 @@ body.dark footer {
   .footer .middle-footer {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
+  .main-card .lastHolder {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: -2px;
+  }
+  .price {
+    font-size: 16px;
+  }
+  .price p.saleNum {
+    position: relative;
+    top: 0;
+    right: 0;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .header .top .search {
+    width: 44%;
+  }
 }
 
 @media(max-width:992px) {
-  .hide {
+    .hide {
     position: fixed;
     left: 0;
     top: 0;
@@ -1099,6 +1159,31 @@ body.dark footer {
     z-index: 100;
     background: #0000005e;
     transition: 0.3s;
+  }
+  .price p.mainPrice {
+    font-size: 16px;
+  }
+  .main-card .lastHolder {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    margin: 10px 0 -6px;
+  }
+  .main-card .holder {
+    padding: 12px !important;
+  }
+  .price p.saleNum {
+    font-size: 15px;
+  }
+  .main-card .lastHolder span {
+    margin-top: -7px;
+  }
+  .price p.saleNum,
+  .main-card .lastHolder span {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    font-weight: 600;
+    font-size: 15px;
   }
   .header {
     box-shadow: var(--box-shadow);
@@ -1116,6 +1201,10 @@ body.dark footer {
     left: 50%;
     transform: translatex(-50%);
     width: 130% !important;
+  }
+  .header .top.sticky .search .cards {
+    top: 67px;
+    border-top: 3px solid var(--main-color);
   }
   .header .bottom .menu {
     flex-direction: column;
@@ -1207,6 +1296,8 @@ body.dark footer {
   .top .signBtns { 
     display: none;
   }
+
+
   .footer .bottom-footer {
     flex-wrap: wrap;
     justify-content: center;
@@ -1267,6 +1358,20 @@ body.dark footer {
   }
   .menuBar {
     font-size: 24px;
+    margin-right: 3px;
+  }
+  .price p.saleNum {
+    font-size: 13px;
+  }
+  .price p.saleNum, .main-card .lastHolder span { 
+    right: 10px;
+    top: 8px;
+    margin: 0;
+  }
+  .main-card .review {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
   }
   .header .top .search {
     width: 80%;
@@ -1290,11 +1395,26 @@ body.dark footer {
     display: flex;
     font-size: 22px;
   }
+  .header .top.sticky .search .cards {
+    top: 54px;
+  }
   .header .search .cards {
     width: 115% !important;
   }
+  .header .search .card .state, .header .search .card .category {
+    right: -13px;
+  }
+  .header .search .card .price p.lastPrice {
+    display: none;
+  }
+  .price p.mainPrice {
+    font-size: 15px;
+  }
   .follow .social {
     gap: 0;
+  }
+  .header .bottom {
+    z-index: 100;
   }
   .footer .top-footer {
     flex-direction: column;
@@ -1309,6 +1429,7 @@ body.dark footer {
   .main-card .holder {
     padding: 12px;
   }
+
   .cart .main-cart .card .type, .main-card h5 {
     font-size: 12px;
   }
@@ -1329,5 +1450,13 @@ body.dark footer {
   }
   .main-card:hover button {
     bottom: 0px;
+  }
+  .footer .bottom-footer {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+  .footer .bottom-footer .visa {
+    justify-content: flex-start;
   }
 }

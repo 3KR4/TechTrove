@@ -4,12 +4,12 @@ export const Products = [
     type: "mouse",
     category: "accessories",
     name: "XPG INFAREX M10",
-    brand: 'xpg',
     price: 26.00,
     sale: 16,
     reviews: 4,
     stock: 5,
     stars: 4.5,
+    brand: 'xpg',
     Images: [require('../img/xpg.png'), require('../img/xpg2.png'), require('../img/xpg3.png'), require('../img/xpg4.png'), require('../img/xpg5.png')],
     details:"ASUS TUF Gaming VG289Q1A 28” Monitor, 4K UHD (3840 x 2160), IPS, Adaptive-Sync/ FreeSync, Eye Care, DisplayPort HDMI, DCI-P3 HDR 10, Shadow Boost, Black.",
     about:[
@@ -65,6 +65,7 @@ export const Products = [
     reviews: 54,
     stars: 3.5,
     stock: 0,
+    brand: 'Asus',
     Images: [require('../img/asus motherboard.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
@@ -84,6 +85,7 @@ export const Products = [
     reviews: 12,
     stars: 5.0,
     stock: 13,
+    brand: 'Logitech',
     Images: [require('../img/logi headphone.png'), require('../img/logi headphone.png'), require('../img/logi headphone.png'), require('../img/logi headphone.png'), require('../img/logi headphone.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       about:[
@@ -98,11 +100,12 @@ export const Products = [
     type: "monitor",
     category: "monitor",
     name: "Msi G244F24 170HZ",
-    price: 240.00,
+    price: 1240.00,
     sale: 8,
     reviews: 25,
     stars: 3.5,
     stock: 0,
+    brand: 'Msi',
     Images: [require('../img/msi monitor.png'), require('../img/msi monitor.png'), require('../img/msi monitor.png'), require('../img/msi monitor.png'), require('../img/msi monitor.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
@@ -122,6 +125,7 @@ export const Products = [
     reviews: 75,
     stars: 4.9,
     stock: 22,
+    brand: 'AORUS',
     Images: [require('../img/aorus nvme.png'), require('../img/aorus nvme.png'), require('../img/aorus nvme.png'), require('../img/aorus nvme.png'), require('../img/aorus nvme.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
@@ -141,6 +145,7 @@ export const Products = [
     reviews: 105,
     stars: 4.5,
     stock: 3,
+    brand: 'Cougar',
     Images: [require('../img/couger chair.png'), require('../img/couger chair.png'), require('../img/couger chair.png'), require('../img/couger chair.png'), require('../img/couger chair.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
@@ -160,6 +165,7 @@ export const Products = [
     reviews: 230,
     stars: 5.0,
     stock: 76,
+    brand: 'sony',
     Images: [require('../img/ps4 controlar.png'), require('../img/ps4 controlar.png'), require('../img/ps4 controlar.png'), require('../img/ps4 controlar.png'), require('../img/ps4 controlar.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
@@ -179,6 +185,7 @@ export const Products = [
     reviews: 12,
     stars: 5.0,
     stock: 34,
+    brand: '',
     Images: [require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
@@ -198,6 +205,7 @@ export const Products = [
     reviews: 46,
     stars: 4.3,
     stock: 9,
+    brand: 'Aorus',
     Images: [require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
@@ -217,6 +225,7 @@ export const Products = [
     reviews: 309,
     stars: 5.0,
     stock: 12,
+    brand: 'sony',
     Images: [require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png')],
     details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[

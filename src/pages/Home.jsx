@@ -8,8 +8,6 @@ import { Products, type, brands, bundles} from '../components/products'
 
 import { salePrice, under10Nums } from '../Methods.jsx'
 import Rating from '@mui/material/Rating';
-import { IoCart } from "react-icons/io5";
-import { FaHeartCirclePlus } from "react-icons/fa6";
 import { Pagination, Autoplay } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -66,7 +64,7 @@ export default function Home() {
 
 
 
-  const endTime = new Date('2024-04-26T00:00:00');
+  const endTime = new Date('2024-05-10T00:00:00');
 
   const x = new Date();
 
@@ -325,7 +323,7 @@ export default function Home() {
                   <Rating
                     defaultValue={X.stars}
                     precision={X.stars % 1 <= 0.7 ? 0.5 : 1}
-                    sx={{ fontSize: '20px', color: '#d3ab3f' }} // Use an object to define CSS properties
+                    sx={{ fontSize: '20px', color: '#d3ab3f' }}
                     readOnly
                   />
                 </div>

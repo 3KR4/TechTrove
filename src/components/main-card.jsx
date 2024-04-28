@@ -24,7 +24,7 @@ export default function MainCard({product}) {
     {product.sale >= 15 && product.stock > 0 && (
       <span className="hot">HOT</span>
     )}
-    <div className="holder">
+    <div className="holder" style={{paddingTop: product.stock === 0 ? '0px' : 'auto'}}>
       <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
         <Link to={`/product/${product.name}`}>
           <h3>{product.name}</h3>
@@ -34,16 +34,22 @@ export default function MainCard({product}) {
           <Rating
             defaultValue={product.stars}
             precision={product.stars % 1 <= 0.7 ? 0.5 : 1}
-            sx={{ fontSize: '20px', color: '#d3ab3f' }} // Use an object to define CSS properties
+            sx={{ fontSize: '20px', color: '#d3ab3f' }}
             readOnly
           />
         </div>
         <p>{product.reviews} Review</p>
       </div>
-      <div className="lastHolder">
-        <h4 className='price'>${salePrice(product)} {product.sale > 0 && product.stock > 0 && (
-          <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>)}
-        </h4>
+      <div className="lastHolder" style={{marginTop: product.stock === 0 ? '10px' : '5px'}}>
+      <div className='price'>
+        <p className={product.stock === 0 ? 'last' : 'mainPrice'}>{product.stock !== 0 ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
+        {product.sale > 0 && product.stock !== 0 && (
+          <>
+          <p className="lastPrice">${product.price.toFixed(2)}</p> 
+          <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>
+          </>
+        )}
+      </div>
         {product.stock === 0 && (
         <span className='state'>Out Of Stock</span>
         )}

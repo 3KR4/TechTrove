@@ -28,7 +28,19 @@ import { type, Products } from './components/products';
 import { salePrice, under10Nums } from './Methods.jsx'
 
 
-
+const searchProducts = (searchTerm) => {
+  if (searchTerm.length === 0) {
+    return [];
+  }
+  return Products.filter((product) => {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    return (
+      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.type.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.brand.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+  });
+};
 
 export default function Headers({setMode}) {
   const theme = useTheme()
@@ -36,11 +48,12 @@ export default function Headers({setMode}) {
   const [activeCategory, setActiveCategory] = useState((type[0].id));
   
   const [isSticky, setIsSticky] = useState({header1: false, header2:false});
-
+  const [searchTerm, setSearchTerm] = useState('');
   const [openModels, setOpenModels] = useState({
     menu: false,
     cart: false,
     search: false,
+    searchCards: false,
   });
 
   const menuRef = useRef(null);
@@ -93,6 +106,24 @@ export default function Headers({setMode}) {
     }));
   };
   
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    if (e.target.value.length > 1) {
+      setOpenModels(prevState => ({
+        ...prevState,
+        ['searchCards']: true,
+      }));
+    } else {
+      setOpenModels(prevState => ({
+        ...prevState,
+        ['searchCards']: false,
+      }));
+    }
+  };
+
+  const filteredProducts = searchProducts(searchTerm);
+console.log(filteredProducts);
+
   return (
     <div className='header'>
     {openModels.menu || openModels.search ? <div className="hide"></div> : null}
@@ -114,33 +145,42 @@ export default function Headers({setMode}) {
 
       </div>
       <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`} style={{marginBottom: isSticky.header1 ? '50px' : '0px', zIndex: openModels.search ? '101' : '99' }}>
-        <Link to={`/`} className="logo">        
+        <div className="logo">        
           <FontAwesomeIcon className='menuBar' icon={faBarsStaggered} onClick={() => {
             toggleModel('menu')
           }}/>
-          <img src={logo} alt="logo" />
-          <h3>Tech<span>Trove</span></h3>
-        </Link>
+          <Link to={`/`}>
+            <img src={logo} alt="logo" />
+            <h3>Tech<span>Trove</span></h3>
+          </Link>
+        </div>
         <div ref={searchRef} className={`search ${openModels.search ? 'active' : ''}`}>
-          <input type="text" placeholder='Search Here ...' onClick={() => {toggleModel('search')}}/>
+          <input type="text" placeholder='Search Here ...' value={searchTerm} onChange={handleSearch} />
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-          <div className="cards" style={{width: Products.length > 3 ? "109%" : "auto"}}>
-            {Products.map(product => (
-              <div className="card" key={product.id}>
+          <div className={`cards ${openModels.searchCards ? 'active' : ''}`} style={{width: filteredProducts.length > 3 ? "109%" : "auto"}}>
+            {filteredProducts.map(product => (
+              <Link to={`/product/${product.name}`} className="card" key={product.id}> 
                 <div className='holder'>
                   <img src={product.Images[0]} alt=""/>
                   <div className="info">
-                    <NavLink to="product"> 
+                    <h3> 
                       {product.name}
-                    </NavLink>
+                    </h3>
                     <h5 className="type">{product.type}</h5>
-                    <p>${salePrice(product)} {product.sale > 0 && (
-                      <p className='sale'>-{under10Nums(product.sale)}% OFF</p>)}</p>
+                    <div className='price'>
+                      <p className={product.stock === 0 ? 'last' : 'mainPrice'}>{product.stock !== 0 ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
+                      {product.sale > 0 && product.stock !== 0 && (
+                        <>
+                        <p className="lastPrice">${product.price.toFixed(2)}</p> 
+                        <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>
+                        </>
+                      )}
+                    </div>
                     <span className='category'>{product.category}</span>
                     <span style={{color: product.stock !== 0 ? '#1e9147' : '#ce3636'}} className='state'>{product.stock !== 0 ? 'In Stock' : 'Out Of Stock'}</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -200,8 +240,15 @@ export default function Headers({setMode}) {
                                 {product.name}
                               </NavLink>
                               <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
-                              <p className='prices'>${salePrice(product)} {product.sale > 0 && (
-                              <p className='sale'>-{under10Nums(product.sale)}% OFF</p>)}</p>
+                              <div className='price'>
+                                <p className={product.stock === 0 ? 'last' : 'mainPrice'}>{product.stock !== 0 ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
+                                {product.sale > 0 && product.stock !== 0 && (
+                                  <>
+                                  <p className="lastPrice">${product.price.toFixed(2)}</p> 
+                                  <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>
+                                  </>
+                                )}
+                              </div>
 
                             </div>
                           </div>

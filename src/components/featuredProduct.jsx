@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Products } from '../components/products'
 import MainCard from './main-card';
+import genrateProductSwiper from './genrateProductSwiper';
 
 
 export default function FeaturedProduct() {
@@ -31,24 +32,18 @@ export default function FeaturedProduct() {
 
   return (
     <div className="products">
-    <ul className='sectionFilter'>
-      {filterSectionLi.map((x) => (
-        <li className={activeFilter == x ? "active" : ''}
-          onClick={() => {
-            setActiveFilter(x);
-          }}>{x}
-        </li>
-      ))}
-    </ul>
-    <div className="container">
-      {renderProduct.map((product) => ( 
-        <>
-        <MainCard  product={product}/>
-        <MainCard  product={product}/>
-        <MainCard  product={product}/>
-        </>
+      <ul className='sectionFilter'>
+        {filterSectionLi.map((x) => (
+          <li className={activeFilter == x ? "active" : ''}
+            onClick={() => {
+              setActiveFilter(x);
+            }}>{x}
+          </li>
         ))}
+      </ul>
+      <div className="container">
+        {genrateProductSwiper(Products)}
+      </div>
     </div>
-        </div>
   )
 }

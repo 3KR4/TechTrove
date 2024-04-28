@@ -11,7 +11,10 @@ import Header from './Header';
 import Footer from './Footer';
 import Home from './pages/Home';
 
+
+
 export default function MiniDrawer() {
+
   const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
   useEffect(() => {
     document.body.className = mode;
