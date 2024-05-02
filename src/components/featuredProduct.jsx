@@ -34,7 +34,7 @@ export default function FeaturedProduct() {
     <div className="products">
       <ul className='sectionFilter'>
         {filterSectionLi.map((x) => (
-          <li className={activeFilter == x ? "active" : ''}
+          <li key={x} className={activeFilter == x ? "active" : ''}
             onClick={() => {
               setActiveFilter(x);
             }}>{x}

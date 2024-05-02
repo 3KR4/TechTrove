@@ -3,7 +3,6 @@ import { Products, brands} from '../components/products'
 import { useState } from "react";
 import { Rating, TextField } from "@mui/material";
 import { salePrice, under10Nums } from "../Methods";
-import MainCard from "../components/main-card";
 import genrateProductSwiper from "../components/genrateProductSwiper";
 
 
@@ -277,6 +276,12 @@ export default function Product() {
     </div>
   )
 }
+
+
+
+
+
+
 
 
 

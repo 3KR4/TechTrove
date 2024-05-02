@@ -382,199 +382,331 @@ export const bundles = [
 ]
 
 
-export const type = [
+export const types = [
   {
-    id: "Hardware",
+    id: "hardware",
     list: [
       { 
-        id: "GraphicCard",
+        id: "graphic card",
         // @ts-ignore
-        img: require('../img/Categories/gpu.png'), 
+        img: require('../img/Categories/gpu.png'),
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "MotherBoard",
+        id: "motherboard",
         // @ts-ignore
-        img: require('../img/Categories/mother.png'), 
+        img: require('../img/Categories/mother.png'),
+        specific: {
+          gen: ['ddr3','ddr4','ddr5'],
+          mhz: ['2666 mhz', '3200 mhz', '3600 mhz', '4200 mhz', '5600 mhz']
+        }
       },
       { 
-        id: "Procesor", 
+        id: "procesor", 
         // @ts-ignore 
         img: require('../img/Categories/cpu.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Memory",
+        id: "memory",
         // @ts-ignore 
         img: require('../img/Categories/ram.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Storage", 
+        id: "storage", 
         // @ts-ignore 
         img: require('../img/Categories/storage.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Liquid Cooling", 
+        id: "liquid cooling", 
         // @ts-ignore 
         img: require('../img/Categories/liquid cooling.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Power Supply", 
+        id: "power supply", 
         // @ts-ignore 
         img: require('../img/Categories/power.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Desktop Case",
+        id: "desktop case",
         // @ts-ignore 
         img: require('../img/Categories/case.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
     ],
   },
   {
-    id: "Accessories",
+    id: "accessories",
     list: [
       { 
-        id: "Mouse",
+        id: "mouse",
         // @ts-ignore 
         img: require('../img/Categories/mouse.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
         id: "keyboard",
         // @ts-ignore 
         img: require('../img/Categories/keyboard.png'), 
+          specific: {
+            series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+            memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          }
       },
       { 
-        id: "HeadPhone", 
+        id: "headphone", 
         // @ts-ignore 
         img: require('../img/Categories/headphone.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Speakers", 
+        id: "speakers", 
         // @ts-ignore 
         img: require('../img/Categories/speakers.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "MousePad", 
+        id: "mousepad", 
         // @ts-ignore 
         img: require('../img/Categories/mousebad.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
     ],
   },
   {
-    id: "Electronics",
+    id: "electronics",
     list: [
       { 
         id: "Smartwatches", 
         // @ts-ignore 
         img: require('../img/Categories/smartwatch.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Smartphones",
+        id: "smartphones",
         // @ts-ignore 
         img: require('../img/Categories/iphone 15.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Laptops",
+        id: "laptops",
         // @ts-ignore 
         img: require('../img/Categories/notebock.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Tablets", 
+        id: "tablets", 
         // @ts-ignore 
         img: require('../img/Categories/tablet.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Cameras", 
+        id: "cameras", 
         // @ts-ignore 
         img: require('../img/Categories/camera.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Webcams", 
+        id: "webcams", 
         // @ts-ignore 
         img: require('../img/Categories/webcam.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
         id: "microphones", 
         // @ts-ignore 
         img: require('../img/Categories/microphone.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
     ],
   },
   {
-    id: "Monitor",
+    id: "monitor",
     list: [
       { 
-        id: "Gaming Monitor",
+        id: "gaming monitor",
         // @ts-ignore 
         img: require('../img/Categories/monitor.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Television",
+        id: "television",
         // @ts-ignore 
         img: require('../img/Categories/tv-samsung.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
     ],
   },
   {
-    id: "Console",
+    id: "console",
     list: [
       { 
-        id: "Console",
+        id: "console",
         // @ts-ignore 
-        img: require('../img/Categories/console.png'), 
+        img: require('../img/Categories/console.png'),
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Xbox",
+        id: "xbox",
         // @ts-ignore 
         img: require('../img/Categories/xbox.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Nitendo",
+        id: "nitendo",
         // @ts-ignore 
         img: require('../img/Categories/nitendo.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Game Bad",
+        id: "game bad",
         // @ts-ignore 
         img: require('../img/Categories/gamebad.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
     ],
   },
   {
-    id: "Other",
+    id: "other",
     list: [
       { 
-        id: "Chair",
+        id: "chair",
         // @ts-ignore 
         img: require('../img/Categories/chair.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Holder",
+        id: "holder",
         // @ts-ignore 
         img: require('../img/Categories/holder.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Fans",
+        id: "fans",
         // @ts-ignore 
         img: require('../img/Categories/fans.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Cables",
+        id: "cables",
         // @ts-ignore 
         img: require('../img/Categories/cables.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Gaming Desk",
+        id: "gaming desk",
         // @ts-ignore 
         img: require('../img/Categories/gamingdesk.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Led Strip",
+        id: "led strip",
         // @ts-ignore 
         img: require('../img/Categories/ledstrip.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
       { 
-        id: "Thermal Paste",
+        id: "thermal paste",
         // @ts-ignore 
         img: require('../img/Categories/thermalpaste.png'), 
+        specific: {
+          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+        }
       },
     ],
   },

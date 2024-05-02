@@ -24,7 +24,7 @@ import logo from './img/logo.png'
 import { Link, NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
-import { type, Products } from './components/products';
+import { types, Products } from './components/products';
 import { salePrice, under10Nums } from './Methods.jsx'
 
 
@@ -45,7 +45,7 @@ const searchProducts = (searchTerm) => {
 export default function Headers({setMode}) {
   const theme = useTheme()
   
-  const [activeCategory, setActiveCategory] = useState((type[0].id));
+  const [activeCategory, setActiveCategory] = useState((types[0].id));
   
   const [isSticky, setIsSticky] = useState({header1: false, header2:false});
   const [searchTerm, setSearchTerm] = useState('');
@@ -122,7 +122,6 @@ export default function Headers({setMode}) {
   };
 
   const filteredProducts = searchProducts(searchTerm);
-console.log(filteredProducts);
 
   return (
     <div className='header'>
@@ -269,7 +268,7 @@ console.log(filteredProducts);
         </div>
         
       </div>
-        <div className={`bottom ${isSticky.header1 ? 'sticky' : ''}`}>
+        <div className={`bottom ${isSticky.header1 ? 'sticky' : ''}`} style={{zIndex: openModels.menu ? '100' : '5'}}>
           <div className="container">
           <ul ref={menuRef} className={`menu ${openModels.menu ? "active" : ""}`}>
             <li> 
@@ -281,7 +280,7 @@ console.log(filteredProducts);
                 }}/>
               </div>
             <div className="megaMenu">
-            {type.map((category) => (
+            {types.map((category) => (
           <div className="category" key={category.id}>
             <span onClick={() => toggleActive(category.id)} className={activeCategory === category.id ? 'active' : ''}>
               {category.id}
@@ -296,7 +295,9 @@ console.log(filteredProducts);
         ))}
             </div>
             </li>
+            <Link to={'./shop'}>
             <li><HomeOutlinedIcon/> home</li>
+            </Link>
             <li><PeopleAltOutlinedIcon/> about us</li>
             <li><MarkEmailUnreadOutlinedIcon/> contact us</li>
             <li><SpeakerNotesOutlinedIcon/> blog</li>

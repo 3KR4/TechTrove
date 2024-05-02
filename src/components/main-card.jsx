@@ -9,8 +9,11 @@ export default function MainCard({product}) {
   return (
     <div className="main-card" key={product.id}>
     <div className="image">
-      <img src={product.Images[0]} alt="" />
-      <img src={product.Images[1] ? product.Images[1] : product.Images[0] } alt="" />
+        <Link to={`/product/${product.name}`}>
+          <img src={product.Images[0]} alt="" />
+          <img src={product.Images[1] ? product.Images[1] : product.Images[0] } alt="" />
+        </Link>
+
       <button className="main-buttom">
         <h5>                
           <IoCart />
@@ -24,7 +27,7 @@ export default function MainCard({product}) {
     {product.sale >= 15 && product.stock > 0 && (
       <span className="hot">HOT</span>
     )}
-    <div className="holder" style={{paddingTop: product.stock === 0 ? '0px' : 'auto'}}>
+    <div className="holder">
       <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
         <Link to={`/product/${product.name}`}>
           <h3>{product.name}</h3>
@@ -40,7 +43,7 @@ export default function MainCard({product}) {
         </div>
         <p>{product.reviews} Review</p>
       </div>
-      <div className="lastHolder" style={{marginTop: product.stock === 0 ? '10px' : '5px'}}>
+      <div className="lastHolder">
       <div className='price'>
         <p className={product.stock === 0 ? 'last' : 'mainPrice'}>{product.stock !== 0 ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
         {product.sale > 0 && product.stock !== 0 && (

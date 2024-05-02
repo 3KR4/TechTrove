@@ -6,7 +6,7 @@ import logo from './img/logo.png'
 import credit from './img/credit-cards-footer.png'
 
 import { NavLink } from 'react-router-dom';
-import { type, Products } from './components/products';
+import { types, Products } from './components/products';
 
 import { PiClockCountdownFill } from "react-icons/pi";
 import { FaPhoneVolume, FaLocationDot } from "react-icons/fa6";
@@ -77,7 +77,7 @@ export default function Footer() {
           <div className="another">
             <h1>Categories</h1>
             <ul>
-              {type.map((x) => (
+              {types.map((x) => (
                 x.id !== 'Other' && (
                   <a href="#" key={x.id}>
                     <li>{x.id}</li>

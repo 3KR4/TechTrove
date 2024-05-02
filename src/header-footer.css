@@ -332,6 +332,10 @@ button {
   position: relative;
   overflow: hidden;
 }
+.main-card .image a { 
+  display: flex;
+  justify-content: center;
+}
 .main-card .image img {
   width: 100%;
   transition: 0.3s;
@@ -394,7 +398,7 @@ button {
 }
 .main-card .holder {
   padding: 28px;
-  padding-bottom: 20px;
+  padding-bottom: 14px;
   padding-top: 0;
 }
 .main-card .review {
@@ -413,7 +417,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
 }
 .main-card .lastHolder span {
   font-weight: 600;
@@ -435,7 +438,7 @@ button {
 .price p.last {
   color: var(--paragraph);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
 }
 .price p.lastPrice {
   color: var(--paragraph);
@@ -772,9 +775,6 @@ button {
   right: unset;
   top: unset;
   font-size: 12px;
-}
-.main-cart .card .price .price p.lastPrice {
-  font-size: 14px;
 }
 .main-cart .card svg {
   color: var(--text-color);
@@ -1460,3 +1460,5 @@ body.dark footer {
     justify-content: flex-start;
   }
 }
+
+

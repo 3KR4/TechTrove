@@ -2,9 +2,9 @@ import { useTheme } from '@mui/material';
 import { FaAngleDown, } from 'react-icons/fa';
 
 
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import { Products, type, brands, bundles} from '../components/products'
+import { Products, types, brands, bundles} from '../components/products'
 
 import { salePrice, under10Nums } from '../Methods.jsx'
 import Rating from '@mui/material/Rating';
@@ -21,12 +21,7 @@ import MainCard from '../components/main-card';
 
 
 export default function Home() {
-
-  const [landingSwiper, setlandingSwiper] = useState(null);
-  const landingSwiperRef = useRef(null);
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const initialHoverImages = type.map((item) => item.list[0].img);
+  const initialHoverImages = types.map((item) => item.list[0].img);
   const [hoverImages, setHoverImages] = useState(initialHoverImages);
   const [timer, setTimer] = useState(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -66,9 +61,7 @@ export default function Home() {
 
   const endTime = new Date('2024-05-10T00:00:00');
 
-  const x = new Date();
-
-  console.log(x);
+  const curentDate = new Date();
 
   const handleHover = (index, img) => {
     const newHoverImages = [...hoverImages];
@@ -176,17 +169,6 @@ export default function Home() {
           '../img/swiper6.png')} alt="" />
       </SwiperSlide>
     </Swiper>
-    
-        <div className="swiper-pagination">
-          {/* Render pagination buttons based on the number of slides */}
-          {[...Array(landingSwiper?.slides.length || 0)].map((_, index) => (
-            <button
-              key={index}
-              className={index === activeIndex ? 'active' : ''}
-            >
-            </button>
-          ))}
-        </div>
 
     <div className="second_section">
       <div className="images">
@@ -217,7 +199,7 @@ export default function Home() {
         <p>You have the option to browse through all products' categories or select a specific type</p>
       </div>
       <div className="container">
-        {type.map((item, index) => {
+        {types.map((item, index) => {
           if (isSmallScreen) {
             return (
               <div className="card" key={index} onMouseEnter={() => handleHover(index, item.list[0].img)} onMouseLeave={() => handleMouseLeave(index)}>
@@ -226,44 +208,44 @@ export default function Home() {
                   <ul>
                     {item.list.map((x, idx) => (
                       <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
-                        <a href="shop.html">{x.id}</a>
+                        <Link to={`/shop?category=${item.id}&type=${x.id}`}>{x.id}</Link>
                       </li>
                     ))}
-                    <li><a href="shop.html">See All</a></li>
+                    <li><Link to={`/shop?category=${item.id}`}>See All</Link></li>
                   </ul>
                 </div>
                 <img src={hoverImages[index]} alt="" />
               </div>
             );
-          } else if (index % 2 === 0 && type[index + 1]) {
+          } else if (index % 2 === 0 && types[index + 1]) {
             return (
               <div className="pair-wrapper" key={index}>
                 <div className="card" onMouseEnter={() => handleHover(index, item.list[0].img)} onMouseLeave={() => handleMouseLeave(index)}>
                   <div>
                     <h4>{item.id}</h4>
                     <ul>
-                      {item.list.map((x, idx) => (
-                        <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
-                          <a href="shop.html">{x.id}</a>
-                        </li>
-                      ))}
-                      <li><a href="shop.html">See All</a></li>
-                    </ul>
+                    {item.list.map((x, idx) => (
+                      <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
+                        <Link to={`/shop?category=${item.id}&type=${x.id}`}>{x.id}</Link>
+                      </li>
+                    ))}
+                    <li><Link to={`/shop?category=${item.id}`}>See All</Link></li>
+                  </ul>
                   </div>
                   <img src={hoverImages[index]} alt="" />
                 </div>
 
-                <div className="card" onMouseEnter={() => handleHover(index + 1, type[index + 1].list[0].img)} onMouseLeave={() => handleMouseLeave(index + 1)}>
+                <div className="card" onMouseEnter={() => handleHover(index + 1, types[index + 1].list[0].img)} onMouseLeave={() => handleMouseLeave(index + 1)}>
                   <div>
-                    <h4>{type[index + 1].id}</h4>
+                    <h4>{types[index + 1].id}</h4>
                     <ul>
-                      {type[index + 1].list.map((x, idx) => (
-                        <li key={idx} onMouseEnter={() => handleHover(index + 1, x.img)}>
-                          <a href="shop.html">{x.id}</a>
-                        </li>
-                      ))}
-                      <li><a href="shop.html">See All</a></li>
-                    </ul>
+                    {types[index + 1].list.map((x, idx) => (
+                      <li key={idx} onMouseEnter={() => handleHover(index + 1, x.img)}>
+                        <Link to={`/shop?category=${types[index + 1].id}&type=${x.id}`}>{x.id}</Link>
+                      </li>
+                    ))}
+                    <li><Link to={`/shop?category=${item.id}`}>See All</Link></li>
+                  </ul>
                   </div>
                   <img src={hoverImages[index + 1]} alt="" />
                 </div>
@@ -283,7 +265,7 @@ export default function Home() {
       <div className="bigHolder">
         <div className="products">
         {Products.slice(0, 6).map((product) => (
-          <MainCard  product={product}/>
+          <MainCard key={product.id}  product={product}/>
         ))}
 
         </div>
@@ -310,7 +292,7 @@ export default function Home() {
           }}
         >
           {Bundles.map((X) => (
-            endTime > x  && (
+            endTime > curentDate  && (
               <SwiperSlide className="sale">
               <div className="image">
                 <img src={X.Images[0]} alt=""/>
@@ -333,7 +315,7 @@ export default function Home() {
               <p className='details'>Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU</p>
               <h2>The offer will expire on OCtoper <br/> 30th</h2>
               <CountdownTimer targetDate={endTime} />
-              <a className="main-buttom" href="shop.html">Get It Now</a>
+              <Link to='/shop' className="main-buttom">Get It Now</Link>
             </SwiperSlide>
             )
           ))}
