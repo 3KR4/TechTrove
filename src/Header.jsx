@@ -36,6 +36,9 @@ const searchProducts = (searchTerm) => {
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
     return (
       product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
       product.type.toLowerCase().includes(lowerCaseSearchTerm) ||
       product.brand.toLowerCase().includes(lowerCaseSearchTerm)
     );
@@ -44,7 +47,7 @@ const searchProducts = (searchTerm) => {
 
 export default function Headers({setMode}) {
   const theme = useTheme()
-  
+  let currentpage = localStorage.page
   const [activeCategory, setActiveCategory] = useState((types[0].id));
   
   const [isSticky, setIsSticky] = useState({header1: false, header2:false});
@@ -143,7 +146,7 @@ export default function Headers({setMode}) {
         </div>
 
       </div>
-      <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`} style={{marginBottom: isSticky.header1 ? '50px' : '0px', zIndex: openModels.search ? '101' : '99' }}>
+      <div className={`top container ${isSticky.header2 ? 'sticky' : ''}`} style={{marginBottom: isSticky.header1 ? currentpage == 'shop' ? '90px' : '56px' : '0px', zIndex: openModels.search ? '101' : '99' }}>
         <div className="logo">        
           <FontAwesomeIcon className='menuBar' icon={faBarsStaggered} onClick={() => {
             toggleModel('menu')
@@ -284,11 +287,11 @@ export default function Headers({setMode}) {
           <div className="category" key={category.id}>
             <span onClick={() => toggleActive(category.id)} className={activeCategory === category.id ? 'active' : ''}>
               {category.id}
-              {activeCategory === category.id ? <FaAngleUp /> : <FaAngleDown />} {/* Conditionally render arrow icon */}
+              <FaAngleDown className={activeCategory === category.id && 'open'}/>
             </span>
             <ul className={`types ${activeCategory === category.id ? 'active' : ''}`}>
               {category.list.map((item) => (
-                <li key={item.id}>{item.id}</li>
+                <li key={item.id}><Link to={`/shop?category=${category.id}&type=${item.id}`}>{item.id}</Link></li>
               ))}
             </ul>
           </div>

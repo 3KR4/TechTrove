@@ -21,6 +21,7 @@ import MainCard from '../components/main-card';
 
 
 export default function Home() {
+  localStorage.setItem('page', 'home')
   const initialHoverImages = types.map((item) => item.list[0].img);
   const [hoverImages, setHoverImages] = useState(initialHoverImages);
   const [timer, setTimer] = useState(null);
@@ -265,7 +266,7 @@ export default function Home() {
       <div className="bigHolder">
         <div className="products">
         {Products.slice(0, 6).map((product) => (
-          <MainCard key={product.id}  product={product}/>
+          <MainCard key={product.id}  product={product} details={false}/>
         ))}
 
         </div>

@@ -5,7 +5,7 @@ import { FaHeartCirclePlus } from 'react-icons/fa6'
 import { Rating } from '@mui/material'
 import { Link } from 'react-router-dom';
 
-export default function MainCard({product}) {
+export default function MainCard({product, details}) {
   return (
     <div className="main-card" key={product.id}>
     <div className="image">
@@ -43,6 +43,9 @@ export default function MainCard({product}) {
         </div>
         <p>{product.reviews} Review</p>
       </div>
+      {details && (
+        <p className="details">{product.details}</p>
+      )}
       <div className="lastHolder">
       <div className='price'>
         <p className={product.stock === 0 ? 'last' : 'mainPrice'}>{product.stock !== 0 ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>

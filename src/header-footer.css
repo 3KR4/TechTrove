@@ -133,6 +133,12 @@ button {
   border: none;
   background: transparent;
 }
+svg {
+  transition: 0.3s !important;
+}
+svg.open {
+  transform: translateY(2px) rotate(180deg) !important;
+}
 
 /*! ========= main-title ========== */
 
@@ -887,8 +893,12 @@ button {
   transition: 0.3s;
   font-size: 16px;
 }
-.header .bottom .menu .megaMenu .types li:hover {
+.header .bottom .menu .megaMenu .types li a {
+  transition: 0.3s;
+}
+.header .bottom .menu .megaMenu .types li a:hover {
   transform: translateX(6px);
+  color:var(--main-color);
 }
 
 /*! ======================= FOOTER ========================= */

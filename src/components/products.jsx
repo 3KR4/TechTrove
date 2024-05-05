@@ -53,7 +53,8 @@ export const Products = [
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         stars: 3.5,
       },
-    ]
+    ],
+    Tags: ['Wired Mouse', '3200']
   },
   {
     id: 2,
@@ -74,6 +75,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
+    Tags: ['DDR4', '3200 MHz']
   },
   {
     id: 3,
@@ -94,6 +96,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
+    Tags: ['Gaming Headphone', 'Wired Headphone']
   },
   {
     id: 4,
@@ -114,6 +117,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
+    Tags: ['Gaming Monitor', '4K']
   },
   {
     id: 5,
@@ -134,6 +138,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
+    Tags: ['NVMe Gen4', '500GB']
   },
   {
     id: 6,
@@ -154,6 +159,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
+    Tags: ['Gaming Chair']
   },
   {
     id: 7,
@@ -174,6 +180,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
+    Tags: ['PS4 Controller', 'Wireless Controller']
   },
   {
     id: 8,
@@ -194,6 +201,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
+    Tags: ['Sport Watch', 'Waterproof']
   },
   {
     id: 9,
@@ -214,6 +222,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
+    Tags: ['RTX 4000', '8GB']
   },
   {
     id: 10,
@@ -234,59 +243,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
-  },
-  {
-    id: 11,
-    type: "meat eater",
-    category: "monster",
-    name: "ahmed gamer yt",
-    price: 999999.00,
-    sale: 0,
-    reviews: 4,
-    stock: 1,
-    stars: 5.0,
-    brand: 'goul',
-    Images: [require('../img/farg (1).jpg'), require('../img/farg (2).jpg')],
-    details:"ASUS TUF Gaming VG289Q1A 28” Monitor, 4K UHD (3840 x 2160), IPS, Adaptive-Sync/ FreeSync, Eye Care, DisplayPort HDMI, DCI-P3 HDR 10, Shadow Boost, Black.",
-    about:[
-      "Interface: USB Type-A",
-      "Switch: Mechanical Switches with 20-Million clicks rating",
-      "DPI: 400/800/1600/3200/6400/12000",
-      "Warranty: 2 Year Limited"
-    ],
-    specifications: {
-      'المهنة':'ui ux',
-      'السرعة':'3.5 km / second',
-      'الجنس':'goul',
-      'المهارة':'miss every goal',
-      'height':'4.8 meters',
-    },
-    testimonies: [
-      {
-        id: 1,
-        name: 'Mahmoud Elshazly',
-        details: 'ياجدعان محدش يشتريه , انا بعد ماجبته وهوا بيصبحني بعلقة وينيمني بعلقة',
-        stars: 5,
-      },
-      {
-        id: 2,
-        name: 'Ahmed Hani',
-        details: '...',
-        stars: 2.5,
-      },
-      {
-        id: 3,
-        name: 'Ahmed Shalapy',
-        details: 'ياجدعان الواد دا بووت , وبجب كيلات اكتر منه',
-        stars: 2,
-      },
-      {
-        id: 4,
-        name: 'Chalipha Mo3tasem',
-        details: 'انا محامي لو حد حب يرفع عليه اي اضية انا موجود',
-        stars: 1,
-      },
-    ]
+    Tags: ['PS4 Pro', '1TB']
   },
 ];
 
@@ -388,16 +345,14 @@ export const types = [
     list: [
       { 
         id: "graphic card",
-        // @ts-ignore
         img: require('../img/Categories/gpu.png'),
         specific: {
           series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb']
         }
       },
       { 
         id: "motherboard",
-        // @ts-ignore
         img: require('../img/Categories/mother.png'),
         specific: {
           gen: ['ddr3','ddr4','ddr5'],
@@ -406,56 +361,53 @@ export const types = [
       },
       { 
         id: "procesor", 
-        // @ts-ignore 
         img: require('../img/Categories/cpu.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          series: ['i3', 'i5', 'i7', 'i9', 'Ryzen 3', 'Ryzen 5', 'Ryzen 7', 'Ryzen 9'],
+          cores: [2, 4, 6, 8, 12, 16, 32],
+          threads: [4, 8, 12, 16, 24, 32, 64],
+          socket: ['LGA1200', 'LGA1151', 'AM4', 'sTRX4', 'sWRX8']
         }
       },
       { 
         id: "memory",
-        // @ts-ignore 
         img: require('../img/Categories/ram.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['DDR3', 'DDR4', 'DDR5'],
+          speed: ['2133 MHz', '2400 MHz', '2666 MHz', '3000 MHz', '3200 MHz', '3600 MHz']
         }
       },
       { 
         id: "storage", 
-        // @ts-ignore 
         img: require('../img/Categories/storage.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['HDD', 'SSD', 'NVMe SSD', 'External HDD', 'External SSD'],
+          capacity: ['250GB', '500GB', '1TB', '2TB', '4TB', '8TB', '16TB']
         }
       },
       { 
         id: "liquid cooling", 
-        // @ts-ignore 
         img: require('../img/Categories/liquid cooling.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['AIO Liquid Cooler', 'Custom Liquid Cooling Kit'],
+          radiatorSize: ['120mm', '240mm', '360mm'],
+          pumpSpeed: ['1000 RPM', '1500 RPM', '2000 RPM']
         }
       },
       { 
         id: "power supply", 
-        // @ts-ignore 
         img: require('../img/Categories/power.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          wattage: ['450W', '550W', '650W', '750W', '850W', '1000W', '1200W'],
+          efficiency: ['80+ Bronze', '80+ Silver', '80+ Gold', '80+ Platinum', '80+ Titanium']
         }
       },
       { 
         id: "desktop case",
-        // @ts-ignore 
         img: require('../img/Categories/case.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['ATX Mid Tower', 'ATX Full Tower', 'MicroATX Tower', 'Mini-ITX Tower'],
+          color: ['Black', 'White', 'Silver', 'Red', 'Blue', 'Green']
         }
       },
     ],
@@ -465,47 +417,42 @@ export const types = [
     list: [
       { 
         id: "mouse",
-        // @ts-ignore 
         img: require('../img/Categories/mouse.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['Wired Mouse', 'Wireless Mouse', 'Gaming Mouse'],
+          DPI: ['800', '1200', '1600', '2400', '3200', '4800', '6400', '16000']
         }
       },
       { 
         id: "keyboard",
-        // @ts-ignore 
         img: require('../img/Categories/keyboard.png'), 
-          specific: {
-            series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-            memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
-          }
+        specific: {
+          type: ['Mechanical Keyboard', 'Membrane Keyboard', 'Gaming Keyboard'],
+          switchType: ['Cherry MX', 'Romer-G', 'Blue Switch', 'Red Switch']
+        }
       },
       { 
         id: "headphone", 
-        // @ts-ignore 
         img: require('../img/Categories/headphone.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['Over-Ear', 'On-Ear', 'In-Ear'],
+          impedance: ['16 Ohms', '32 Ohms', '64 Ohms', '150 Ohms', '300 Ohms']
         }
       },
       { 
         id: "speakers", 
-        // @ts-ignore 
         img: require('../img/Categories/speakers.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['2.0 Speakers', '2.1 Speakers', '5.1 Surround Sound Speakers'],
+          powerOutput: ['10W', '20W', '50W', '100W', '200W']
         }
       },
       { 
         id: "mousepad", 
-        // @ts-ignore 
         img: require('../img/Categories/mousebad.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          size: ['Small', 'Medium', 'Large', 'Extended'],
+          material: ['Cloth', 'Hard Surface', 'Hybrid']
         }
       },
     ],
@@ -515,65 +462,61 @@ export const types = [
     list: [
       { 
         id: "Smartwatches", 
-        // @ts-ignore 
         img: require('../img/Categories/smartwatch.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          brand: ['Apple', 'Samsung', 'Garmin', 'Fitbit', 'Huawei'],
+          OS: ['WatchOS', 'Tizen', 'WearOS', 'Fitbit OS', 'RTOS']
         }
       },
       { 
         id: "smartphones",
-        // @ts-ignore 
         img: require('../img/Categories/iphone 15.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          brand: ['Apple', 'Samsung', 'Google', 'Huawei', 'OnePlus'],
+          OS: ['iOS', 'Android'],
+          displaySize: ['5.5"', '6.0"', '6.5"', '6.7"', '7.0"', '7.2"']
         }
       },
       { 
         id: "laptops",
-        // @ts-ignore 
         img: require('../img/Categories/notebock.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          brand: ['Apple', 'Dell', 'HP', 'Lenovo', 'Asus'],
+          screenSize: ['13"', '14"', '15.6"', '16"', '17"'],
+          CPU: ['Intel Core i5', 'Intel Core i7', 'AMD Ryzen 5', 'AMD Ryzen 7']
         }
       },
       { 
         id: "tablets", 
-        // @ts-ignore 
         img: require('../img/Categories/tablet.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          brand: ['Apple', 'Samsung', 'Microsoft', 'Lenovo', 'Huawei'],
+          screenSize: ['7.9"', '9.7"', '10.2"', '10.5"', '11"', '12.9"'],
+          OS: ['iOS', 'Android', 'Windows']
         }
       },
       { 
         id: "cameras", 
-        // @ts-ignore 
         img: require('../img/Categories/camera.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['DSLR', 'Mirrorless', 'Point-and-Shoot'],
+          resolution: ['16MP', '24MP', '32MP', '48MP', '64MP']
         }
       },
       { 
         id: "webcams", 
-        // @ts-ignore 
         img: require('../img/Categories/webcam.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          resolution: ['720p', '1080p', '4K'],
+          frameRate: ['30fps', '60fps', '120fps']
         }
       },
       { 
         id: "microphones", 
-        // @ts-ignore 
         img: require('../img/Categories/microphone.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['USB Microphone', 'XLR Microphone'],
+          polarPattern: ['Cardioid', 'Bidirectional', 'Omnidirectional']
         }
       },
     ],
@@ -582,21 +525,21 @@ export const types = [
     id: "monitor",
     list: [
       { 
-        id: "gaming monitor",
-        // @ts-ignore 
+        id: "monitor",
         img: require('../img/Categories/monitor.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          screenSize: ['24"', '27"', '32"', '34"', '38"', '49"'],
+          resolution: ['1080p', '1440p', '4K'],
+          refreshRate: ['60Hz', '75Hz', '120Hz', '144Hz', '240Hz']
         }
       },
       { 
         id: "television",
-        // @ts-ignore 
         img: require('../img/Categories/tv-samsung.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          screenSize: ['32"', '43"', '55"', '65"', '75"', '85"'],
+          resolution: ['1080p', '4K', '8K'],
+          smartFeatures: ['Smart TV', 'Voice Assistant', 'Smart Hub']
         }
       },
     ],
@@ -606,38 +549,38 @@ export const types = [
     list: [
       { 
         id: "console",
-        // @ts-ignore 
         img: require('../img/Categories/console.png'),
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          resolution: ['1080p', '4K'],
+          storageCapacity: ['500GB', '1TB', '2TB'],
+          controllerType: ['DualShock', 'Xbox Wireless Controller', 'Joy-Con']
         }
       },
       { 
         id: "xbox",
-        // @ts-ignore 
         img: require('../img/Categories/xbox.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          model: ['Xbox Series X', 'Xbox Series S', 'Xbox One X', 'Xbox One S'],
+          resolution: ['1080p', '1440p', '4K'],
+          storageCapacity: ['1TB', '2TB'],
+          controllerType: ['Xbox Wireless Controller', 'Xbox Elite Wireless Controller']
         }
       },
       { 
         id: "nitendo",
-        // @ts-ignore 
         img: require('../img/Categories/nitendo.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          model: ['Nintendo Switch', 'Nintendo Switch Lite'],
+          resolution: ['720p', '1080p'],
+          batteryLife: ['3-4 hours', '4.5-9 hours']
         }
       },
       { 
         id: "game bad",
-        // @ts-ignore 
         img: require('../img/Categories/gamebad.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['Gaming Chair', 'Racing Simulator Cockpit', 'Bean Bag Chair'],
+          material: ['PU Leather', 'Fabric', 'Mesh']
         }
       },
     ],
@@ -647,215 +590,215 @@ export const types = [
     list: [
       { 
         id: "chair",
-        // @ts-ignore 
         img: require('../img/Categories/chair.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['Office Chair', 'Gaming Chair', 'Ergonomic Chair'],
+          weightCapacity: ['250 lbs', '300 lbs', '400 lbs'],
+          recline: ['90°-180°', '135°-180°', '140°-180°']
         }
       },
       { 
         id: "holder",
-        // @ts-ignore 
         img: require('../img/Categories/holder.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['Phone Holder', 'Tablet Holder', 'Laptop Stand'],
+          material: ['Aluminum', 'ABS Plastic', 'Wood']
         }
       },
       { 
         id: "fans",
-        // @ts-ignore 
         img: require('../img/Categories/fans.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          size: ['80mm', '120mm', '140mm', '200mm'],
+          speed: ['1000 RPM', '1200 RPM', '1500 RPM', '1800 RPM']
         }
       },
       { 
         id: "cables",
-        // @ts-ignore 
         img: require('../img/Categories/cables.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['HDMI Cable', 'DisplayPort Cable', 'USB-C Cable'],
+          length: ['3ft', '6ft', '10ft', '15ft', '25ft']
         }
       },
       { 
         id: "gaming desk",
-        // @ts-ignore 
         img: require('../img/Categories/gamingdesk.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['Gaming Desk', 'Standing Desk', 'L-Shaped Desk'],
+          size: ['Small', 'Medium', 'Large']
         }
       },
       { 
         id: "led strip",
-        // @ts-ignore 
         img: require('../img/Categories/ledstrip.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          length: ['1m', '2m', '3m', '5m', '10m'],
+          color: ['RGB', 'RGBW', 'RGBWW']
         }
       },
       { 
         id: "thermal paste",
-        // @ts-ignore 
         img: require('../img/Categories/thermalpaste.png'), 
         specific: {
-          series: ['rtx 2000','rtx 3000','rtx 4000','rx 5000', 'rx 6000'],
-          memory: ['2gb','4gb','6gb','8gb','12gb','16gb','24gb'],
+          type: ['Carbon Based', 'Metal Oxide', 'Ceramic'],
+          thermalConductivity: ['5.0 W/mK', '7.5 W/mK', '10.0 W/mK']
         }
       },
     ],
   },
-]
+];
+
 
 export const brands = [
   {
     id: "nvidia",
-    // @ts-ignore 
-    img:  require('../img/brands/nvidia.png'),
+    img: require('../img/brands/nvidia.png'),
+    produce: ["graphic card", "monitor", "motherboard"]
   },
   {
     id: "amd",
-    // @ts-ignore 
-    img:  require('../img/brands/amd.png'),
+    img: require('../img/brands/amd.png'),
+    produce: ["procesor", "graphic card", "motherboard"]
   },
   {
     id: "asrock",
-    // @ts-ignore 
-    img:  require('../img/brands/asrock.png'),
+    img: require('../img/brands/asrock.png'),
+    produce: ["motherboard"]
   },
   {
     id: "benq",
-    // @ts-ignore 
-    img:  require('../img/brands/benq.png'),
+    img: require('../img/brands/benq.png'),
+    produce: ["monitor", "projector"]
   },
   {
     id: "cougar",
-    // @ts-ignore 
-    img:  require('../img/brands/cougar.png'),
+    img: require('../img/brands/cougar.png'),
+    produce: ["mouse", "keyboard", "headphone", "mousepad", "gaming desk", "chair"]
   },
   {
     id: "dell",
-    // @ts-ignore 
-    img:  require('../img/brands/dell.png'),
+    img: require('../img/brands/dell.png'),
+    produce: ["monitor", "laptops", "desktop case"]
   },
   {
     id: "gskill",
-    // @ts-ignore 
-    img:  require('../img/brands/gskill.png'),
+    img: require('../img/brands/gskill.png'),
+    produce: ["memory"]
   },
   {
     id: "corsair",
-    // @ts-ignore 
-    img:  require('../img/brands/corsair.png'),
+    img: require('../img/brands/corsair.png'),
+    produce: ["memory", "storage", "liquid cooling", "power supply", "desktop case", "mouse", "keyboard", "headphone", "speakers", "mousepad", "gaming desk", "led strip", "thermal paste"]
   },
   {
     id: "gigabyte",
-    // @ts-ignore 
-    img:  require('../img/brands/gigabyte.png'),
+    img: require('../img/brands/gigabyte.png'),
+    produce: ["motherboard"]
   },
   {
     id: "aoc",
-    // @ts-ignore 
-    img:  require('../img/brands/aoc.png'),
+    img: require('../img/brands/aoc.png'),
+    produce: ["monitor"]
   },
   {
     id: "hp",
-    // @ts-ignore 
-    img:  require('../img/brands/hp.webp'),
+    img: require('../img/brands/hp.webp'),
+    produce: ["monitor", "laptops", "desktop case", "printer"]
   },
   {
     id: "hyperx",
-    // @ts-ignore 
-    img:  require('../img/brands/hyperx.png'),
+    img: require('../img/brands/hyperx.png'),
+    produce: ["mouse", "keyboard", "headphone", "mousepad"]
   },
   {
-    id: "inte",
-    // @ts-ignore 
-    img:  require('../img/brands/intel.png'),
+    id: "intel",
+    img: require('../img/brands/intel.png'),
+    produce: ["procesor", "motherboard", "memory", "storage"]
   },
   {
-    id: "kingstone",
-    // @ts-ignore 
-    img:  require('../img/brands/kingstone.png'),
+    id: "kingston",
+    img: require('../img/brands/kingston.png'),
+    produce: ["memory", "storage"]
   },
   {
     id: "lenovo",
-    // @ts-ignore 
-    img:  require('../img/brands/lenovo.png'),
+    img: require('../img/brands/lenovo.png'),
+    produce: ["laptops", "desktop case", "tablets", "smartphones", "smartwatches", "monitor"]
   },
   {
     id: "lg",
-    // @ts-ignore 
-    img:  require('../img/brands/lg.png'),
+    img: require('../img/brands/lg.png'),
+    produce: ["monitor", "television"]
   },
   {
     id: "logitech",
-    // @ts-ignore 
-    img:  require('../img/brands/logitech.png'),
+    img: require('../img/brands/logitech.png'),
+    produce: ["mouse", "keyboard", "headphone", "speakers", "webcams"]
   },
   {
     id: "asus",
-    // @ts-ignore 
-    img:  require('../img/brands/asus.png'),
+    img: require('../img/brands/asus.png'),
+    produce: ["monitor", "motherboard", "graphic card", "laptops", "desktop case", "mouse", "keyboard", "headphone", "speakers", "smartphones", "tablets"]
   },
   {
     id: "msi",
-    // @ts-ignore 
-    img:  require('../img/brands/msi.png'),
+    img: require('../img/brands/msi.png'),
+    produce: ["monitor", "motherboard", "graphic card", "laptops", "desktop case"]
   },
   {
     id: "nzxt",
-    // @ts-ignore 
-    img:  require('../img/brands/nzxt.png'),
+    img: require('../img/brands/nzxt.png'),
+    produce: ["liquid cooling", "desktop case", "led strip", "fans"]
   },
   {
     id: "acer",
-    // @ts-ignore 
-    img:  require('../img/brands/acer.png'),
+    img: require('../img/brands/acer.png'),
+    produce: ["monitor", "laptops", "desktop case", "tablets", "smartphones"]
   },
   {
     id: "redragon",
-    // @ts-ignore 
-    img:  require('../img/brands/redragon.png'),
+    img: require('../img/brands/redragon.png'),
+    produce: ["mouse", "keyboard", "headphone", "mousepad"]
   },
   {
     id: "razer",
-    // @ts-ignore 
-    img:  require('../img/brands/razer.png'),
+    img: require('../img/brands/razer.png'),
+    produce: ["mouse", "keyboard", "headphone", "mousepad", "speakers", "gaming monitor"]
   },
   {
     id: "samsung",
-    // @ts-ignore 
-    img:  require('../img/brands/samsung.png'),
+    img: require('../img/brands/samsung.png'),
+    produce: ["monitor", "smartphones", "tablets", "television"]
   },
   {
     id: "seagate",
-    // @ts-ignore 
-    img:  require('../img/brands/seagate.png'),
+    img: require('../img/brands/seagate.png'),
+    produce: ["storage"]
   },
   {
-    id: "stealseries",
-    // @ts-ignore 
-    img:  require('../img/brands/stealseries.png'),
+    id: "steelseries",
+    img: require('../img/brands/steelseries.png'),
+    produce: ["mouse", "keyboard", "headphone", "mousepad"]
   },
   {
     id: "toshipa",
-    // @ts-ignore 
-    img:  require('../img/brands/toshipa.png'),
+    img: require('../img/brands/toshipa.png'),
+    produce: ["laptops", "storage"]
   },
   {
     id: "xpg",
-    // @ts-ignore 
-    img:  require('../img/brands/xpg.png'),
+    img: require('../img/brands/xpg.png'),
+    produce: ["memory", "storage"]
   },
   {
     id: "zotac",
-    // @ts-ignore 
-    img:  require('../img/brands/zotac.png'),
+    img: require('../img/brands/zotac.png'),
+    produce: ["graphic card", "motherboard"]
   },
+];
+
+export const sort = [
+  ['default','price: low to high','price: high to low','name: a to z','name: z to a'],
+  ['12','25','50','75',]
 ]
