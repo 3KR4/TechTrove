@@ -6,9 +6,13 @@ import MainCard from '../components/main-card';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
+import ReactPaginate from 'react-paginate';
 
 import { FiGrid } from "react-icons/fi";
 import { FaAngleDown, FaAngleUp, FaList } from 'react-icons/fa';
+import { BsSliders2 } from "react-icons/bs";
+import { IoClose } from 'react-icons/io5';
+
 
 export default function Shop() {
   localStorage.setItem('page', 'shop')
@@ -23,9 +27,18 @@ export default function Shop() {
   const minDistance = 10;
   const [priceRangevalue, setPriceRangevalue] = useState([10, 100000]);
 
+
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+
+
+
+
   const [openProductsSort, setopenProductsSort] = useState({
     sort: false,
     show: false,
+    filter: false,
     list: false,
   });
   const toggleProductsSort = (menu) => {
@@ -33,6 +46,7 @@ export default function Shop() {
       ...prevState,
       sort: menu === 'sort' ? !prevState['sort'] : false,
       show: menu === 'show' ? !prevState['show'] : false,
+      filter: menu === 'filter' ? !prevState['filter'] : false,
       list: menu === 'list' ? !prevState['list'] : prevState['list'],
     }));
   };
@@ -57,9 +71,9 @@ export default function Shop() {
   useEffect(() => {
     const handleScroll = () => {
       setScrollFilterY(window.scrollY);
-      let footer = document.querySelector(".footer");
-      if (footer) {
-        setReachedEnd(window.scrollY > footer.offsetTop - 1150);
+      let paginationHolder = document.querySelector(".paginationHolder");
+      if (paginationHolder) {
+        setReachedEnd(window.scrollY > paginationHolder.offsetTop - 800);
       }
     };
 
@@ -69,14 +83,6 @@ export default function Shop() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const handleScroll = () => {
-    setScrollFilterY(window.scrollY);
-    let footer = document.querySelector(".footer");
-    if (footer) {
-      setReachedEnd(window.scrollY > footer.offsetTop - 1150);
-    }
-  };
 
 
   const specifications = types.find(type => type.id === cureentCategory)?.list?.find(x => x.id === activeLiCat)?.specific;
@@ -112,11 +118,31 @@ export default function Shop() {
     setSlides(tempSlides);
   }, [activeLiCat]);
 
+
+
+
+
+  useEffect (() => {
+  const endOffset = itemOffset + productsSort.show;
+  setCurrentItems(Products.slice(itemOffset, endOffset));
+  setPageCount (Math.ceil(Products.length / productsSort.show));
+  }, [itemOffset, productsSort.show, Products]);
+  const handlePageClick = (event) => {
+  const newOffset = (event.selected * productsSort.show) % Products.length;
+  setItemOffset(newOffset);
+  };
+
   return (
     <div className='shop-page'>
       <div className="shop-section container">
-      <div className={`filter-section ${scrollFilterY > 105 ? reachedEnd ? 'stop' : 'move': ''}`}>
+      <div className={`filter-section ${scrollFilterY > 105 ? reachedEnd ? 'stop' : 'move': ''} ${openProductsSort.filter && 'active'}`}>
           <div className="fixed">
+            <div className="topText">
+              Filter Menu 
+              <IoClose onClick={() =>
+                  toggleProductsSort('filter') 
+                }/>
+            </div>
             <div className="categoryFilter">
             <h4>Filter By categories</h4>
               {types.map((category) => (
@@ -225,31 +251,39 @@ export default function Shop() {
         <div className="products-section">
           <div className="btns">
             <div>
-              <div className="puttons" onClick={() =>
-                  toggleProductsSort('sort') 
+              <div className="mobileFilterBtn" onClick={() =>
+                  toggleProductsSort('filter') 
                 }>
-                <h4>Sort by:</h4> 
-                  <span>{productsSort.sort} <FaAngleDown className={openProductsSort.sort && 'open'}/></span>
-                <ul className={`select ${openProductsSort.sort? 'active' : ''}`}>
-                  {sort[0].map((x) => (
-                    <li onClick={() => {
-                      handleShowChange('sort', x);
-                    }} value={x}>{x}</li>
-                  ))}
-                </ul>
+                Filter Menu
+                <BsSliders2 />
               </div>
-              <div className="puttons" onClick={() =>
-                  toggleProductsSort('show') 
-                }>
-                <h4>Show:</h4> 
-                  <span>{productsSort.show} Products <FaAngleDown className={openProductsSort.show && 'open'}/></span>
-                <ul className={`select ${openProductsSort.show? 'active' : ''}`}>
-                  {sort[1].map((x) => (
-                    <li onClick={() => {
-                      handleShowChange('show', x);
-                    }} value={x}>{x} Product</li>
-                  ))}
-                </ul>
+              <div>
+                <div className="puttons" onClick={() =>
+                    toggleProductsSort('sort') 
+                  }>
+                  <h4>Sort by:</h4> 
+                    <span>{productsSort.sort} <FaAngleDown className={openProductsSort.sort && 'open'}/></span>
+                  <ul className={`select ${openProductsSort.sort? 'active' : ''}`}>
+                    {sort[0].map((x) => (
+                      <li onClick={() => {
+                        handleShowChange('sort', x);
+                      }} value={x}>{x}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="puttons" onClick={() =>
+                    toggleProductsSort('show') 
+                  }>
+                  <h4>Show:</h4> 
+                    <span>{productsSort.show} Products <FaAngleDown className={openProductsSort.show && 'open'}/></span>
+                  <ul className={`select ${openProductsSort.show? 'active' : ''}`}>
+                    {sort[1].map((x) => (
+                      <li onClick={() => {
+                        handleShowChange('show', x);
+                      }} value={x}>{x} Product</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
             <div className="grids">
@@ -258,12 +292,31 @@ export default function Shop() {
             </div>
           </div>
           <div className={`products-holder ${openProductsSort.list && 'list'}`}>
-            {Products.map((product) => (
+            {currentItems.map((product) => (
               <MainCard product={product} details={true}/>
             ))}
           </div>
         </div>
       </div>
+        <div className="paginationHolder">
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={2}
+            marginPagesDisplayed={2}
+            pageCount={pageCount}
+            previousLabel="< prev"
+            renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            pageLinkClassName="page-num"
+            previousLinkClassName="page-num"
+            nextLinkClassName="page-num"
+          />
+        </div>
+        <div className="panner container">
+          <img src={require('../img/panner2.png')} alt="" />
+        </div>
     </div>
   )
 }
