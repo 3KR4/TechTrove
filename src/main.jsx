@@ -4,9 +4,17 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import Home from './pages/Home';
 import Product from './pages/Product';
-import Shop from './pages/shop';
-
+import Shop from './pages/Shop';
+import Cart from './pages/Cart';
+import Contact from './pages/Contact';
 import ScrollToTop from './components/scrollToTop';
+
+import './Css/master.css'
+import './Css/header-footer.css'
+import './Css/shop.css'
+import './Css/product.css'
+import './Css/cart.css'
+import './Css/about-contact.css'
 
 const AppRoutes = () => {
   return (
@@ -17,6 +25,8 @@ const AppRoutes = () => {
           <Route index element={<Home />} />
           <Route path="/product/:productName" element={<Product />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>

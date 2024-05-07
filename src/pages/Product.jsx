@@ -44,17 +44,21 @@ export default function Product() {
           {reviewModel ? <div className="hide"></div> : null}
       <div className="top-space">
         <div className="image-holder">
-          {product.Images.length > 1 && (
-            <div className="small-images">
+        {product.Images.length > 1 && (
+          <div className="small-images">
             {product.Images.map((imageUrl, index) => (
-              <img key={index} src={imageUrl} alt={`Image ${index + 1}`} className={activeImg == imageUrl ? 'active' : ''}
-                onMouseEnter={(() => {
-                  setActiveImg(imageUrl)
-                })}
+              <img 
+                key={index} 
+                src={imageUrl} 
+                alt={`Image ${index + 1}`} 
+                className={activeImg === imageUrl ? 'active' : ''}
+                onMouseEnter={() => {
+                  setActiveImg(imageUrl);
+                }}
               />
             ))}
           </div>
-          )}
+        )}
           <div className="mainImage" onMouseMove={handleMouseMove} onMouseLeave={() => {
             setMousePosition({ x: 0, y: 0 })
             setIsImgHover(false)
@@ -129,7 +133,7 @@ export default function Product() {
             <h5>Features</h5>
             <ul>
               {product.about.map((x) => (
-                <li>{x}</li>
+                <li key={x}>{x}</li>
               ))}
               
             </ul>
@@ -226,7 +230,7 @@ export default function Product() {
           <div className="ReviewS" style={{maxHeight: product.testimonies.length > 3 ? '360px' : 'unset'}}>
             <h1>Clints Reviews</h1>
             {product.testimonies.map((x) => (
-              <div className="card">
+              <div key={x.id} className="card">
                 <h3>
                   {x.name.split(' ').length === 1 ? x.name.substring(0, 2)
                   : `${x.name.split(' ')[0][0]}${x.name.split(' ')[1][0]}`}

@@ -31,8 +31,8 @@ export default function genrateProductSwiper(x) {
     }}
   >
     {x.map((y) => (
-      <SwiperSlide>
-        <MainCard product={y}/>
+      <SwiperSlide key={y.id}>
+        <MainCard product={y} details={false}/>
       </SwiperSlide>
     ))}
   </Swiper>

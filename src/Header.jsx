@@ -1,9 +1,5 @@
 import * as React from 'react';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-
 import { useTheme } from '@mui/material';
-
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -19,6 +15,8 @@ import { BiLogoInstagramAlt } from 'react-icons/bi';
 import { FaAngleDown, FaAngleUp, FaTwitter, FaFacebook, FaTiktok, } from 'react-icons/fa';
 import { IoMdSearch } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import { RiShoppingBasket2Line } from "react-icons/ri";
+
 // @ts-ignore
 import logo from './img/logo.png'
 import { Link, NavLink } from 'react-router-dom';
@@ -27,7 +25,6 @@ import { useState, useRef, useEffect } from 'react';
 import { types, Products } from './components/products';
 import { salePrice, under10Nums } from './Methods.jsx'
 
-
 const searchProducts = (searchTerm) => {
   if (searchTerm.length === 0) {
     return [];
@@ -35,9 +32,6 @@ const searchProducts = (searchTerm) => {
   return Products.filter((product) => {
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
     return (
-      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
-      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
-      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
       product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
       product.type.toLowerCase().includes(lowerCaseSearchTerm) ||
       product.brand.toLowerCase().includes(lowerCaseSearchTerm)
@@ -161,7 +155,7 @@ export default function Headers({setMode}) {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
           <div className={`cards ${openModels.searchCards ? 'active' : ''}`} style={{width: filteredProducts.length > 3 ? "109%" : "auto"}}>
             {filteredProducts.map(product => (
-              <Link to={`/product/${product.name}`} className="card" key={product.id}> 
+              <Link to={`/product/${product.name}`} className="card" key={`${product.id}-${product.name}`}> 
                 <div className='holder'>
                   <img src={product.Images[0]} alt=""/>
                   <div className="info">
@@ -230,17 +224,15 @@ export default function Headers({setMode}) {
                   <div>
                     <div className="item">
                       <h3 className='itemsLeanth'><span className="length">{Products.length}</span> Items</h3>
-                      <NavLink to="/Cart">View Cart</NavLink>
+                      <Link to={`/cart`}>View Cart</Link>
                     </div>
                     <div className="cards" style={{width: Products.length > 3 ? "109%" : "auto"}}>
-                      {Products.map(product => (
-                        <div className="card" key={product.id}>
+                      {Products.map((product, index) => (
+                        <div className="card" key={`${product.id}-${index}`}>
                           <div className='holder'>
                             <img src={product.Images[0]} alt=""/>
                             <div className="info">
-                              <NavLink to="product"> 
-                                {product.name}
-                              </NavLink>
+                            <Link to={`/product/${product.name}`}>{product.name}</Link>
                               <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
                               <div className='price'>
                                 <p className={product.stock === 0 ? 'last' : 'mainPrice'}>{product.stock !== 0 ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
@@ -298,13 +290,12 @@ export default function Headers({setMode}) {
         ))}
             </div>
             </li>
-            <Link to={'./shop'}>
-            <li><HomeOutlinedIcon/> home</li>
-            </Link>
-            <li><PeopleAltOutlinedIcon/> about us</li>
-            <li><MarkEmailUnreadOutlinedIcon/> contact us</li>
-            <li><SpeakerNotesOutlinedIcon/> blog</li>
-            <li><GrainOutlinedIcon/> special offer</li>
+            <li><Link to={'./'}><HomeOutlinedIcon style={{fontSize:'23px'}}/> home</Link></li>
+            <li><Link to={'./shop'}><RiShoppingBasket2Line style={{fontSize:'23px'}}/> shop</Link></li>
+            <li><Link to={'./'}><PeopleAltOutlinedIcon style={{fontSize:'23px'}}/> about us</Link></li>
+            <li><Link to={'./contact'}><MarkEmailUnreadOutlinedIcon style={{fontSize:'23px'}}/> contact us</Link></li>
+            <li><Link to={'./'}><SpeakerNotesOutlinedIcon style={{fontSize:'23px'}}/> blog</Link></li>
+            <li><Link to={'./'}><GrainOutlinedIcon style={{fontSize:'23px'}}/> special offer</Link></li>
           </ul>
           <div className="follow">
             <h5>Follow us at</h5> | 

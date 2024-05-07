@@ -5,7 +5,7 @@ import logo from './img/logo.png'
 // @ts-ignore
 import credit from './img/credit-cards-footer.png'
 
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { types, Products } from './components/products';
 
 import { PiClockCountdownFill } from "react-icons/pi";
@@ -26,11 +26,12 @@ export default function Footer() {
     <div className='footer'>
       <div className="container">
         <div className="top-footer">
-            <a className="logo" href="index.html">
+          <div className="logo">        
+            <Link to={`/`}>
               <img src={logo} alt="logo" />
-              Tech
-              <span>Trove</span> 
-            </a>
+              <h3>Tech<span>Trove</span></h3>
+            </Link>
+          </div>
             <div className="holder">
               <div className="Subscribe ">
                 <h4>Subscribe to our Newsletter</h4>
