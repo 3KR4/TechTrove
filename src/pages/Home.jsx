@@ -1,3 +1,4 @@
+import '../Css/master.css'
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Products, types, brands, bundles} from '../components/products'

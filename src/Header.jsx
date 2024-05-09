@@ -210,10 +210,10 @@ export default function Headers({setMode}) {
               }/>
             }
             </div>
-            <button className='favorite'>
+            <Link to={`/wishlist`} className='favorite'>
               <FavoriteBorderOutlinedIcon />
               <span className='nmbers'>3</span>
-            </button>
+            </Link>
             <button className='cartBtn' onClick={() => {
               toggleModel('cart')
             }}>
@@ -292,10 +292,10 @@ export default function Headers({setMode}) {
             </li>
             <li><Link to={'./'}><HomeOutlinedIcon style={{fontSize:'23px'}}/> home</Link></li>
             <li><Link to={'./shop'}><RiShoppingBasket2Line style={{fontSize:'23px'}}/> shop</Link></li>
-            <li><Link to={'./'}><PeopleAltOutlinedIcon style={{fontSize:'23px'}}/> about us</Link></li>
+            <li><Link to={'./about'}><PeopleAltOutlinedIcon style={{fontSize:'23px'}}/> about us</Link></li>
             <li><Link to={'./contact'}><MarkEmailUnreadOutlinedIcon style={{fontSize:'23px'}}/> contact us</Link></li>
-            <li><Link to={'./'}><SpeakerNotesOutlinedIcon style={{fontSize:'23px'}}/> blog</Link></li>
-            <li><Link to={'./'}><GrainOutlinedIcon style={{fontSize:'23px'}}/> special offer</Link></li>
+            <li><Link to={'./blog'}><SpeakerNotesOutlinedIcon style={{fontSize:'23px'}}/> blog</Link></li>
+            <li><Link to={'./shop?special=1'}><GrainOutlinedIcon style={{fontSize:'23px'}}/> special offer</Link></li>
           </ul>
           <div className="follow">
             <h5>Follow us at</h5> | 

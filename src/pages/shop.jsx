@@ -1,3 +1,4 @@
+import '../Css/shop.css'
 import React, { useEffect, useState } from 'react';
 
 import { Products, sort } from '../components/products';

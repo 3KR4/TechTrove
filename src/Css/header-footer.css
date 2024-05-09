@@ -531,6 +531,7 @@ svg.open {
   width: 100% !important;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 0px 38px;
 }
 .header .search .cards.active {
   display: block;
@@ -649,6 +650,7 @@ svg.open {
 .header .user .favorite {
   margin-right: 6px;
   margin-left: 2px;
+  position: relative;
 }
 .header .user span.nmbers {
   background: var(--main-color);
@@ -662,6 +664,7 @@ svg.open {
   position: absolute;
   top: -3px;
   right: -10px;
+  color: black;
 }
 .main-cart {
   position: absolute;
@@ -683,6 +686,7 @@ svg.open {
   border-radius: 6px;
   overflow: hidden;
   transform-origin: top center;
+  box-shadow: rgba(0, 0, 0, 0.6) 0 10px 30px;
 }
 .cartBtn:hover .main-cart {
   transform: scaleY(1);
@@ -1055,6 +1059,31 @@ body.dark footer {
   width: 55%;
 }
 
+.error-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: -50px;
+  margin-top: 25px;
+}
+.error-page h1 {
+  font-size: 90px;
+  color: var(--main-color);
+  font-weight: 600;
+  font-family: math;
+  margin-bottom: -42px;
+}
+.error-page img {
+  width: 684px;
+}
+.error-page .main-buttom {
+  position: absolute;
+  right: 46.8%;
+  top: 69%;
+}
+
 
 
 
@@ -1141,6 +1170,9 @@ body.dark footer {
   .footer .top-footer .holder {
     gap: 150px;
   }
+  .error-page .main-buttom {
+    right: 46.1%;
+  }
 }
 @media(max-width:1200px) {
   .header .bottom .menu .megaMenu {
@@ -1170,6 +1202,9 @@ body.dark footer {
   }
   .header .top .search {
     width: 44%;
+  }
+  .error-page .main-buttom {
+    right: 45.5%;
   }
 }
 
@@ -1358,6 +1393,9 @@ body.dark footer {
   .footer .middle-footer {
     padding: 40px 0;
   }
+  .error-page .main-buttom {
+    right: 42.4%;
+  }
 }
 
 
@@ -1483,6 +1521,17 @@ body.dark footer {
   }
   .footer .bottom-footer .visa {
     justify-content: flex-start;
+  }
+  .error-page {
+    overflow: hidden;
+  }
+  .error-page img {
+    width: 130%;
+  }
+  .error-page .main-buttom {
+    width: 120px;
+    height: 41px;
+    right: 37.3%;
   }
 }
 

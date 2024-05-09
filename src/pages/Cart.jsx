@@ -1,14 +1,14 @@
+import '../Css/cart-wishlist.css'
 import { Products } from '../components/products'
 import React from 'react'
 
 import { FaMinus, FaPlus, FaRegTrashAlt } from "react-icons/fa";
-import { IoIosClose } from "react-icons/io";
 import { salePrice, under10Nums } from '../Methods';
 
 export default function Cart() {
   return (
-    <div className="main-cart-holder container">
-      <div className="cart-page">
+    <div className="main-holder cart container">
+      <div className="products-list-holder">
           <div className="nav-putton row">
             <h4 className='Image'>Image</h4>
             <h4 className='Name'>Name</h4>

@@ -1,3 +1,4 @@
+import '../Css/product.css'
 import { Link, useParams } from "react-router-dom";
 import { Products, brands} from '../components/products'
 import { useState } from "react";

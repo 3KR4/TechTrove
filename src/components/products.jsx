@@ -245,69 +245,7 @@ export const Products = [
     ],
     Tags: ['PS4 Pro', '1TB']
   },
-  {
-    id: 8,
-    type: "watch",
-    category: "other",
-    name: "M75 Sport Watch",
-    price: 380.00,
-    sale: 7,
-    reviews: 12,
-    stars: 5.0,
-    stock: 34,
-    brand: '',
-    Images: [require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png')],
-    details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    about:[
-      "Interface: USB Type-A",
-      "Switch: Mechanical Switches with 20-Million clicks rating",
-      "DPI: 400/800/1600/3200/6400/12000",
-      "Warranty: 2 Year Limited"
-    ],
-    Tags: ['Sport Watch', 'Waterproof']
-  },
-  {
-    id: 9,
-    type: "graphic card",
-    category: "hardware",
-    name: "Aorus 4060ti",
-    price: 350.00,
-    sale: 15,
-    reviews: 46,
-    stars: 4.3,
-    stock: 9,
-    brand: 'Aorus',
-    Images: [require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png')],
-    details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    about:[
-      "Interface: USB Type-A",
-      "Switch: Mechanical Switches with 20-Million clicks rating",
-      "DPI: 400/800/1600/3200/6400/12000",
-      "Warranty: 2 Year Limited"
-    ],
-    Tags: ['RTX 4000', '8GB']
-  },
-  {
-    id: 10,
-    type: "console",
-    category: "other",
-    name: "ps4 pro",
-    price: 290.00,
-    sale: 18,
-    reviews: 309,
-    stars: 5.0,
-    stock: 12,
-    brand: 'sony',
-    Images: [require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png')],
-    details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    about:[
-      "Interface: USB Type-A",
-      "Switch: Mechanical Switches with 20-Million clicks rating",
-      "DPI: 400/800/1600/3200/6400/12000",
-      "Warranty: 2 Year Limited"
-    ],
-    Tags: ['PS4 Pro', '1TB']
-  },
+
 ];
 
 export const bundles = [

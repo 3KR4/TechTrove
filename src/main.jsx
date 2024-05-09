@@ -5,16 +5,13 @@ import App from './App';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import Shop from './pages/Shop';
-import Cart from './pages/Cart';
 import Contact from './pages/Contact';
+import Cart from './pages/Cart';
+import WishList from './pages/wishlist'
+import Error404 from './pages/Error404'
 import ScrollToTop from './components/scrollToTop';
 
-import './Css/master.css'
 import './Css/header-footer.css'
-import './Css/shop.css'
-import './Css/product.css'
-import './Css/cart.css'
-import './Css/about-contact.css'
 
 const AppRoutes = () => {
   return (
@@ -25,8 +22,10 @@ const AppRoutes = () => {
           <Route index element={<Home />} />
           <Route path="/product/:productName" element={<Product />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
     </BrowserRouter>
