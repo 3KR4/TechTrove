@@ -1,5 +1,8 @@
 /*!ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss cart*/
 
+.wishlist.main-holder {
+  margin-top: 50px;
+}
 .cart.main-holder {
   display: flex;
   margin-top: 36px;
