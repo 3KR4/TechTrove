@@ -1,9 +1,8 @@
 import '../Css/cart-wishlist.css'
 import { Products } from '../components/products'
-import { FaMinus, FaPlus, FaRegTrashAlt } from "react-icons/fa";
-import { salePrice, under10Nums } from '../Methods';
+import { FaRegTrashAlt } from "react-icons/fa";
 
-export default function Wishlist() {
+export default function WishList() {
   return (
     <div className="main-holder wishlist container">
       <div className="products-list-holder">

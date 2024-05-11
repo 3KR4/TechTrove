@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Product from './pages/Product';
 import Contact from './pages/Contact';
 import Cart from './pages/Cart';
-import WishList from './pages/Wishlist'
+import WishList from './pages/Wishlist';
 import Shop from './pages/Shop';
 import Blogs from './pages/Blogs'
 import Error404 from './pages/Error404'
