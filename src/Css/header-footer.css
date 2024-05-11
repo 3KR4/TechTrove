@@ -403,7 +403,7 @@ svg.open {
   color: var(--main-color);
 }
 .main-card .holder {
-  padding: 28px;
+  padding: 19px;
   padding-bottom: 14px;
   padding-top: 0;
 }
@@ -454,8 +454,111 @@ svg.open {
   color: #1e9147;
   font-weight: 500;
 }
+/*! ========= pagination ========== */
 
+.paginationHolder .pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.paginationHolder .pagination  li .page-num {
+  padding: 10px 18px;
+  max-width: 45px;
+  max-height: 40px;
+  font-size: 17px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+  color: var(--text-color);
+  background: var(--section-color);
+}
+.paginationHolder .pagination  li.selected .page-num {
+  background: var(--main-color);
+  color: white;
+  font-weight: 800;
+}
+.paginationHolder .pagination  li.next a,
+.paginationHolder .pagination  li.previous a{
+  max-width: 90px;
+  max-height: 40px;
+}
+/*! ========= Reviews ========== */
 
+.ReviewS {
+  background: var(--section-color);
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 20px;
+  width: 65%;
+  overflow-y: auto;
+}
+.ReviewS h1 {
+  color: var(--main-color);
+  font-size: 20px;
+  margin-bottom: 27px;
+}
+.ReviewS .card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+.ReviewS .card:last-child {
+  margin-bottom: 7px;
+}
+.ReviewS .card > h3 {
+  min-width: 60px;
+  min-height: 60px;
+  font-size: 20px;
+  border-radius: 50%;
+  display: flex;
+  color: white;
+  background: #2c2e2d;
+  align-self: flex-start;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+body.dark .ReviewS .card > h3 {
+  background: var(--body-color);
+}
+.ReviewS .card .text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.ReviewS .card .text h3 {
+  font-size: 16px;
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+.ReviewS .card .text p:last-child {
+  margin-top: 5px;
+  font-size: 15px;
+}
+.ReviewS .card .text .stars {
+  color: var(--main-color);
+  font-size: 12px;
+}
+.ReviewS .card .replay {
+  border: none;
+  color: var(--paragraph);
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  cursor: pointer;
+  transition: 0.3s !important;
+}
+.ReviewS .card .replay:hover {
+  color: var(--main-color);
+}
 
 /*! ======================= HEADER ========================= */
 
@@ -1396,6 +1499,9 @@ body.dark footer {
   .error-page .main-buttom {
     right: 42.4%;
   }
+  .ReviewS {
+    padding: 22px;
+  }
 }
 
 
@@ -1532,6 +1638,26 @@ body.dark footer {
     width: 120px;
     height: 41px;
     right: 37.3%;
+  }
+  .paginationHolder .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 89%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .paginationHolder .pagination li .page-num {
+    max-width: 40px;
+    max-height: 34px;
+    font-size: 14px;
+  }
+  .paginationHolder .pagination {
+    max-width: 90%;
+  }
+  .ReviewS {
+    width: 100%;
+    padding: 20px;
   }
 }
 

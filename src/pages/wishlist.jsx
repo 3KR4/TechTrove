@@ -1,5 +1,4 @@
 import '../Css/cart-wishlist.css'
-import '../Css/cart-wishlist.css'
 import { Products } from '../components/products'
 import { FaMinus, FaPlus, FaRegTrashAlt } from "react-icons/fa";
 import { salePrice, under10Nums } from '../Methods';

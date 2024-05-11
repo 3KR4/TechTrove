@@ -311,67 +311,7 @@ body.dark .single-product .big-area .specifications li span {
   width: 100%;
   margin: 27px 0 -4px;
 }
-.single-product .ReviewS {
-  background: var(--section-color);
-  padding: 30px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 20px;
-  width: 65%;
-  overflow-y: auto;
-}
-.single-product .ReviewS h1 {
-  color: var(--main-color);
-  font-size: 20px;
-  margin-bottom: 27px;
-}
-.single-product .ReviewS .card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  margin-bottom: 25px;
-  gap: 15px;
-}
-.single-product .ReviewS .card:last-child {
-  margin-bottom: 7px;
-}
-.single-product .ReviewS .card > h3 {
-  min-width: 60px;
-  min-height: 60px;
-  font-size: 20px;
-  border-radius: 50%;
-  display: flex;
-  color: white;
-  background: #2c2e2d;
-  align-self: flex-start;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-}
-body.dark .single-product .ReviewS .card > h3 {
-  background: var(--body-color);
-}
-.single-product .ReviewS .card .text {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.single-product .ReviewS .card .text h3 {
-  font-size: 16px;
-  color: var(--text-color);
-  text-transform: capitalize;
-}
-.single-product .ReviewS .card .text p:last-child {
-  margin-top: 5px;
-  font-size: 15px;
-}
-.single-product .ReviewS .card .text .stars {
-  color: var(--main-color);
-  font-size: 12px;
-}
-.single-product .ReviewS .card .text .stars i {
-  margin-right: 2px;
-}
+
 .reviewModal {
   background: var(--section-color);
   position: fixed;
@@ -487,9 +427,7 @@ body.dark .single-product .ReviewS .card > h3 {
     gap: 12px;
     padding: 60px 8px;
   }
-  .single-product .ReviewS {
-    padding: 22px;
-  }
+
 }
 
 @media(max-width:768px) {
@@ -540,13 +478,7 @@ body.dark .single-product .ReviewS .card > h3 {
     width: 100%;
   }
   .single-product .overall,
-  .single-product .ReviewS {
-    width: 100%;
-  }
-  .single-product .big-area, 
-  .single-product .ReviewS { 
-    padding: 20px;
-  }
+
   .single-product .big-area .info-area1 {
     min-width: unset;
   }

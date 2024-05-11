@@ -71,6 +71,7 @@ export default function Shop() {
   const handlePageClick = (event) => {
   const newOffset = (event.selected * productsSort.show) % Products.length;
   setItemOffset(newOffset);
+  window.scrollTo(0, 0);
   };
 
   return (

@@ -308,9 +308,6 @@ body.light .ui-checkbox {
 .shop-page .products-section {
   width: 100%;
 }
-.shop-page .products-section .btns-nav {
-
-}
 .shop-page .products-section .products-holder {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -513,37 +510,6 @@ body.light .ui-checkbox {
   background: var(--main-color);
   color: white;
 }
-
-.paginationHolder .pagination {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.paginationHolder .pagination  li .page-num {
-  padding: 10px 18px;
-  max-width: 45px;
-  max-height: 40px;
-  font-size: 17px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 5px;
-  color: var(--text-color);
-  background: var(--section-color);
-}
-.paginationHolder .pagination  li.selected .page-num {
-  background: var(--main-color);
-  color: white;
-  font-weight: 800;
-}
-.paginationHolder .pagination  li.next a,
-.paginationHolder .pagination  li.previous a{
-  max-width: 90px;
-  max-height: 40px;
-}
 .shop-page .panner {
   position: relative;
   overflow: hidden;
@@ -688,22 +654,6 @@ body.light .ui-checkbox {
   .shop-page .btns .puttons h4 {
     font-size: 13px;
     padding: 13px 8px 13px 11px;
-  }
-  .paginationHolder .pagination {
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 89%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .paginationHolder .pagination li .page-num {
-    max-width: 40px;
-    max-height: 34px;
-    font-size: 14px;
-  }
-  .paginationHolder .pagination {
-    max-width: 90%;
   }
   .shop-page .panner,
   .shop-page .panner img  {

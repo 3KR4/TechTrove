@@ -35,7 +35,7 @@ export default function Home() {
     brands2.push(brands[i])
   }
   
-  let Bundles = bundles.filter(x => x.view == true)
+
   
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 992px)'); // Adjust the breakpoint as needed
@@ -52,9 +52,9 @@ export default function Home() {
     };
   }, []);
 
-  const endTime = new Date('2024-05-10T00:00:00');
 
   const curentDate = new Date();
+  let Bundles = bundles.filter(x => x.view && new Date(x.endTime) > curentDate);
 
   const handleHover = (index, img) => {
     const newHoverImages = [...hoverImages];
@@ -253,65 +253,66 @@ export default function Home() {
       <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
     </div>
     <div className="container">
-      <div className="bigHolder">
-        <div className="products">
+      <div className="bigHolder" style={{width: Bundles.length > 0 ? '' : '100%' }}>
+        <div className="products" style={{gridTemplateColumns: Bundles.length > 0 ? '' : 'repeat(auto-fill, minmax(260px, 1fr))' }}>
         {Products.slice(0, 6).map((product) => (
           <MainCard key={product.id}  product={product} details={false}/>
         ))}
 
         </div>
       </div>
-      <div className="saleHolder">
-        <h4 className="sectionTitleSale">Hot Bundles</h4>
-        <Swiper
-  pagination={{
-    dynamicBullets: true,
-    clickable: true,
-  }}
-  modules={[Pagination, Autoplay]}
-  loop={true}
-  slidesPerView={1}
-  speed={1150}
-  autoplay={{ delay: 3000, disableOnInteraction: false }}
-  breakpoints={{
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 1,
-    },
-  }}
->
-  {Bundles.map((X, index) => (
-    endTime > curentDate  && (
-      <SwiperSlide key={`${X.id}-${index}`} className="sale">
-        <div className="image">
-          <img src={X.Images[0]} alt=""/>
-        </div>
-        <h3>{X.type} {X.category}            
-          <span className="hot">HOT</span>
-        </h3>
-        <div className="review">
-          <div className="stars">
-            <Rating
-              defaultValue={X.stars}
-              precision={X.stars % 1 <= 0.7 ? 0.5 : 1}
-              sx={{ fontSize: '20px', color: '#d3ab3f' }}
-              readOnly
-            />
+        {Bundles.length > 0 && (
+          <div className="saleHolder">
+            <h4 className="sectionTitleSale">Hot Bundles</h4>
+            <Swiper
+              pagination={{
+                dynamicBullets: true,
+                clickable: true,
+              }}
+              modules={[Pagination, Autoplay]}
+              loop={true}
+              slidesPerView={1}
+              speed={1150}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              breakpoints={{
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 1,
+                },
+              }}
+              >
+              {Bundles.map((X, index) => (
+                <SwiperSlide key={`${X.id}-${index}`} className="sale">
+                  <div className="image">
+                    <img src={X.Images[0]} alt=""/>
+                  </div>
+                  <h3>{X.type} {X.category}            
+                    <span className="hot">HOT</span>
+                  </h3>
+                  <div className="review">
+                    <div className="stars">
+                      <Rating
+                        defaultValue={X.stars}
+                        precision={X.stars % 1 <= 0.7 ? 0.5 : 1}
+                        sx={{ fontSize: '20px', color: '#d3ab3f' }}
+                        readOnly
+                      />
+                    </div>
+                    <p>{X.reviews} Review</p>
+                  </div>
+                  <span className='price'>{salePrice(X)} <p>${X.price}</p> <p className='saleNum'>-{under10Nums(X.sale)}% OFF</p></span>
+                  <p className='details'>Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU</p>
+                  <h2>The offer will expire on OCtoper <br/> 30th</h2>
+                  <CountdownTimer targetDate={new Date (X.endTime)} />
+                  <Link to='/shop' className="main-buttom">Get It Now</Link>
+                </SwiperSlide>
+              ))}
+              </Swiper>
           </div>
-          <p>{X.reviews} Review</p>
-        </div>
-        <span className='price'>{salePrice(X)} <p>${X.price}</p> <p className='saleNum'>-{under10Nums(X.sale)}% OFF</p></span>
-        <p className='details'>Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU</p>
-        <h2>The offer will expire on OCtoper <br/> 30th</h2>
-        <CountdownTimer targetDate={endTime} />
-        <Link to='/shop' className="main-buttom">Get It Now</Link>
-      </SwiperSlide>
-    )
-  ))}
-</Swiper>
-      </div>
+        )}
+
     </div>
   </div>
   <FeaturedProduct />

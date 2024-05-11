@@ -34,6 +34,7 @@ const searchProducts = (searchTerm) => {
     return (
       product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
       product.type.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.category.toLowerCase().includes(lowerCaseSearchTerm) ||
       product.brand.toLowerCase().includes(lowerCaseSearchTerm)
     );
   });
@@ -294,7 +295,7 @@ export default function Headers({setMode}) {
             <li><Link to={'./shop'}><RiShoppingBasket2Line style={{fontSize:'23px'}}/> shop</Link></li>
             <li><Link to={'./about'}><PeopleAltOutlinedIcon style={{fontSize:'23px'}}/> about us</Link></li>
             <li><Link to={'./contact'}><MarkEmailUnreadOutlinedIcon style={{fontSize:'23px'}}/> contact us</Link></li>
-            <li><Link to={'./blog'}><SpeakerNotesOutlinedIcon style={{fontSize:'23px'}}/> blog</Link></li>
+            <li><Link to={'./blogs'}><SpeakerNotesOutlinedIcon style={{fontSize:'23px'}}/> blogs</Link></li>
             <li><Link to={'./shop?special=1'}><GrainOutlinedIcon style={{fontSize:'23px'}}/> special offer</Link></li>
           </ul>
           <div className="follow">

@@ -1,6 +1,6 @@
 /*!ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss cart*/
 
-.main-holder {
+.cart.main-holder {
   display: flex;
   margin-top: 36px;
   gap: 16px;

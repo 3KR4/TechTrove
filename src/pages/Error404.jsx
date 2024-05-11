@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import errorLight from '../img/404-light.png'; 
-import errorDark from '../img/404-dark.png'; 
+import errorImg from '../img/404-light.png'; 
+
 
 export default function Error404() {
   const [isLightTheme, setIsLightTheme] = useState(true);
@@ -26,7 +26,7 @@ export default function Error404() {
   return (
     <div className='error-page'>
       <h1>404</h1>
-      <img src={errorLight} alt="" />
+      <img src={errorImg} alt="" />
 
       <Link to='./' className='main-buttom'>Back To Home</Link>
     </div>

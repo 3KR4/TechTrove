@@ -1,0 +1,274 @@
+/*!ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss Blogs*/
+
+.blog-page {
+  margin-top: 60px;
+  display: flex;
+  gap: 25px;
+}
+.blog-page .blogs-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0;
+  width: 71%;
+}
+.blog-page .main-holder {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(306px, 1fr));
+  grid-gap: 20px;
+}
+.blog-page .main-holder .card {
+  background-color: var(--section-color);
+  display: flex;
+  flex-direction: column;
+  border: none;
+  overflow: hidden; 
+  transition: 0.3s;
+  box-shadow: 0px 0px 20px #00000012;
+  border-radius: 10px 10px 6px 6px;
+}
+.blog-page .main-holder .card:hover {
+  transform: translateY(-10px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.blog-page .main-holder .card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 4px solid var(--hover-color);
+}
+.blog-page .main-holder .card .text {
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.blog-page .main-holder .card h3 {
+  font-size: 19px;
+  color: var(--text-color);
+}
+.blog-page .main-holder .card p:first-child {
+  margin-bottom: -8px;
+}
+.blog-page .main-holder .card p {
+  color: var(--paragraph);
+  font-size: 14px;
+  letter-spacing: -0.1px;
+}
+.blog-page .main-holder .card h3 {
+  transition: 0.3s;
+  font-weight: 400;
+}
+.blog-page .main-holder .card h3:hover {
+  color: var(--hover-color);
+}
+.blog-page .main-holder .card .lastHolder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.blog-page .main-holder .card .main-buttom {
+  width: 120px;
+  height: 43px;
+}
+.blog-page .main-holder .card .lastHolder .time {
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+}
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  width: 27%;
+  padding: 24px;
+  height: fit-content;
+  border-radius: 4px;
+  background: var(--section-color);
+}
+.nav-section hr {
+  margin: 20px 0;
+}
+.nav-section h6 {
+  color: var(--text-color);
+  margin-bottom: 17px;
+}
+.nav-section > * {
+  color: var(--text-color);
+  border-radius: 4px;
+}
+.nav-section form {
+  position: relative;
+}
+.nav-section form input {
+  width: 100%;
+  height: 46px;
+  padding: 13px 60px 13px 16px;
+  color: var(--text-color);
+  border-radius: 4px;
+  background: #454545;
+}
+body.light .nav-section form input {
+  background: var(--body-color);
+  border: 1px solid var(--border-color);
+}
+.nav-section form input:focus {
+  outline: none;
+  border: 1px solid var(--main-color) !important;
+}
+.nav-section form button {
+  background: var(--main-color);
+  border: none;
+  color: white;
+  width: 46px;
+  height: 46px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-section form button svg {
+  font-size: 16px;
+}
+
+.nav-section > div .box {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+}
+.nav-section > div .holder {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nav-section > div .box img {
+  width: 93px;
+  height: 80px;
+  object-fit: cover;
+  border-top-right-radius: 17px;
+  border-top-left-radius: 8px;
+}
+.nav-section > div > h4 {
+  color: var(--main-color);
+  margin-bottom: 17px;
+  font-weight: 500;
+  font-size: 15px;
+}
+.nav-section > div:last-child > h4 {
+  margin-bottom: 9px;
+}
+.nav-section > div h4 {
+  margin-bottom: 17px;
+  font-weight: 500;
+  font-size: 15px;
+}
+.nav-section > div .time {
+  display: flex;
+}
+.nav-section > div .box span {
+  color: var(--paragraph);
+  font-size: 14px;
+}
+.nav-section > div .box svg {
+  color: var(--paragraph);
+  margin-right: 4px;
+}
+.nav-section > div .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.nav-section > div .tags a {
+  color: var(--paragraph);
+  font-size: 15px;
+  padding: 6px 7px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.nav-section > div .tags a:hover {
+  color: white;
+  background-color: var(--main-color);
+}
+
+
+
+/*!ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss BlogSingle*/
+
+.blogSingle {
+  width: 71%;
+  background-color: var(--section-color);
+  border-radius: 7px 7px 0 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.blogSingle img {
+  max-width: 100%;
+  align-self: center;
+}
+.blogSingle .bigBigHolder {
+  padding: 30px;
+}
+.blogSingle .holder > h3 {
+  color: var(--text-color);
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+.blogSingle p {
+  color: var(--paragraph);
+  margin-bottom: 25px;
+}
+.blogSingle .holder {
+  display: flex;
+  flex-direction: column;
+}
+.blogSingle .holder .bigP {
+  margin-bottom: 20px;
+}
+.blogSingle .holder .SecondUl {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 8px 0 24px;
+}
+.blogSingle .holder .SecondUl li {
+  color: var(--paragraph);
+  display: flex;
+  align-items: center;
+}
+.blogSingle .holder .SecondUl li svg {
+  color: var(--main-color);
+  margin-right: 7px;
+  border-radius: 50px;
+  font-size: 18px;
+}
+.blogSingle .ReviewS {
+  width: unset;
+  box-shadow: none;
+  padding: 0 20px;
+}
+.blogSingle .ReviewS h1 {
+  margin-bottom: 20px;
+}
+.blogSingle .ReviewS .card .text p {
+  margin: 0;
+}
+
+.blogSingle .contact {
+  padding: 33px 35px 35px;
+}
+.blogSingle .contact h1 {
+  color: var(--text-color);
+  font-size: 17px;
+  margin-bottom: 29px;
+}
+.blogSingle .contact {
+  width: 100%;
+}
+.blogSingle .contact .textarea {
+  margin-bottom: 28px;
+}

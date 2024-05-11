@@ -260,6 +260,7 @@ export const bundles = [
     stock: 3,
     stars: 4.5,
     Images: [require('../img/bundle.png')],
+    endTime: '2024-06-30T00:00:00',
     details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
     about:[
       "Interface: USB Type-A",
@@ -282,6 +283,7 @@ export const bundles = [
     stock: 3,
     stars: 4.5,
     Images: [require('../img/bundle.png')],
+    endTime: '2024-06-22T00:00:00',
     details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
     about:[
       "Interface: USB Type-A",
@@ -294,7 +296,7 @@ export const bundles = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     view: true,
     category: "bundle",
     type: "Gaming PC",
@@ -304,6 +306,7 @@ export const bundles = [
     stock: 3,
     stars: 4.5,
     Images: [require('../img/bundle.png')],
+    endTime: '2024-06-18T00:00:00',
     details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
     about:[
       "Interface: USB Type-A",
@@ -316,9 +319,9 @@ export const bundles = [
     ],
   },
   {
-    id: 2,
+    id: 4,
     view: true,
-    category: "Bundle",
+    category: "bundle",
     type: "Gaming PC",
     price: "2500.00",
     sale: 20,
@@ -326,6 +329,7 @@ export const bundles = [
     stock: 3,
     stars: 4.5,
     Images: [require('../img/bundle.png')],
+    endTime: '2024-06-16T00:00:00',
     details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
     about:[
       "Interface: USB Type-A",
@@ -795,7 +799,93 @@ export const brands = [
   },
 ];
 
+export const blogs = [
+  {
+    id: 1,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/swiper1.png'),
+    link: '',
+    tags: ['','','',],
+  },
+  {
+    id: 2,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/swiper2.png'),
+    link: '',
+    tags: ['','','',],
+  },
+  {
+    id: 9,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/landing03.jpg'),
+    link: '',
+    tags: ['','','',],
+  },
+  {
+    id: 3,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/swiper3.png'),
+    link: '',
+    tags: ['','','',],
+  },
+  {
+    id: 4,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/swiper4.png'),
+    link: '',
+    tags: ['','','',],
+  },
+  {
+    id: 5,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/swiper5.png'),
+    link: '',
+    tags: ['','','',],
+  },
+  {
+    id: 6,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/swiper6.png'),
+    link: '',
+    tags: ['','','',],
+  },
+  {
+    id: 7,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/landing01.jpg'),
+    link: '',
+    tags: ['','','',],
+  },
+  {
+    id: 8,
+    title: 'Interesting fact about gaming consoles',
+    type: 'Gaming',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    img: require('../img/landing02.jpg'),
+    link: '',
+    tags: ['','','',],
+  },
+
+]
+
 export const sort = [
   ['default','price: low to high','price: high to low','name: a to z','name: z to a'],
   ['12','25','50','75',]
 ]
+

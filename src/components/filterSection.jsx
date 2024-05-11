@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
 import { IoClose } from 'react-icons/io5';
 import { Products, brands, types, sort } from '../components/products';
