@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Rating, TextField } from "@mui/material";
 import { salePrice, under10Nums } from "../Methods";
 import genrateProductSwiper from "../components/genrateProductSwiper";
-
+import AddToCartButton from '../components/AddToCartButton';
 
 import { IoMdCloseCircle } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
@@ -42,7 +42,7 @@ export default function Product() {
 
   return (
     <div className="single-product container">
-          {reviewModel ? <div className="hide"></div> : null}
+      {reviewModel ? <div className="hide"></div> : null}
       <div className="top-space">
         <div className="image-holder">
         {product.Images.length > 1 && (
@@ -99,14 +99,13 @@ export default function Product() {
             </span>
 
             <div className='price'>
-              <p className={!instock ? 'last' : null}>{instock ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
+              <p className={!instock ? 'last' : 'mainPrice'}>{instock ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
               {product.sale > 0 && instock && (
                 <>
                 <p className="lastPrice">${product.price.toFixed(2)}</p> 
                 <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>
                 </>
               )}
-
             </div>
             {brand && (
                 <Link to={`/shop/${brand.id}`} className="brand">
@@ -118,9 +117,7 @@ export default function Product() {
               {product.details}
             </p>
             <div className="buttons">
-              {instock && (
-                <button className="main-buttom add"><IoCart style={{fontSize: '23px'}}/> Add To Cart</button>
-              )}
+              <AddToCartButton product={product} small={false}/>
               <button className="main-buttom"><FaCodeCompare/> <span> Compare</span></button>
               <button className="main-buttom"><FaHeartCirclePlus/> <span> Add To Wishlist</span></button>
             </div>
@@ -255,8 +252,6 @@ export default function Product() {
 
     </div>
       </div>
-
-      
 
       <div className={`reviewModal ${reviewModel ? 'active' : ''}`}>
         <IoClose onClick={() => {

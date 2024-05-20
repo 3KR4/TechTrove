@@ -40,7 +40,7 @@ export default function Blogs() {
                 <h3>{blog.title}</h3>
                 <p>{blog.details}</p>
                 <div className="lastHolder">
-                  <Link to={`/blog/${blog.title}`} className="main-buttom">Read More</Link>
+                  <Link to={`/blog/${blog.id}`} className="main-buttom">Read More</Link>
                   <p className='time'><CiViewTimeline /> <span> 05th Nov 2023</span></p>
                 </div>
               </div>

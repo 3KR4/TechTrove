@@ -3,7 +3,6 @@
 *{
   font-family: 'Roboto', sans-serif;
 }
-
 .grow {
   flex-grow: 1;
 }
@@ -31,9 +30,9 @@ body {
   --text-color:   #696969;
   --paragraph :   #858585;
   --section-color:#efefef;
-  --hover-color:  #a48020;
+  --hover-color: #daaa25;
   --border-color: #c3c3c3;
-  --border2-color: #dfdfdf;
+  --border2-color:#dfdfdf;
   --box-shadow: rgb(0 0 0 / 17%) 0px 10px 23px -5px;
 }
 body.dark {
@@ -42,6 +41,7 @@ body.dark {
   --text-color:   #dcdcdc;
   --paragraph :   #909090;
   --section-color:#2c2e2d;
+  --hover-color:  #a48020;
   --border-color: #525252;
   --border2-color: rgb(56, 56, 56);
   --box-shadow: rgb(0 0 0 / 24%) 0px 11px 23px -5px;
@@ -114,7 +114,8 @@ hr {
   height: 2px;
   border: none;
 }
-input {
+input,
+textarea {
   padding: 0 18px;
   border-radius: 5px;
   border: none;
@@ -122,13 +123,31 @@ input {
   background: var(--section-color);
   color: var(--text-color);
 }
-input::placeholder {
-  color: var(--text-color);
+input::placeholder,
+textarea::placeholder {
+  color: var(--paragraph);
 }
 input:focus {
   border: none;
   outline: 1px solid var(--main-color);
 }
+.customLabel.Mui-focused {
+  color: var(--main-color) !important;
+}
+.customInput .MuiFilledInput-root::after {
+  border-bottom: 2px solid var(--main-color) !important;
+}
+.customInput svg {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+.customInput svg:hover {
+  color: var(--main-color);
+}
+
+
 button {
   border: none;
   background: transparent;
@@ -440,6 +459,7 @@ svg.open {
 }
 .price p.mainPrice {
   color: var(--main-color);
+  font-size: 18px;
 }
 .price p.last {
   color: var(--paragraph);
@@ -507,32 +527,37 @@ svg.open {
   align-items: center;
   background-color: transparent;
   border: none;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   gap: 15px;
 }
 .ReviewS .card:last-child {
   margin-bottom: 7px;
 }
-.ReviewS .card > h3 {
-  min-width: 60px;
-  min-height: 60px;
+.imageText {
+  width: 60px;
+  height: 60px;
   font-size: 20px;
   border-radius: 50%;
   display: flex;
-  color: white;
+  color: white !important;
   background: #2c2e2d;
   align-self: flex-start;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  position: relative;
 }
-body.dark .ReviewS .card > h3 {
+body.dark .imageText {
   background: var(--body-color);
+}
+body.dark .addCommentDev .imageText {
+  background: var(--section-color);
 }
 .ReviewS .card .text {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  flex: 1;
 }
 .ReviewS .card .text h3 {
   font-size: 16px;
@@ -547,7 +572,24 @@ body.dark .ReviewS .card > h3 {
   color: var(--main-color);
   font-size: 12px;
 }
-.ReviewS .card .replay {
+.ReviewS .card .replyNum {
+  font-weight: 400;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  width: fit-content;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.ReviewS .card .replyNum:hover {
+  color: var(--main-color);
+}
+.ReviewS .card .replyNum svg {
+  padding: 6px !important;
+  transition: 0s !important;
+}
+.ReviewS .card button.reply {
   border: none;
   color: var(--paragraph);
   position: absolute;
@@ -555,9 +597,82 @@ body.dark .ReviewS .card > h3 {
   right: 8px;
   cursor: pointer;
   transition: 0.3s !important;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-.ReviewS .card .replay:hover {
+.ReviewS .card button.reply:hover {
   color: var(--main-color);
+}
+.ReviewS .card button.reply svg {
+  transition: 0s !important;
+}
+.ReviewS .card .replysHolder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transform: translateX(-8%);
+}
+.ReviewS .card::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  background: var(--main-color);
+} 
+.ReviewS > .card::before {
+  left: -15px;
+}
+.ReviewS .card::after {
+  content: '';
+  position: absolute;
+  height: 34px;
+  left: -13.2%;
+  top: -16%;
+  border-bottom-left-radius: 62px;
+  border-bottom: 2px solid var(--main-color);
+} 
+.ReviewS .commentsHolder > .card::after {
+  display: none;
+}
+.ReviewS .replysHolder > .card::after {
+  top: -1%;
+  left: -11.2%;
+  width: 9%;
+}
+.ReviewS .replysHolder .text .card::after {
+  width: 10.5%;
+  left: -13.2%;
+  top: -16%;
+}
+.ReviewS .card .replysHolder .card {
+  scale: 0.85;
+  margin: 0;
+  transform: translateX(-5%);
+}
+.ReviewS .replysHolder .card button.reply {
+  top: -5px;
+  gap: 0px;
+}
+.ReviewS .replysHolder .card button.reply svg {
+  width: 25px;
+  height: 25px;
+} 
+.ReviewS .addCommentDev {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 104%;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 8px;
+  transform: translateX(-2%);
+}
+body.dark .ReviewS .addCommentDev {
+  background: var(--body-color);
 }
 
 /*! ======================= HEADER ========================= */
@@ -750,7 +865,7 @@ body.dark .ReviewS .card > h3 {
 .header .user svg {
   font-size: 28px;
 }
-.header .user .favorite {
+.header .user a {
   margin-right: 6px;
   margin-left: 2px;
   position: relative;
@@ -760,14 +875,15 @@ body.dark .ReviewS .card > h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  width: 17px;
-  height: 17px;
+  font-size: 13px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   position: absolute;
   top: -3px;
-  right: -10px;
-  color: black;
+  right: -11px;
+  color: #292929;
 }
 .main-cart {
   position: absolute;
@@ -811,6 +927,9 @@ body.dark .ReviewS .card > h3 {
 .cartBtn:hover .main-cart::before {
   width: 100%;
   transition: 1s;
+}
+.cartBtn:hover .main-cart h3 {
+  margin: 6px 0 -1px;
 }
 .main-cart .info {
   text-align: left;
@@ -913,6 +1032,9 @@ body.dark .ReviewS .card > h3 {
 .main-cart .Check {
   width: 100%;
 }
+.compareIco {
+  display: none;
+}
 .header .bottom {
   position: relative;
   transition: padding 0.3s;
@@ -930,6 +1052,8 @@ body.dark .ReviewS .card > h3 {
   align-items: center;
   font-weight: 600;
   font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 .header .bottom .container {
   position: relative;
@@ -943,9 +1067,12 @@ body.dark .ReviewS .card > h3 {
 .header .bottom .menu li:first-child {
   margin-right: -5px;
 }
+.header .bottom .menu li:first-child a {
+  padding: 0;
+}
 
-.header .bottom .menu li {
-  padding: 15px 0;
+.header .bottom .menu li a {
+  padding: 0px;
   cursor: pointer;
   transition: 0.3s;
   display: flex;
@@ -971,13 +1098,14 @@ body.dark .ReviewS .card > h3 {
 .categorieBar {
   display: block !important;
 }
-.header .bottom .menu > li:not(:first-child):hover a,
+.header .bottom .menu > li:hover,
+.header .bottom .menu > li:hover > a,
 .header .bottom .menu li:hover svg {
   color: var(--main-color);
 }
 
 .header .bottom .menu .megaMenu .category {
-  width: 100%;
+  width: 186px;
   padding: 5px 17px;
 }
 .header .bottom .menu .megaMenu .types {
@@ -1192,7 +1320,17 @@ body.dark footer {
 
 /*! ======================= MEDIA QUERY ========================= */
 
-
+@media(min-width:1600px) { 
+  .ReviewS .replysHolder > .card::after {
+    top: 1%;
+    left: -8.2%;
+    width: 6.4%;
+  }
+  .ReviewS .replysHolder .text .card::after {
+    width: 7.2%;
+    left: -9.4%;
+  }
+}
 @media(min-width:992px) {
   .header .bottom.sticky {
     position: fixed;
@@ -1202,13 +1340,23 @@ body.dark footer {
     z-index: 5;
     padding: 6px 0;
   }
+  .header .bottom .menu li a {
+    padding: 15px 0;
+  }
+  .header .bottom .menu li:first-child {
+    padding: 14px 0;
+  }
   .header .bottom .menu .megaMenu {
     position: absolute;
-    top: 48px;
+    top: 47px;
     left: 0;
     gap: 35px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    max-height: 345px;
+    overflow-y: auto;
+    row-gap: 15px;
     cursor: initial;
     visibility: hidden;
     opacity: 0;
@@ -1216,8 +1364,10 @@ body.dark footer {
     transform: scaleY(0);
     transform-origin: top center;
     background: var(--section-color);
-    padding: 18px 16px 18px 45px;
-    border-top: 1px solid var(--body-color);
+    padding: 12px 16px 18px 45px;
+    border-radius: 0 0 20px 20px;
+    border-top: 3px solid var(--main-color);
+    box-shadow: rgb(0 0 0 / 24%) 0px 11px 23px -5px;
   }
   .header .bottom .menu li:first-child:hover .megaMenu {
     transform: scaleY(1);
@@ -1373,16 +1523,16 @@ body.dark footer {
     position: fixed;
     background: var(--section-color);
     left: -300px;
-    top: 58px;
+    top: 0;
     gap: 0;
     width: 280px;
     height: 100%;
     transition: 0.4s;
     padding: 10px 18px;
-    scale: 1.1;
+    overflow: auto;
   }
   .header .bottom .menu.active {
-    left: 14px;
+    left: 0;
   }
   .header .bottom .menu li {
     padding: 13px 0;
@@ -1445,6 +1595,7 @@ body.dark footer {
   .header .bottom .menu li svg {
     display: block;
     margin-right: 10px;
+    font-size: 24px;
   }
 
   .header .bottom .menu li:first-child svg {
@@ -1516,7 +1667,16 @@ body.dark footer {
     flex-direction: row;
     gap: 4px;
     padding: 12px 0 11px;
+  }
+  .comparePtn {
+    display: none;
   }  
+  .compareIco {
+    display: flex;
+  }
+  .main-title p {
+    max-width: 360px;
+  }
   .logo img {
     width: 48px;
   }

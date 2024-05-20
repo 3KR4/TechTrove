@@ -354,6 +354,7 @@ body.light .ui-checkbox {
 .shop-page .products-section .main-card .holder {
   padding: 17px;
   padding-top: 0;
+  padding-right: 0;
 } 
 .shop-page .products-section .main-card .lastHolder span {
   position: absolute;

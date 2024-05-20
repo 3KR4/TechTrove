@@ -1,5 +1,17 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material';
+import { Link, NavLink } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+
+import { types, Products } from './components/products';
+import { salePrice, under10Nums, calculateTotalPrice } from './Methods.jsx'
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from './Redux/cartSlice';
+
+
+// @ts-ignore
+import logo from './img/logo.png'
+//ICONS
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -12,18 +24,11 @@ import MarkEmailUnreadOutlinedIcon from '@mui/icons-material/MarkEmailUnreadOutl
 import SpeakerNotesOutlinedIcon from '@mui/icons-material/SpeakerNotesOutlined';
 import GrainOutlinedIcon from '@mui/icons-material/GrainOutlined';
 import { BiLogoInstagramAlt } from 'react-icons/bi';
-import { FaAngleDown, FaAngleUp, FaTwitter, FaFacebook, FaTiktok, } from 'react-icons/fa';
-import { IoMdSearch } from "react-icons/io";
+import { FaAngleDown, FaTwitter, FaFacebook, FaTiktok, } from 'react-icons/fa';
+import { IoMdSearch, IoIosGitCompare } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { RiShoppingBasket2Line } from "react-icons/ri";
 
-// @ts-ignore
-import logo from './img/logo.png'
-import { Link, NavLink } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
-
-import { types, Products } from './components/products';
-import { salePrice, under10Nums } from './Methods.jsx'
 
 const searchProducts = (searchTerm) => {
   if (searchTerm.length === 0) {
@@ -41,6 +46,7 @@ const searchProducts = (searchTerm) => {
 };
 
 export default function Headers({setMode}) {
+
   const theme = useTheme()
   let currentpage = localStorage.page
   const [activeCategory, setActiveCategory] = useState((types[0].id));
@@ -55,8 +61,11 @@ export default function Headers({setMode}) {
   });
 
   const menuRef = useRef(null);
-  const cartRef = useRef(null);
   const searchRef = useRef(null);
+      // @ts-ignore
+      const cartItems = useSelector((state) => state.cart.cartItems);
+      const dispatch = useDispatch();
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -121,14 +130,16 @@ export default function Headers({setMode}) {
 
   const filteredProducts = searchProducts(searchTerm);
 
+
+
   return (
     <div className='header'>
     {openModels.menu || openModels.search ? <div className="hide"></div> : null}
       <div className="mobile container" style={{marginBottom: isSticky.header2 ? '65px' : '0px'}}>
         <div className="signBtns">
-          <NavLink to="/Register">Register</NavLink>
+          <NavLink to="/register">Register</NavLink>
           |
-          <NavLink to="/Login">Login</NavLink>
+          <NavLink to="/login">Login</NavLink>
         </div>
         <div className="follow">
         <h5>Follow us at</h5> | 
@@ -211,7 +222,11 @@ export default function Headers({setMode}) {
               }/>
             }
             </div>
-            <Link to={`/wishlist`} className='favorite'>
+            <Link to={`/compare`} className='comparePtn'>
+              <IoIosGitCompare style={{ fontSize: '26px'}}/>
+              <span className='nmbers'>3</span>
+            </Link>
+            <Link to={`/wishlist`}>
               <FavoriteBorderOutlinedIcon />
               <span className='nmbers'>3</span>
             </Link>
@@ -219,45 +234,48 @@ export default function Headers({setMode}) {
               toggleModel('cart')
             }}>
             <LocalGroceryStoreOutlinedIcon/>
-              <span className='nmbers'>8</span>
+              <span className='nmbers'>{cartItems.length}</span>
               <div className={`cart`}>
-                <div ref={cartRef} className="main-cart">
-                  <div>
-                    <div className="item">
-                      <h3 className='itemsLeanth'><span className="length">{Products.length}</span> Items</h3>
-                      <Link to={`/cart`}>View Cart</Link>
-                    </div>
-                    <div className="cards" style={{width: Products.length > 3 ? "109%" : "auto"}}>
-                      {Products.map((product, index) => (
-                        <div className="card" key={`${product.id}-${index}`}>
-                          <div className='holder'>
-                            <img src={product.Images[0]} alt=""/>
-                            <div className="info">
-                            <Link to={`/product/${product.name}`}>{product.name}</Link>
-                              <h5 className="type"><span>{product.category} /</span>{product.type}</h5>
-                              <div className='price'>
-                                <p className={product.stock === 0 ? 'last' : 'mainPrice'}>{product.stock !== 0 ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
-                                {product.sale > 0 && product.stock !== 0 && (
-                                  <>
-                                  <p className="lastPrice">${product.price.toFixed(2)}</p> 
-                                  <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>
-                                  </>
-                                )}
-                              </div>
-
+              <div className="main-cart">
+                {cartItems.length == 0 ? (
+                  <h3>Your Cart is Empty</h3>
+                ) : (
+                <div>
+                  <div className="item">
+                    <h3 className='itemsLeanth'><span className="length">{cartItems.length}</span> Items</h3>
+                    <Link to={`/cart`}>View Cart</Link>
+                  </div>
+                  <div className="cards" style={{width: Products.length > 3 ? "109%" : "auto"}}>
+                    {cartItems.map((item, index) => (
+                      <div className="card" key={`${item.id}-${index}`}>
+                        <div className='holder'>
+                          <img src={item.Images[0]} alt=""/>
+                          <div className="info">
+                            <Link to={`/product/${item.name}`}>{item.name}</Link>
+                            <h5 className="type"><span>{item.category} /</span>{item.type}</h5>
+                            <div className='price'>
+                              <p className={item.stock === 0 ? 'last' : 'mainPrice'}>{item.stock !== 0 ? salePrice(item) : `Last Price: $${item.price.toFixed(2)}`}</p>
+                              {item.sale > 0 && item.stock !== 0 && (
+                                <>
+                                  <p className="lastPrice">${item.price.toFixed(2)}</p> 
+                                  <p className='saleNum'>-{under10Nums(item.sale)}% OFF</p>
+                                </>
+                              )}
                             </div>
                           </div>
-                          <IoClose />
                         </div>
-                      ))}
-                    </div>
-                    <div className="total">
-                      <h3>Total Price</h3>
-                      <h3 className="cartProductTotal">$2499.99</h3>
-                    </div>
-                    <NavLink to="/checkout" className='Check main-buttom'>Check Out</NavLink>
+                        <IoClose onClick={() => dispatch(removeFromCart(item))}/>
+                      </div>
+                    ))}
                   </div>
+                  <div className="total">
+                    <h3>Total Price</h3>
+                    <h3 className="cartProductTotal">${calculateTotalPrice(cartItems).toFixed(2)}</h3>
+                  </div>
+                  <NavLink to="/checkout" className='Check main-buttom'>Check Out</NavLink>
                 </div>
+                )}
+              </div>
               </div>
             </button>
           </div>
@@ -291,12 +309,13 @@ export default function Headers({setMode}) {
         ))}
             </div>
             </li>
-            <li><Link to={'./'}><HomeOutlinedIcon style={{fontSize:'23px'}}/> home</Link></li>
-            <li><Link to={'./shop'}><RiShoppingBasket2Line style={{fontSize:'23px'}}/> shop</Link></li>
-            <li><Link to={'./about'}><PeopleAltOutlinedIcon style={{fontSize:'23px'}}/> about us</Link></li>
-            <li><Link to={'./contact'}><MarkEmailUnreadOutlinedIcon style={{fontSize:'23px'}}/> contact us</Link></li>
-            <li><Link to={'./blogs'}><SpeakerNotesOutlinedIcon style={{fontSize:'23px'}}/> blogs</Link></li>
-            <li><Link to={'./shop?special=1'}><GrainOutlinedIcon style={{fontSize:'23px'}}/> special offer</Link></li>
+            <li><Link to={'./'}><HomeOutlinedIcon /> home</Link></li>
+            <li><Link to={'./shop'}><RiShoppingBasket2Line /> shop</Link></li>
+            <li><Link to={'./about'}><PeopleAltOutlinedIcon /> about us</Link></li>
+            <li><Link to={'./contact'}><MarkEmailUnreadOutlinedIcon /> contact us</Link></li>
+            <li><Link to={'./blogs'}><SpeakerNotesOutlinedIcon /> blogs</Link></li>
+            <li><Link to={'./shop?special=true'}><GrainOutlinedIcon /> special offer</Link></li>
+            <li className='compareIco'><Link to={'./compare'}><IoIosGitCompare /> compare</Link></li>
           </ul>
           <div className="follow">
             <h5>Follow us at</h5> | 

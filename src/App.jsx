@@ -1,18 +1,17 @@
-import { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { getDesignTokens } from './components/theme';
 import { Outlet } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 //! Components
 import Header from './Header';
 import Footer from './Footer';
-import Home from './pages/Home';
-
-
 
 export default function MiniDrawer() {
-
   const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
+  
   useEffect(() => {
     document.body.className = mode;
     localStorage.setItem("theme", mode);
@@ -22,10 +21,12 @@ export default function MiniDrawer() {
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   return (
-    <ThemeProvider theme={theme}>
-        <Header setMode={setMode}/>
-        <Outlet/>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Header setMode={setMode} />
+        <Outlet />
         <Footer />
-    </ThemeProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }

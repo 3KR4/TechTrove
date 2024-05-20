@@ -245,7 +245,6 @@ export const Products = [
     ],
     Tags: ['PS4 Pro', '1TB']
   },
-
 ];
 
 export const bundles = [
@@ -341,7 +340,7 @@ export const bundles = [
       "DPI: 400/800/1600/3200/6400/12000",
     ],
   },
-]
+];
 
 export const types = [
   {
@@ -799,6 +798,11 @@ export const brands = [
   },
 ];
 
+export const sort = [ 
+  ['default','price: low to high','price: high to low','name: a to z','name: z to a'],
+  ['12','25','50','75',]
+];
+
 export const blogs = [
   {
     id: 1,
@@ -807,7 +811,91 @@ export const blogs = [
     details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     img: require('../img/swiper1.png'),
     link: '',
-    tags: ['','','',],
+    tags: ['','',''],
+    comments: [
+      {
+        userId: 1,
+        name: 'John Doe',
+        details: 'Interesting fact about gaming consoles',
+        replys: [
+          {
+            userId: 2,
+            name: 'Jane Doe',
+            details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+            replys: [
+              {
+                userId: 3,
+                name: 'Alice',
+                details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Interesting fact about gaming consoles',
+              },
+              {
+                userId: 4,
+                name: 'Bob',
+                details: '44444444444444444444444444444444444444',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        userId: 5,
+        name: 'Eve',
+        details: 'xxxxxxxxxxxx',
+        replys: [
+          {
+            userId: 601,
+            name: 'asdasdAD',
+            details: 'yyyyyyyyyyyyyyyyyyy',
+            replys: [
+              {
+                userId: 710,
+                name: 'Carasxc ol',
+                details: 'zzzzzzzzzzzzzzzzzzzzzzzzz',
+              },
+              {
+                userId: 845,
+                name: 'Davasdasdasdid',
+                details: 'wwwwwwwwwwwAS dASd SAd ASd ',
+              },
+            ],
+          },
+          {
+            userId: 6421,
+            name: 'Charlie',
+            details: 'yyyyyyyyyyyyyyyyyyy',
+            replys: [
+              {
+                userId: 74534,
+                name: 'Caraxc asdol',
+                details: 'zzzzzzzzzzzzzzzzzzzzzzzzz',
+              },
+              {
+                userId: 84564,
+                name: 'Dav xczxc id',
+                details: 'wwwwwwwwxafcas dASd ASd sadasd aswwwwwwwwwwww',
+              },
+            ],
+          },
+          {
+            userId: 671,
+            name: 'Charas dasxc lie',
+            details: 'yyyyyyyyyyyyyyyyyyy',
+            replys: [
+              {
+                userId: 704,
+                name: 'Car asxczx asDol',
+                details: 'zzzzzzzzzzzzzzzzzzzzzzzzz',
+              },
+              {
+                userId: 40415,
+                name: 'David AsDad A',
+                details: 'wsffffffffffffffffffffffffffffffwwwwww',
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -816,16 +904,8 @@ export const blogs = [
     details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     img: require('../img/swiper2.png'),
     link: '',
-    tags: ['','','',],
-  },
-  {
-    id: 9,
-    title: 'Interesting fact about gaming consoles',
-    type: 'Gaming',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-    img: require('../img/landing03.jpg'),
-    link: '',
-    tags: ['','','',],
+    tags: ['','',''],
+    comments: [],
   },
   {
     id: 3,
@@ -834,16 +914,18 @@ export const blogs = [
     details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     img: require('../img/swiper3.png'),
     link: '',
-    tags: ['','','',],
+    tags: ['','',''],
+    comments: [],
   },
   {
     id: 4,
     title: 'Interesting fact about gaming consoles',
     type: 'Gaming',
     details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-    img: require('../img/swiper4.png'),
+    img: require('../img/swiper4.jpg'),
     link: '',
-    tags: ['','','',],
+    tags: ['','',''],
+    comments: [],
   },
   {
     id: 5,
@@ -852,7 +934,8 @@ export const blogs = [
     details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     img: require('../img/swiper5.png'),
     link: '',
-    tags: ['','','',],
+    tags: ['','',''],
+    comments: [],
   },
   {
     id: 6,
@@ -861,7 +944,8 @@ export const blogs = [
     details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     img: require('../img/swiper6.png'),
     link: '',
-    tags: ['','','',],
+    tags: ['','',''],
+    comments: [],
   },
   {
     id: 7,
@@ -870,7 +954,8 @@ export const blogs = [
     details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     img: require('../img/landing01.jpg'),
     link: '',
-    tags: ['','','',],
+    tags: ['','',''],
+    comments: [],
   },
   {
     id: 8,
@@ -879,13 +964,50 @@ export const blogs = [
     details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     img: require('../img/landing02.jpg'),
     link: '',
-    tags: ['','','',],
+    tags: ['','',''],
+    comments: [],
   },
+];
 
-]
-
-export const sort = [
-  ['default','price: low to high','price: high to low','name: a to z','name: z to a'],
-  ['12','25','50','75',]
-]
-
+export const about = [
+  {
+    id: 1,
+    head: "About Us",
+    bodys: [
+      "We are a leading hardware store committed to providing the best products and services to our customers.",
+      "Our extensive range of products includes the latest in technology and hardware solutions."
+    ]
+  },
+  {
+    id: 2,
+    head: "Our Locations",
+    bodys: [
+      "Visit our main store located at 123 Hardware St, Tech City.",
+      "We also have branches in other major cities to serve you better."
+    ]
+  },
+  {
+    id: 3,
+    head: "After Sales Service",
+    bodys: [
+      "We offer comprehensive after-sales services including repairs and maintenance.",
+      "Our dedicated support team is always ready to assist you with any issues you may face."
+    ]
+  },
+  {
+    id: 4,
+    head: "Fast Shipping",
+    bodys: [
+      "Enjoy fast and reliable shipping on all orders.",
+      "We ensure that your products reach you in the shortest possible time."
+    ]
+  },
+  {
+    id: 5,
+    head: "Contact Numbers",
+    bodys: [
+      "Reach us at our customer support number: +123-456-7890.",
+      "For sales inquiries, call us at: +123-456-7891."
+    ]
+  }
+];

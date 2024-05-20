@@ -145,7 +145,7 @@ export default function Home() {
       <SwiperSlide className="swiper-slide">
         <img src={require(
           // @ts-ignore
-          '../img/swiper4.png')} alt="" />
+          '../img/swiper4.jpg')} alt="" />
       </SwiperSlide>
 
       <SwiperSlide className="swiper-slide">
@@ -158,6 +158,11 @@ export default function Home() {
         <img src={require(
           // @ts-ignore
           '../img/swiper6.png')} alt="" />
+      </SwiperSlide>
+      <SwiperSlide className="swiper-slide">
+        <img src={require(
+          // @ts-ignore
+          '../img/swiper7.jpg')} alt="" />
       </SwiperSlide>
     </Swiper>
 
@@ -255,7 +260,7 @@ export default function Home() {
     <div className="container">
       <div className="bigHolder" style={{width: Bundles.length > 0 ? '' : '100%' }}>
         <div className="products" style={{gridTemplateColumns: Bundles.length > 0 ? '' : 'repeat(auto-fill, minmax(260px, 1fr))' }}>
-        {Products.slice(0, 6).map((product) => (
+        {Products.slice(0, Bundles.length > 0 ? 6 : 8).map((product) => (
           <MainCard key={product.id}  product={product} details={false}/>
         ))}
 
@@ -304,7 +309,6 @@ export default function Home() {
                   </div>
                   <span className='price'>{salePrice(X)} <p>${X.price}</p> <p className='saleNum'>-{under10Nums(X.sale)}% OFF</p></span>
                   <p className='details'>Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU</p>
-                  <h2>The offer will expire on OCtoper <br/> 30th</h2>
                   <CountdownTimer targetDate={new Date (X.endTime)} />
                   <Link to='/shop' className="main-buttom">Get It Now</Link>
                 </SwiperSlide>

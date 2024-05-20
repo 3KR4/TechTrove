@@ -1,16 +1,16 @@
 import '../Css/blogs.css'
 import React, { useEffect, useState } from 'react'
-import ReactPaginate from 'react-paginate';
 
 import { blogs, Products } from '../components/products'
-import { FaReply } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-import BlogsNav from '../components/blogsNav';
 import { useParams } from 'react-router-dom';
+
+import BlogsNav from '../components/blogsNav';
+import Reviews from '../components/reviews';
 
 export default function BlogsSingle() {
   const { blogName } = useParams();
-  const currentSingle = blogs.find(x => x.title == blogName)
+  const currentSingle = blogs.find(x => x.id == +blogName)
 
   return (
     <div className="blog-page container">
@@ -33,25 +33,12 @@ export default function BlogsSingle() {
                 <h3>Don't demand that things happen as you wish.</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
               </div>
-              <div className="ReviewS">
-                <h1>Comments</h1>
-                {Products[0].testimonies.map((x) => (
-                  <div key={x.id} className="card">
-                    <button className="replay"><FaReply /> Reply</button>
-                    <h3>
-                      {x.name.split(' ').length === 1 ? x.name.substring(0, 2)
-                      : `${x.name.split(' ')[0][0]}${x.name.split(' ')[1][0]}`}
-                    </h3>
-                    <div className="text">
-                      <h3>{x.name}</h3>         
-                      <p>{x.details}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <Reviews currentSingle={currentSingle}/>
           </div>
         </div>
-      <BlogsNav />
+        {window.innerWidth > 1000 && (
+          <BlogsNav />
+        )}
     </div>
   )
 }

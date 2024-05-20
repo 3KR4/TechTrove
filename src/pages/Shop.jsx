@@ -51,18 +51,6 @@ export default function Shop() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   useEffect (() => {
   const endOffset = itemOffset + productsSort.show;
   setCurrentItems(Products.slice(itemOffset, endOffset));

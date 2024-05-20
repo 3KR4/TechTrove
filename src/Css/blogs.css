@@ -168,6 +168,7 @@ body.light .nav-section form input {
 }
 .nav-section > div .time {
   display: flex;
+  align-items: center;
 }
 .nav-section > div .box span {
   color: var(--paragraph);
@@ -247,28 +248,149 @@ body.light .nav-section form input {
   font-size: 18px;
 }
 .blogSingle .ReviewS {
-  width: unset;
+  width: 100%;
   box-shadow: none;
   padding: 0 20px;
+  overflow: unset;
 }
 .blogSingle .ReviewS h1 {
   margin-bottom: 20px;
+  transform: translateX(-20px);
 }
 .blogSingle .ReviewS .card .text p {
   margin: 0;
 }
+.blogSingle .ReviewS .card .text svg {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+.blogSingle .ReviewS .card .text .customInput  {
+  scale: 0.85;
+  margin-top: 6px !important;
+  transform: translateX(-9%);
+}
 
-.blogSingle .contact {
-  padding: 33px 35px 35px;
+.ReviewS .replysHolder .text .info {
+  width: 120%;
+  position: relative;
 }
-.blogSingle .contact h1 {
-  color: var(--text-color);
-  font-size: 17px;
-  margin-bottom: 29px;
+.ReviewS .replysHolder .text .text .info {
+  width: 140%;
 }
-.blogSingle .contact {
-  width: 100%;
+
+.blogSingle .ReviewS .card .text .customInput {
+  width: 115%;
 }
-.blogSingle .contact .textarea {
-  margin-bottom: 28px;
+.blogSingle .ReviewS .card .card .text .customInput {
+  width: 140%;
+}
+
+
+@media (max-width: 1200px) {
+  .nav-section > div h4 {
+    font-weight: 400;
+    font-size: 13px;
+  }
+  .nav-section > div .box img {
+    width: 77px;
+    height: 70px;
+  }
+  .nav-section hr {
+    margin: 13px 0;
+  }
+  .nav-section > div .box span {
+    font-size: 11px;
+  }
+  .nav-section > div .tags {
+    gap: 3px;
+  }
+  .ReviewS .card {
+    gap: 10px;
+  }
+  .ReviewS .card::after {
+    height: 38px !important;
+  }
+  .ReviewS .replysHolder > .card::after {
+    left: -16.2% !important;
+    width: 13% !important;
+  }
+  .ReviewS .replysHolder .text .card::after {
+    width: 16.5% !important;
+    left: -20.2% !important;
+  }
+}
+@media (max-width: 992px) {
+  .blogSingle {
+    width: 100%;
+  }
+  .ReviewS .replysHolder > .card::after {
+    left: -14.2% !important;
+    width: 11% !important;
+  }
+  .ReviewS .replysHolder .text .card::after {
+    width: 13.5% !important;
+    left: -17.2% !important;
+  }
+  .ReviewS .replysHolder .text .info {
+    position: relative;
+    width: 120%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-page {
+    padding: 0 10px !important;
+  }
+  .blogSingle .bigBigHolder {
+    padding: 20px;
+  }
+  .ReviewS .card .replysHolder {
+    transform: translateX(-13%) !important;
+  }
+  .blogSingle .ReviewS {
+    padding: 0;
+  }
+  .blogSingle .ReviewS h1 {
+    transform: translateX(-7px);
+  }
+  .ReviewS .commentsHolder > .card {
+    overflow-wrap: anywhere;
+  }
+  .ReviewS .card {
+    gap: 10px !important;
+  }
+  .ReviewS .replysHolder .text .info {
+    width: 135%;
+  }
+  .ReviewS .replysHolder .text .text .info {
+    width: 190%;
+  }
+  .ReviewS .card .replyNum {
+    font-size: 13px !important;
+  }
+  .ReviewS .card::before {
+    width: 2px;
+  }
+  .card .imageText {
+    min-width: 49px;
+    max-width: 50px;
+    height: 49px;
+  }
+  .ReviewS .card::before {
+    left: -10px !important;
+  }
+  .ReviewS .replysHolder > .card::after {
+    left: -18.2% !important;
+    width: 15% !important;
+  }
+  .ReviewS .replysHolder .text .card::after {
+    width: 22% !important;
+    left: -27.2% !important;
+    top: -14px !important;
+  }
 }

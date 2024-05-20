@@ -1,14 +1,31 @@
-import '../Css/cart-wishlist.css'
-import { Products } from '../components/products'
-import React from 'react'
+import React from 'react';
+import '../Css/cart-wishlist-compare.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { FaMinus, FaPlus, FaRegTrashAlt } from 'react-icons/fa';
+import { incrementQuantity, decrementQuantity, removeFromCart } from '../Redux/cartSlice';
 
-import { FaMinus, FaPlus, FaRegTrashAlt } from "react-icons/fa";
-import { salePrice, under10Nums } from '../Methods';
+import CartCheckoutNav from '../components/cart-checkout-nav'
+import { Link } from 'react-router-dom';
+
+import { IoBagRemoveOutline } from "react-icons/io5";
 
 export default function Cart() {
+  // @ts-ignore
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
+
   return (
     <div className="main-holder cart container">
-      <div className="products-list-holder">
+      {cartItems.length == 0 ?
+        <div className="noCart">
+          <IoBagRemoveOutline />
+          <h2>Your Cart is Empty</h2>
+          <p>The purchases you add to the cart will occur in this list</p>
+          <Link to='/shop' className='main-buttom'>Back To Shop</Link>
+        </div>
+        : 
+        <>
+        <div className="products-list-holder">
           <div className="nav-putton row">
             <h4 className='Image'>Image</h4>
             <h4 className='Name'>Name</h4>
@@ -19,93 +36,29 @@ export default function Cart() {
           </div>
           <div className='cart-products-holder'>
             <div className="cart-products">
-              {
-                Products.map((product) => (
-                  window.innerWidth > 768 ? (
-                    <div key={product.id} className="card full">
-                      <div className='image'><img src={product.Images[0]} alt=""/></div>
-                      <div className="text">
-                        <h5>{product.name}</h5>
-                        <h6>Type: {product.type}</h6>
-                      </div>
-                      <div className="icons">
-                        <FaMinus className='decrement'/>
-                        <span className="quantityNum">
-                          1
-                        </span>
-                        <FaPlus className='increment'/>
-                      </div>
-                      <p className="price">
-                        ${product.price}.00
-                      </p>
-                      <p className="discount">
-                        ${product.price}.00
-                      </p>
-                      <div><FaRegTrashAlt className='trash'/></div>
-                    </div>
-                  ) : (
-                    <div key={product.id} className="card mobile">
-                      <div className='image'><img src={product.Images[0]} alt=""/></div>
-                      <div className="type">
-                        <h4>{product.name}</h4>
-                        <h5><span>{product.category} /</span>{product.type}</h5>
-                        <div className='price'>
-                          <p className={product.stock === 0 ? 'last' : 'mainPrice'}>{product.stock !== 0 ? salePrice(product) : `Last Price: $${product.price.toFixed(2)}`}</p>
-                          {product.sale > 0 && product.stock !== 0 && (
-                            <>
-                            <p className="lastPrice">${product.price.toFixed(2)}</p> 
-                            <p className='saleNum'>-{under10Nums(product.sale)}% OFF</p>
-                            </>
-                          )}
-                        </div>
-                          <h4>Total Price: <span>{salePrice(product)}</span></h4>
-                        <div className="icons">
-                          <FaMinus className='decrement'/>
-                          <span className="quantityNum">
-                            1
-                          </span>
-                          <FaPlus className='increment'/>
-                          <FaRegTrashAlt className='trash'/>
-                        </div>
-
-                      </div>
-                    </div>
-                  )
-                ))
-              }
-            </div>
-          </div>
-      </div>
-      <div className="cart-code">
-        <div className="Coupon">
-          <div className="holder">
-            <p>Appy Coupon to get discount!</p>
-            <div className="ptn">
-              <input type="text" placeholder="Coupon Code"/>
-              <button className="main-buttom apply">APPLY</button>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div className="totalPrices">
-          <div className="product">
-            <h6>Pricing Table</h6>
-            <div className="productsNameHolder">
-              {Products.map((x) => (
-                <div key={x.id}>
-                  <span>{x.name} <h6>x1</h6></span>
-                  <span>${x.price},00</span>
+              {cartItems.map((item) => (
+                <div key={item.id} className="card full">
+                  <div className='image'><img src={item.Images[0]} alt="" /></div>
+                  <div className="text">
+                    <h5>{item.name}</h5>
+                    <h6>Type: {item.type}</h6>
+                  </div>
+                  <div className="icons">
+                    <FaMinus className='decrement' onClick={() => dispatch(decrementQuantity(item))} />
+                    <span className="quantityNum">{item.quantity}</span>
+                    <FaPlus className='increment' onClick={() => dispatch(incrementQuantity(item))} />
+                  </div>
+                  <p className="price">${item.price}.00</p>
+                  <p className="discount">${(item.price * item.quantity).toFixed(2)}</p>
+                  <div><FaRegTrashAlt className='trash' onClick={() => dispatch(removeFromCart(item))} /></div>
                 </div>
               ))}
             </div>
-            <h5>
-              <span className="final-span">Total Order Price</span>
-              <span className="finalPrice">$1200.00</span>
-            </h5>
-            </div>
-            <a className="main-buttom" href="checkout.html">Check Out</a>
+          </div>
         </div>
-      </div>
+        <CartCheckoutNav checkout={false}/>
+      </>
+    }
     </div>
-  )
+  );
 }
