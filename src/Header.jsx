@@ -3,11 +3,10 @@ import { useTheme } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
-import { types, Products } from './components/products';
+import { types, Products, chat } from './components/products';
 import { salePrice, under10Nums, calculateTotalPrice } from './Methods.jsx'
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from './Redux/cartSlice';
-
 
 // @ts-ignore
 import logo from './img/logo.png'
@@ -58,6 +57,9 @@ export default function Headers({setMode}) {
     cart: false,
     search: false,
     searchCards: false,
+    chat: false,
+    chatInfo: false,
+    chatImport: false,
   });
 
   const menuRef = useRef(null);
@@ -134,6 +136,7 @@ export default function Headers({setMode}) {
 
   return (
     <div className='header'>
+
     {openModels.menu || openModels.search ? <div className="hide"></div> : null}
       <div className="mobile container" style={{marginBottom: isSticky.header2 ? '65px' : '0px'}}>
         <div className="signBtns">
@@ -294,25 +297,24 @@ export default function Headers({setMode}) {
                 }}/>
               </div>
             <div className="megaMenu">
-            {types.map((category) => (
-          <div className="category" key={category.id}>
-            <span onClick={() => toggleActive(category.id)} className={activeCategory === category.id ? 'active' : ''}>
-              {category.id}
-              <FaAngleDown className={activeCategory === category.id && 'open'}/>
-            </span>
-            <ul className={`types ${activeCategory === category.id ? 'active' : ''}`}>
-              {category.list.map((item) => (
-                <li key={item.id}><Link to={`/shop?category=${category.id}&type=${item.id}`}>{item.id}</Link></li>
+              {types.map((category) => (
+                <div className="category" key={category.id}>
+                  <span onClick={() => toggleActive(category.id)} className={activeCategory === category.id ? 'active' : ''}>
+                    {category.id}
+                    <FaAngleDown className={activeCategory === category.id && 'open'}/>
+                  </span>
+                  <ul className={`types ${activeCategory === category.id ? 'active' : ''}`}>
+                    {category.list.map((item) => (
+                      <li key={item.id}><Link to={`/shop?category=${category.id}&type=${item.id}`}>{item.id}</Link></li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
-          </div>
-        ))}
             </div>
             </li>
             <li><Link to={'./'}><HomeOutlinedIcon /> home</Link></li>
             <li><Link to={'./shop'}><RiShoppingBasket2Line /> shop</Link></li>
             <li><Link to={'./about'}><PeopleAltOutlinedIcon /> about us</Link></li>
-            <li><Link to={'./contact'}><MarkEmailUnreadOutlinedIcon /> contact us</Link></li>
             <li><Link to={'./blogs'}><SpeakerNotesOutlinedIcon /> blogs</Link></li>
             <li><Link to={'./shop?special=true'}><GrainOutlinedIcon /> special offer</Link></li>
             <li className='compareIco'><Link to={'./compare'}><IoIosGitCompare /> compare</Link></li>

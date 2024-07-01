@@ -1,4 +1,4 @@
-import '../Css/cart-wishlist-compare.css'
+import '../Css/about-cart-wishlist-compare.css'
 import React from 'react'
 import { Link } from "react-router-dom";
 import { Products, brands } from '../components/products'

@@ -51,7 +51,7 @@
   transition: 0.6s;
   border-radius: 0;
   background: #00000058;
-}
+} 
 .second_section .images:hover::after {
   width: 155%;
   height: 155%;
@@ -77,7 +77,6 @@
 .categories .card {
   position: relative;
   min-height: 235px;
-  height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -232,12 +231,12 @@
   height: 8px !important;
   border-radius: 4px !important;
 }
-body.dark .swiper-pagination-bullet {
-  background: var(--section-color);
-  opacity: 1;
-}
 body.dark .saleHolder .swiper-pagination-bullet {
   background: var(--body-color);
+  opacity: 1;
+}
+body.dark .swiper-pagination-bullet {
+  background: var(--section-color);
   opacity: 1;
 }
 .swiper-pagination-bullet-active {

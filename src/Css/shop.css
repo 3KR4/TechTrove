@@ -10,11 +10,11 @@
   display: flex;
   gap: 17px;
 }
-.shop-page .filter-section.move .fixed::-webkit-scrollbar {
+.shop-page .filter-section .fixed::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-.shop-page .filter-section.move .fixed::-webkit-scrollbar-thumb {
+.shop-page .filter-section .fixed::-webkit-scrollbar-thumb {
   border-radius: 0 0 0 5px;
 }
 .shop-page .filter-section {
@@ -25,6 +25,8 @@
   padding: 7px 20px;
   border-radius: 5px;
   background: var(--section-color);
+  max-height: 795px;
+  overflow: auto;
 }
 .shop-page .filter-section .fixed h4 {
   margin-bottom: 7px;
@@ -555,7 +557,6 @@ body.light .ui-checkbox {
     width: 325px;
     transform: translateY(-115px);
     max-height: 900px;
-    overflow: auto;
   }
   .shop-page .filter-section.stop {
     display: flex;

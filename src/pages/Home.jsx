@@ -35,8 +35,6 @@ export default function Home() {
     brands2.push(brands[i])
   }
   
-
-  
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 992px)'); // Adjust the breakpoint as needed
     setIsSmallScreen(mediaQuery.matches);
@@ -195,38 +193,40 @@ export default function Home() {
         <p>You have the option to browse through all products' categories or select a specific type</p>
       </div>
       <div className="container">
-        {types.map((item, index) => {
-          if (isSmallScreen) {
-            return (
-              <div className="card" key={index} onMouseEnter={() => handleHover(index, item.list[0].img)} onMouseLeave={() => handleMouseLeave(index)}>
-                <div>
-                  <h4>{item.id}</h4>
-                  <ul>
-                    {item.list.map((x, idx) => (
-                      <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
-                        <Link to={`/shop?category=${item.id}&type=${x.id}`}>{x.id}</Link>
-                      </li>
-                    ))}
-                    <li><Link to={`/shop?category=${item.id}`}>See All</Link></li>
-                  </ul>
-                </div>
-                <img src={hoverImages[index]} alt="" />
+      {types.map((item, index) => {
+        if (isSmallScreen || types.length !== 6) {
+          return (
+            <div className="card" key={index} onMouseEnter={() => handleHover(index, item.list[0].img)} onMouseLeave={() => handleMouseLeave(index)}>
+              <div>
+                <h4>{item.id}</h4>
+                <ul>
+                  {item.list.map((x, idx) => (
+                    <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
+                      <Link to={`/shop?category=${item.id}&type=${x.id}`}>{x.id}</Link>
+                    </li>
+                  ))}
+                  <li><Link to={`/shop?category=${item.id}`}>See All</Link></li>
+                </ul>
               </div>
-            );
-          } else if (index % 2 === 0 && types[index + 1]) {
+              <img src={hoverImages[index]} alt="" />
+            </div>
+          );
+        } else if (types.length === 6) {
+          // Only pair the cards when the index is even
+          if (index % 2 === 0 && index < types.length - 1) {
             return (
               <div className="pair-wrapper" key={index}>
                 <div className="card" onMouseEnter={() => handleHover(index, item.list[0].img)} onMouseLeave={() => handleMouseLeave(index)}>
                   <div>
                     <h4>{item.id}</h4>
                     <ul>
-                    {item.list.map((x, idx) => (
-                      <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
-                        <Link to={`/shop?category=${item.id}&type=${x.id}`}>{x.id}</Link>
-                      </li>
-                    ))}
-                    <li><Link to={`/shop?category=${item.id}`}>See All</Link></li>
-                  </ul>
+                      {item.list.map((x, idx) => (
+                        <li key={idx} onMouseEnter={() => handleHover(index, x.img)}>
+                          <Link to={`/shop?category=${item.id}&type={x.id}`}>{x.id}</Link>
+                        </li>
+                      ))}
+                      <li><Link to={`/shop?category=${item.id}`}>See All</Link></li>
+                    </ul>
                   </div>
                   <img src={hoverImages[index]} alt="" />
                 </div>
@@ -235,21 +235,22 @@ export default function Home() {
                   <div>
                     <h4>{types[index + 1].id}</h4>
                     <ul>
-                    {types[index + 1].list.map((x, idx) => (
-                      <li key={idx} onMouseEnter={() => handleHover(index + 1, x.img)}>
-                        <Link to={`/shop?category=${types[index + 1].id}&type=${x.id}`}>{x.id}</Link>
-                      </li>
-                    ))}
-                    <li><Link to={`/shop?category=${item.id}`}>See All</Link></li>
-                  </ul>
+                      {types[index + 1].list.map((x, idx) => (
+                        <li key={idx} onMouseEnter={() => handleHover(index + 1, x.img)}>
+                          <Link to={`/shop?category=${types[index + 1].id}&type=${x.id}`}>{x.id}</Link>
+                        </li>
+                      ))}
+                      <li><Link to={`/shop?category=${types[index + 1].id}`}>See All</Link></li>
+                    </ul>
                   </div>
                   <img src={hoverImages[index + 1]} alt="" />
                 </div>
               </div>
             );
           }
-          return null;
-        })}
+        }
+        return null;
+      })}
       </div>
     </div>
     <div className="offer">

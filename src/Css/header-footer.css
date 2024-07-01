@@ -21,7 +21,8 @@
 body {
   font-family: Poppins;
   background-color: var(--body-color) !important;
-}
+}  
+
 :root {
   --body-color:   #ffffff;
   --main-color:   #f2c23d;
@@ -30,7 +31,8 @@ body {
   --text-color:   #696969;
   --paragraph :   #858585;
   --section-color:#efefef;
-  --hover-color: #daaa25;
+  --section-color2:#cacaca;
+  --hover-color:  #daaa25;
   --border-color: #c3c3c3;
   --border2-color:#dfdfdf;
   --box-shadow: rgb(0 0 0 / 17%) 0px 10px 23px -5px;
@@ -41,6 +43,7 @@ body.dark {
   --text-color:   #dcdcdc;
   --paragraph :   #909090;
   --section-color:#2c2e2d;
+  --section-color2: #505050;
   --hover-color:  #a48020;
   --border-color: #525252;
   --border2-color: rgb(56, 56, 56);
@@ -48,7 +51,6 @@ body.dark {
 }
 ::-webkit-scrollbar {
   width: 0.6rem;
-  height: 0.6rem;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -237,6 +239,27 @@ svg.open {
 }
 .main-buttom:hover {
   background: var(--hover-color);
+}
+/*! ========= scrollBtn ========== */
+.scrollBtn {
+  background: var(--main-color);
+  border-radius: 4px;
+  cursor: pointer !important;
+  font-size: 23px;
+  padding: 8px 11px 4px;
+  position: relative;
+  right: -100px;
+  transition: 0.3s;
+  z-index: 195;
+}
+.scrollBtn.show {
+  right: 0px;
+}
+.scrollBtn svg {
+  color: white !important;
+}
+.side-btons:has(.main-chat.show) .scrollBtn {
+  transition: 0s !important;
 }
 /*! ========= signBtns ========== */
 .signBtns {
@@ -512,7 +535,7 @@ svg.open {
   background: var(--section-color);
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 20px;
-  width: 65%;
+  flex: 1;
   overflow-y: auto;
 }
 .ReviewS h1 {
@@ -613,6 +636,9 @@ body.dark .addCommentDev .imageText {
   flex-direction: column;
   gap: 12px;
   transform: translateX(-8%);
+}
+.single-product .ReviewS .card::before {
+  display: none;
 }
 .ReviewS .card::before {
   content: '';
@@ -1820,5 +1846,3 @@ body.dark footer {
     padding: 20px;
   }
 }
-
-

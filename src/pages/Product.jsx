@@ -229,7 +229,7 @@ export default function Product() {
             <h1>Clints Reviews</h1>
             {product.testimonies.map((x) => (
               <div key={x.id} className="card">
-                <h3>
+                <h3 className='imageText'>
                   {x.name.split(' ').length === 1 ? x.name.substring(0, 2)
                   : `${x.name.split(' ')[0][0]}${x.name.split(' ')[1][0]}`}
                 </h3>
@@ -276,12 +276,3 @@ export default function Product() {
     </div>
   )
 }
-
-
-
-
-
-
-
-
-

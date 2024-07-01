@@ -5,7 +5,6 @@ import App from './App';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import AboutUs from './pages/AboutUs';
-import Contact from './pages/Contact';
 import Cart from './pages/Cart';
 import WishList from './pages/WishList';
 import CheckOut from './pages/CheckOut';
@@ -34,7 +33,6 @@ const AppRoutes = () => {
           <Route path="/wishlist" element={<WishList />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

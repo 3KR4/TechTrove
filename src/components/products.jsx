@@ -117,7 +117,7 @@ export const Products = [
       "DPI: 400/800/1600/3200/6400/12000",
       "Warranty: 2 Year Limited"
     ],
-    Tags: ['Gaming Monitor', '4K']
+    Tags: ['Gaming Monitor', '4K', '160hrz']
   },
   {
     id: 5,
@@ -259,7 +259,7 @@ export const bundles = [
     stock: 3,
     stars: 4.5,
     Images: [require('../img/bundle.png')],
-    endTime: '2024-06-30T00:00:00',
+    endTime: '2024-07-30T00:00:00',
     details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
     about:[
       "Interface: USB Type-A",
@@ -282,7 +282,7 @@ export const bundles = [
     stock: 3,
     stars: 4.5,
     Images: [require('../img/bundle.png')],
-    endTime: '2024-06-22T00:00:00',
+    endTime: '2024-07-22T00:00:00',
     details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
     about:[
       "Interface: USB Type-A",
@@ -305,7 +305,7 @@ export const bundles = [
     stock: 3,
     stars: 4.5,
     Images: [require('../img/bundle.png')],
-    endTime: '2024-06-18T00:00:00',
+    endTime: '2024-07-18T00:00:00',
     details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
     about:[
       "Interface: USB Type-A",
@@ -328,7 +328,7 @@ export const bundles = [
     stock: 3,
     stars: 4.5,
     Images: [require('../img/bundle.png')],
-    endTime: '2024-06-16T00:00:00',
+    endTime: '2024-07-16T00:00:00',
     details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
     about:[
       "Interface: USB Type-A",
@@ -1011,3 +1011,102 @@ export const about = [
     ]
   }
 ];
+
+export const chat = {
+  userId: 1,
+  name: "Ahmed Hani",
+  phone: "123-456-7890",
+  email: "mahmoud@example.com",
+  chats: [
+    {
+      message: "Hey, how are you?",
+      timestamp: "2023-06-16T14:35:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "I'm good,t thanks thanks thanks thanks thanks thanks thanks thankshanks  thanks!thanks thanks thanks How about you?",
+      timestamp: "2023-06-16T14:36:00Z",
+      sender: "You"
+    },
+    {
+      message: "Doing well, just busy with work.",
+      timestamp: "2023-06-16T14:37:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "That sounds tough. Take care!",
+      timestamp: "2023-06-16T14:38:00Z",
+      sender: "You"
+    },
+    {
+      message: "Thanks!",
+      timestamp: "2023-06-16T14:39:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "Any plans for the weekend?",
+      timestamp: "2023-06-16T14:40:00Z",
+      sender: "You"
+    },
+    {
+      message: "Hey, how are you?",
+      timestamp: "2023-06-16T14:35:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "I'm good,t thanks thanks thanks thanks thanks thanks thanks thankshanks  thanks!thanks thanks thanks How about you?",
+      timestamp: "2023-06-16T14:36:00Z",
+      sender: "You"
+    },
+    {
+      message: "Doing well, just busy with work.",
+      timestamp: "2023-06-16T14:37:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "That sounds tough. Take care!",
+      timestamp: "2023-06-16T14:38:00Z",
+      sender: "You"
+    },
+    {
+      message: "Thanks!",
+      timestamp: "2023-06-16T14:39:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "Any plans for the weekend?",
+      timestamp: "2023-06-16T14:40:00Z",
+      sender: "You"
+    },
+    {
+      message: "Hey, how are you?",
+      timestamp: "2023-06-16T14:35:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "I'm good,t thanks thanks thanks thanks thanks thanks thanks thankshanks  thanks!thanks thanks thanks How about you?",
+      timestamp: "2023-06-16T14:36:00Z",
+      sender: "You"
+    },
+    {
+      message: "Doing well, just busy with work.",
+      timestamp: "2023-06-16T14:37:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "That sounds tough. Take care!",
+      timestamp: "2023-06-16T14:38:00Z",
+      sender: "You"
+    },
+    {
+      message: "Thanks!",
+      timestamp: "2023-06-16T14:39:00Z",
+      sender: "Ahmed Hani"
+    },
+    {
+      message: "Any plans for the weekend?",
+      timestamp: "2023-06-16T14:40:00Z",
+      sender: "You"
+    },
+  ]
+};

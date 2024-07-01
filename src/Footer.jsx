@@ -20,8 +20,10 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import MarkEmailUnreadOutlinedIcon from '@mui/icons-material/MarkEmailUnreadOutlined';
 import SpeakerNotesOutlinedIcon from '@mui/icons-material/SpeakerNotesOutlined';
 import GrainOutlinedIcon from '@mui/icons-material/GrainOutlined';
+import { FaAnglesUp } from "react-icons/fa6";
 
 export default function Footer() {
+
   return (
     <div className='footer'>
       <div className="container">

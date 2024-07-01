@@ -8,6 +8,8 @@ import store from './Redux/store';
 //! Components
 import Header from './Header';
 import Footer from './Footer';
+import Chat from './components/Chat';
+import ScrollBotton from './components/ScrollBotton';
 
 export default function MiniDrawer() {
   const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
@@ -23,9 +25,16 @@ export default function MiniDrawer() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
+
         <Header setMode={setMode} />
         <Outlet />
         <Footer />
+
+        <div className='side-btons'>
+          <ScrollBotton />
+          <Chat />
+        </div>
+
       </ThemeProvider>
     </Provider>
   );

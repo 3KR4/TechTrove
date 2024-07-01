@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Products } from '../components/products';
-import '../Css/cart-wishlist-compare.css';
+import '../Css/about-cart-wishlist-compare.css';
 import { calculateTotalPrice } from '../Methods'
 
 export default function CartCheckoutNav({ checkout }) {
@@ -35,7 +35,7 @@ export default function CartCheckoutNav({ checkout }) {
                 return product ? (
                   <div key={product.id}>
                     <span>{product.name} <h6>x{cartItem.quantity}</h6></span>
-                    <span>${product.price}.00</span>
+                    <span>${(cartItem.price * cartItem.quantity).toFixed(2)}</span>
                   </div>
                 ) : null;
               })

@@ -1,4 +1,4 @@
-import '../Css/cart-wishlist-compare.css'
+import '../Css/about-cart-wishlist-compare.css'
 import { Products } from '../components/products'
 import { FaRegTrashAlt } from "react-icons/fa";
 

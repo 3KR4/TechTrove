@@ -10,7 +10,6 @@ import AddToCartButton from './AddToCartButton';
 
 export default function MainCard({ product, details }) {
 
-
   return (
     <div className="main-card" key={product.id}>
       <div className="image">

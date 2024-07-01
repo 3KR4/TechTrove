@@ -1,4 +1,85 @@
-/*!ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss cart*/
+.about-page .mapHolder {
+  width: 100%;
+  height: 440px;
+  padding: 0;
+  margin: 33px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.about-page .aboutHolder {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.about-page .aboutHolder .card h3 {
+  padding: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  border-top-left-radius: 17px;
+  background: var(--section-color);
+}
+.about-page .aboutHolder .card.active h3 {
+  color: var(--main-color);
+}
+.about-page .aboutHolder .card.active svg {
+  color: var(--main-color);
+  transform: rotate(180deg);
+}
+.about-page .aboutHolder .card h3::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  z-index: 5;
+  transition: 0.6s;
+  background: var(--main-color);
+  transform: translate(-50%, 30px);
+}
+.about-page .aboutHolder .card.active h3::before {
+  width: 100%;
+}
+.about-page .aboutHolder .card .details {
+  background: var(--section-color);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: 0.3s;
+  z-index: 1000;
+  overflow: hidden;
+  border-radius: 6px;
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+.about-page .aboutHolder .card.active .details {
+  transform: scaleY(1);
+  opacity: 1;
+  visibility: visible;
+  transition: 0.6s;
+  height: auto;
+  padding: 20px;
+  padding-left: 35px;
+}
+.about-page .aboutHolder .card .details p {
+  position: relative;
+}
+.about-page .aboutHolder .card .details p::before {
+  content: '';
+  position: absolute;
+  left: -18px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--main-color);
+}
 
 .wishlist.main-holder {
   margin-top: 50px;
@@ -543,6 +624,11 @@ body.dark .compare-page.container .mainImage::before {
 }
 
 @media (max-width: 992px) {
+  .mapHolder {
+    width: 100%;
+    height: 400px;
+    border-radius: 0;
+  }
   .main-holder.cart {
     flex-direction: column;
   }
@@ -641,9 +727,20 @@ body.dark .compare-page.container .mainImage::before {
   .compare-page.container ul {
     transform: translateX(10px);
   }
+  .checkout-page {
+    gap: 35px;
+    flex-direction: column;
+  }
+  .checkout-page .cart-code,
+  .checkout-page form {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 768px) { 
+  .mapHolder {
+    height: 300px;
+  }
   .main-holder.cart {
     flex-direction: column-reverse;
   } 

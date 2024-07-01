@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Css/cart-wishlist-compare.css'
+import '../Css/about-cart-wishlist-compare.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { FaMinus, FaPlus, FaRegTrashAlt } from 'react-icons/fa';
 import { incrementQuantity, decrementQuantity, removeFromCart } from '../Redux/cartSlice';
