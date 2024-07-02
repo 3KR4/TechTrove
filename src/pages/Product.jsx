@@ -225,7 +225,7 @@ export default function Product() {
           </button>
         </div>
         {product.testimonies && (
-          <div className="ReviewS" style={{maxHeight: product.testimonies.length > 3 ? '360px' : 'unset'}}>
+          <div className="ReviewS" style={{maxHeight: product.testimonies.length > 3 ? '345px' : 'unset'}}>
             <h1>Clints Reviews</h1>
             {product.testimonies.map((x) => (
               <div key={x.id} className="card">

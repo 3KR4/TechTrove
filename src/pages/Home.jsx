@@ -1,7 +1,7 @@
-import '../Css/master.css'
+import '../Css/home.css'
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Products, types, brands, bundles} from '../components/products'
+import { landing, Products, types, brands, bundles} from '../components/products'
 
 import { salePrice, under10Nums } from '../Methods.jsx'
 import Rating from '@mui/material/Rating';
@@ -52,7 +52,7 @@ export default function Home() {
 
 
   const curentDate = new Date();
-  let Bundles = bundles.filter(x => x.view && new Date(x.endTime) > curentDate);
+  let Bundles = bundles.filter(x => x.flashSale && new Date(x.endTime) > curentDate);
 
   const handleHover = (index, img) => {
     const newHoverImages = [...hoverImages];
@@ -122,69 +122,17 @@ export default function Home() {
       speed={1150}
       autoplay={{ delay: 4000, disableOnInteraction: false }}
     >
-      <SwiperSlide className="swiper-slide">
-        <img src={ require(
-          // @ts-ignore
-          '../img/swiper1.png') } alt="" />
-      </SwiperSlide>
-
-      <SwiperSlide className="swiper-slide">
-        <img src={require(
-          // @ts-ignore
-          '../img/swiper2.png')} alt="" />
-      </SwiperSlide>
-
-      <SwiperSlide className="swiper-slide">
-        <img src={require(
-          // @ts-ignore
-          '../img/swiper3.png')} alt="" />
-      </SwiperSlide>
-
-      <SwiperSlide className="swiper-slide">
-        <img src={require(
-          // @ts-ignore
-          '../img/swiper4.jpg')} alt="" />
-      </SwiperSlide>
-
-      <SwiperSlide className="swiper-slide">
-        <img src={require(
-          // @ts-ignore
-          '../img/swiper5.png')} alt="" />
-      </SwiperSlide>
-
-      <SwiperSlide className="swiper-slide">
-        <img src={require(
-          // @ts-ignore
-          '../img/swiper6.png')} alt="" />
-      </SwiperSlide>
-      <SwiperSlide className="swiper-slide">
-        <img src={require(
-          // @ts-ignore
-          '../img/swiper7.jpg')} alt="" />
-      </SwiperSlide>
+      {landing.slides.map((slide, index) => (
+        <SwiperSlide key={index} className="swiper-slide">
+          <Link to={slide.link}><img src={slide.img} alt="" /></Link>
+        </SwiperSlide>
+      ))}
     </Swiper>
 
     <div className="second_section">
-      <div className="images">
-        <img src={require(
-          // @ts-ignore
-          '../img/landing01.jpg')} alt="" />
-      </div>
-      <div className="images">
-        <img src={require(
-          // @ts-ignore
-          '../img/landing02.jpg')} alt="" />
-      </div>
-      <div className="images">
-        <img src={require(
-          // @ts-ignore
-          '../img/landing03.jpg')} alt="" />
-      </div>
-      <div className="images">
-        <img src={require(
-// @ts-ignore
-        '../img/landing04.jpg')} alt="" />
-      </div>
+      {landing.section.map((section, index) => (
+        <Link className='card' to={section.link} key={index}><img src={section.img} alt="" /></Link>
+      ))}
     </div>
     </div>
     <div className="categories">
@@ -269,7 +217,7 @@ export default function Home() {
       </div>
         {Bundles.length > 0 && (
           <div className="saleHolder">
-            <h4 className="sectionTitleSale">Hot Bundles</h4>
+            <h4 className="sectionTitleSale">Flash Sales</h4>
             <Swiper
               pagination={{
                 dynamicBullets: true,
@@ -289,29 +237,29 @@ export default function Home() {
                 },
               }}
               >
-              {Bundles.map((X, index) => (
-                <SwiperSlide key={`${X.id}-${index}`} className="sale">
+              {Bundles.map((flash, index) => (
+                <SwiperSlide key={`${flash.id}-${index}`} className="sale">
                   <div className="image">
-                    <img src={X.Images[0]} alt=""/>
+                    <img src={flash.Images[0]} alt=""/>
                   </div>
-                  <h3>{X.type} {X.category}            
+                  <h3>{flash.type} {flash.category}            
                     <span className="hot">HOT</span>
                   </h3>
                   <div className="review">
                     <div className="stars">
                       <Rating
-                        defaultValue={X.stars}
-                        precision={X.stars % 1 <= 0.7 ? 0.5 : 1}
+                        defaultValue={flash.stars}
+                        precision={flash.stars % 1 <= 0.7 ? 0.5 : 1}
                         sx={{ fontSize: '20px', color: '#d3ab3f' }}
                         readOnly
                       />
                     </div>
-                    <p>{X.reviews} Review</p>
+                    <p>{flash.reviews} Review</p>
                   </div>
-                  <span className='price'>{salePrice(X)} <p>${X.price}</p> <p className='saleNum'>-{under10Nums(X.sale)}% OFF</p></span>
-                  <p className='details'>Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU</p>
-                  <CountdownTimer targetDate={new Date (X.endTime)} />
-                  <Link to='/shop' className="main-buttom">Get It Now</Link>
+                  <span className='price'>{salePrice(flash)} <p>${flash.price}</p> <p className='saleNum'>-{under10Nums(flash.sale)}% OFF</p></span>
+                  <p className='details'>{flash.details}</p>
+                  <CountdownTimer targetDate={new Date (flash.endTime)} />
+                  <Link to={`/product/${flash.name}`} className="main-buttom">Get It Now</Link>
                 </SwiperSlide>
               ))}
               </Swiper>

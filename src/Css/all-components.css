@@ -16,7 +16,7 @@
   background: var(--main-color);
   border-radius: 80px 30px 10px 13px;
   z-index: 200;
-  border-radius: 7px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;

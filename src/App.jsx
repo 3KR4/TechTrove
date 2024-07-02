@@ -30,6 +30,9 @@ export default function MiniDrawer() {
         <Outlet />
         <Footer />
 
+        {/* <div className="loader-holder">
+          <div className='loader'></div>
+        </div> */}
         <div className='side-btons'>
           <ScrollBotton />
           <Chat />

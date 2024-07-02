@@ -1,3 +1,64 @@
+export const landing = {
+  slides: [
+    {
+      id: 1,
+      img: require('../img/swiper1.png'),
+      link: 'https://www.google.com'
+    },
+    {
+      id: 2,
+      img: require('../img/swiper2.png'),
+      link: 'https://www.google.com'
+    },
+    {
+      id: 3,
+      img: require('../img/swiper3.png'),
+      link: 'https://www.google.com'
+    },
+    {
+      id: 4,
+      img: require('../img/swiper4.jpg'),
+      link: 'https://www.google.com'
+    },
+    {
+      id: 5,
+      img: require('../img/swiper5.png'),
+      link: 'https://www.google.com'
+    },
+    {
+      id: 6,
+      img: require('../img/swiper6.png'),
+      link: 'https://www.google.com'
+    },
+    {
+      id: 7,
+      img: require('../img/swiper7.jpg'),
+      link: 'https://www.google.com'
+    },
+  ],
+  section: [
+    {
+      id: 1,
+      img: require('../img/landing01.jpg'),
+      link: 'asd'
+    },
+    {
+      id: 2,
+      img: require('../img/landing01.jpg'),
+      link: 'asd'
+    },
+    {
+      id: 3,
+      img: require('../img/landing03.jpg'),
+      link: 'asd'
+    },
+    {
+      id: 4,
+      img: require('../img/landing04.jpg'),
+      link: 'asd'
+    },
+  ]
+}
 export const Products = [
   {
     id: 1,
@@ -246,102 +307,100 @@ export const Products = [
     Tags: ['PS4 Pro', '1TB']
   },
 ];
-
 export const bundles = [
   {
-    id: 1,
-    view: true,
-    category: "bundle",
-    type: "Gaming PC",
-    price: "2500.00",
-    sale: 20,
-    reviews: "78",
-    stock: 3,
-    stars: 4.5,
-    Images: [require('../img/bundle.png')],
-    endTime: '2024-07-30T00:00:00',
-    details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
+    id: 7,
+    type: "joystick",
+    category: "accessories",
+    name: "ps4 controlar",
+    price: 30.00,
+    sale: 12,
+    reviews: 230,
+    stars: 5.0,
+    stock: 76,
+    brand: 'sony',
+    Images: [require('../img/ps4 controlar.png'), require('../img/ps4 controlar.png'), require('../img/ps4 controlar.png'), require('../img/ps4 controlar.png'), require('../img/ps4 controlar.png')],
+    details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
       "Interface: USB Type-A",
       "Switch: Mechanical Switches with 20-Million clicks rating",
-      "Warranty: 2 Year Limited",
       "DPI: 400/800/1600/3200/6400/12000",
-      "Warranty: 2 Year Limited",
-      "Switch: Mechanical Switches with 20-Million clicks rating",
-      "DPI: 400/800/1600/3200/6400/12000",
+      "Warranty: 2 Year Limited"
     ],
+    Tags: ['PS4 Controller', 'Wireless Controller'],
+    flashSale: true,
+    endTime:'2024-07-23T00:00:00',
   },
   {
-    id: 2,
-    view: true,
-    category: "bundle",
-    type: "Gaming PC",
-    price: "2500.00",
-    sale: 20,
-    reviews: "78",
-    stock: 3,
-    stars: 4.5,
-    Images: [require('../img/bundle.png')],
-    endTime: '2024-07-22T00:00:00',
-    details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
+    id: 8,
+    type: "watch",
+    category: "other",
+    name: "M75 Sport Watch",
+    price: 380.00,
+    sale: 7,
+    reviews: 12,
+    stars: 5.0,
+    stock: 34,
+    brand: '',
+    Images: [require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png'), require('../img/watsh.png')],
+    details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
       "Interface: USB Type-A",
       "Switch: Mechanical Switches with 20-Million clicks rating",
-      "Warranty: 2 Year Limited",
       "DPI: 400/800/1600/3200/6400/12000",
-      "Warranty: 2 Year Limited",
-      "Switch: Mechanical Switches with 20-Million clicks rating",
-      "DPI: 400/800/1600/3200/6400/12000",
+      "Warranty: 2 Year Limited"
     ],
+    Tags: ['Sport Watch', 'Waterproof'],
+    flashSale: true,
+    endTime:'2024-07-28T00:00:00',
   },
   {
-    id: 3,
-    view: true,
-    category: "bundle",
-    type: "Gaming PC",
-    price: "2500.00",
-    sale: 20,
-    reviews: "78",
-    stock: 3,
-    stars: 4.5,
-    Images: [require('../img/bundle.png')],
-    endTime: '2024-07-18T00:00:00',
-    details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
+    id: 9,
+    type: "graphic card",
+    category: "hardware",
+    name: "Aorus 4060ti",
+    price: 350.00,
+    sale: 15,
+    reviews: 46,
+    stars: 4.3,
+    stock: 9,
+    brand: 'Aorus',
+    Images: [require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png'), require('../img/rtx 4060ti.png')],
+    details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
       "Interface: USB Type-A",
       "Switch: Mechanical Switches with 20-Million clicks rating",
-      "Warranty: 2 Year Limited",
       "DPI: 400/800/1600/3200/6400/12000",
-      "Warranty: 2 Year Limited",
-      "Switch: Mechanical Switches with 20-Million clicks rating",
-      "DPI: 400/800/1600/3200/6400/12000",
+      "Warranty: 2 Year Limited"
     ],
+    Tags: ['RTX 4000', '8GB'],
+    flashSale: true,
+    endTime:'2024-07-25T00:00:00',
   },
   {
-    id: 4,
-    view: true,
-    category: "bundle",
-    type: "Gaming PC",
-    price: "2500.00",
-    sale: 20,
-    reviews: "78",
-    stock: 3,
-    stars: 4.5,
-    Images: [require('../img/bundle.png')],
-    endTime: '2024-07-16T00:00:00',
-    details:"Intel I5 14400F - RTX 4070 12GB - PRO-H510M-B-ARKTEK - 16GB DDR4 2666 mhz - C800A 256GB-XIGMATEK - CASE HERO II AIR Z 4 Fan-POWER II - Z750 500W PSU",
+    id: 10,
+    type: "console",
+    category: "other",
+    name: "ps4 pro",
+    price: 290.00,
+    sale: 18,
+    reviews: 309,
+    stars: 5.0,
+    stock: 12,
+    brand: 'sony',
+    Images: [require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png'), require('../img/Ps4.png')],
+    details:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     about:[
       "Interface: USB Type-A",
       "Switch: Mechanical Switches with 20-Million clicks rating",
-      "Warranty: 2 Year Limited",
       "DPI: 400/800/1600/3200/6400/12000",
-      "Warranty: 2 Year Limited",
-      "Switch: Mechanical Switches with 20-Million clicks rating",
-      "DPI: 400/800/1600/3200/6400/12000",
+      "Warranty: 2 Year Limited"
     ],
+    Tags: ['PS4 Pro', '1TB'],
+    flashSale: true,
+    endTime:'2024-07-30T00:00:00',
   },
 ];
-
 export const types = [
   {
     id: "hardware",
@@ -649,7 +708,6 @@ export const types = [
     ],
   },
 ];
-
 export const brands = [
   {
     id: "nvidia",
@@ -797,12 +855,10 @@ export const brands = [
     produce: ["graphic card", "motherboard"]
   },
 ];
-
 export const sort = [ 
   ['default','price: low to high','price: high to low','name: a to z','name: z to a'],
   ['12','25','50','75',]
 ];
-
 export const blogs = [
   {
     id: 1,
@@ -968,7 +1024,6 @@ export const blogs = [
     comments: [],
   },
 ];
-
 export const about = [
   {
     id: 1,
@@ -1011,7 +1066,6 @@ export const about = [
     ]
   }
 ];
-
 export const chat = {
   userId: 1,
   name: "Ahmed Hani",

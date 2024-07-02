@@ -18,7 +18,7 @@ import Login from './pages/Login';
 import ForgetPass from './pages/ForgetPass';
 import ScrollToTop from './components/scrollToTop';
 
-import './Css/header-footer.css'
+import './Css/master.css'
 
 const AppRoutes = () => {
   return (
