@@ -530,10 +530,10 @@ body.dark .swiper-pagination-bullet {
     justify-content: center;
     margin-top: 20px;
   }
-  .second_section .images {
+  .second_section .card {
     width: 23%;
   }
-  .second_section .images img {
+  .second_section .card img {
     height: fit-content;
   }
 }
@@ -671,7 +671,7 @@ body.dark .swiper-pagination-bullet {
     row-gap: 3px;
     column-gap: 9px;
   }
-  .second_section .images {
+  .second_section .card {
     width: 44%;
   }  
   .swiper-slide img {

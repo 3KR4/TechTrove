@@ -666,4 +666,13 @@ body.light .ui-checkbox {
   .shop-page .panner {
     border-radius: 0;
   }
+  .shop-page .price p.saleNum, .shop-page .main-card .lastHolder span {
+    position: absolute !important;
+    right: 10px !important;
+    top: 9px !important;
+  }
+  .shop-page .products-section .products-holder {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
 }

@@ -282,6 +282,10 @@ body.light .main-chat .bottom textarea {
   .side-btons {
     right: 16px;
   }
+  .side-btons > button {
+    width: 40px;
+    height: 40px;
+  }
   .main-chat {
     right: 16px;
     height: 350px;
